@@ -1,0 +1,45 @@
+#use glob syntax
+syntax: glob
+
+.DS_Store
+*.o
+*.os
+*.a
+*.gch
+*.obj
+*.so
+*.so.5
+*.15
+*.tags
+.tags*
+*.save
+.tags_sorted_by_file
+build
+
+
+a.out
+
+tags
+*.pyc
+.lock-waf*
+
+*.suo
+*.VC.db
+*.VC.opendb
+
+#	buildsystem crap
+*.xcuserstate
+*.xcbkptlist
+
+# result binaries
+Debug
+
+*-progress.txt
+
+*andrew.macfarlane*
+
+DerivedData
+
+#media
+etc/media/make_icons/gen
+in

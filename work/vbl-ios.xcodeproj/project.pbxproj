@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5722FE9021B0C986002865A8 /* v_tracer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2521B0C986002865A8 /* v_tracer.c */; };
+		5722FE9121B0C986002865A8 /* v_swarm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2621B0C986002865A8 /* v_swarm.c */; };
+		5722FE9221B0C986002865A8 /* v_behave.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2721B0C986002865A8 /* v_behave.c */; };
+		5722FE9321B0C986002865A8 /* vbl_perturbator.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2821B0C986002865A8 /* vbl_perturbator.c */; };
+		5722FE9421B0C986002865A8 /* vbl_scene.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2A21B0C986002865A8 /* vbl_scene.c */; };
+		5722FE9521B0C986002865A8 /* v_bpm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2C21B0C986002865A8 /* v_bpm.c */; };
+		5722FE9621B0C986002865A8 /* v_slide.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE2F21B0C986002865A8 /* v_slide.c */; };
+		5722FE9721B0C986002865A8 /* vbl_hub.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3321B0C986002865A8 /* vbl_hub.c */; };
+		5722FE9821B0C986002865A8 /* v_trigger.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3521B0C986002865A8 /* v_trigger.c */; };
+		5722FE9921B0C986002865A8 /* v_unit.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3621B0C986002865A8 /* v_unit.c */; };
+		5722FE9A21B0C986002865A8 /* v_serial.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3721B0C986002865A8 /* v_serial.c */; };
+		5722FE9B21B0C986002865A8 /* v_mark.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3D21B0C986002865A8 /* v_mark.c */; };
+		5722FE9C21B0C986002865A8 /* v_track.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE3F21B0C986002865A8 /* v_track.c */; };
+		5722FE9D21B0C986002865A8 /* v_player.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4021B0C986002865A8 /* v_player.c */; };
+		5722FE9E21B0C986002865A8 /* v_seq.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4221B0C986002865A8 /* v_seq.c */; };
+		5722FE9F21B0C986002865A8 /* v_plugins.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4621B0C986002865A8 /* v_plugins.c */; };
+		5722FEA021B0C986002865A8 /* v_channel.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4821B0C986002865A8 /* v_channel.c */; };
+		5722FEA121B0C986002865A8 /* v_assimp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4B21B0C986002865A8 /* v_assimp.c */; };
+		5722FEA221B0C986002865A8 /* v_extrude.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4C21B0C986002865A8 /* v_extrude.c */; };
+		5722FEA321B0C986002865A8 /* vbl_qhull.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE4E21B0C986002865A8 /* vbl_qhull.c */; };
+		5722FEA421B0C986002865A8 /* v_block.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5021B0C986002865A8 /* v_block.c */; };
+		5722FEA521B0C986002865A8 /* v_objseq.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5121B0C986002865A8 /* v_objseq.c */; };
+		5722FEA621B0C986002865A8 /* v_tesselate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5221B0C986002865A8 /* v_tesselate.c */; };
+		5722FEA721B0C986002865A8 /* v_primitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5321B0C986002865A8 /* v_primitives.c */; };
+		5722FEA821B0C986002865A8 /* vbl_cork.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5721B0C986002865A8 /* vbl_cork.c */; };
+		5722FEA921B0C986002865A8 /* vbl_hull.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5921B0C986002865A8 /* vbl_hull.c */; };
+		5722FEAA21B0C986002865A8 /* v_lsystem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE5D21B0C986002865A8 /* v_lsystem.c */; };
+		5722FEAB21B0C986002865A8 /* v_clock.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6021B0C986002865A8 /* v_clock.c */; };
+		5722FEAC21B0C986002865A8 /* v_stepseq.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6321B0C986002865A8 /* v_stepseq.c */; };
+		5722FEAD21B0C986002865A8 /* vbl_lissajous.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6521B0C986002865A8 /* vbl_lissajous.c */; };
+		5722FEAE21B0C986002865A8 /* vbl_tracers.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6621B0C986002865A8 /* vbl_tracers.c */; };
+		5722FEAF21B0C986002865A8 /* vbl_arc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6721B0C986002865A8 /* vbl_arc.c */; };
+		5722FEB021B0C986002865A8 /* vbl_vec_acc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6D21B0C986002865A8 /* vbl_vec_acc.c */; };
+		5722FEB121B0C986002865A8 /* vbl_hand.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE6E21B0C986002865A8 /* vbl_hand.c */; };
+		5722FEB321B0C986002865A8 /* vbl_particle.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7121B0C986002865A8 /* vbl_particle.c */; };
+		5722FEB421B0C986002865A8 /* vbl_particlesystem_mgr_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7321B0C986002865A8 /* vbl_particlesystem_mgr_plugin.c */; };
+		5722FEB521B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7421B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */; };
+		5722FEB621B0C986002865A8 /* vbl_particleplugin_template.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7621B0C986002865A8 /* vbl_particleplugin_template.c */; };
+		5722FEB721B0C986002865A8 /* vbl_particleplugin_wind.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7821B0C986002865A8 /* vbl_particleplugin_wind.c */; };
+		5722FEB821B0C986002865A8 /* vbl_particleplugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7921B0C986002865A8 /* vbl_particleplugin.c */; };
+		5722FEB921B0C986002865A8 /* vbl_particlesystem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE7B21B0C986002865A8 /* vbl_particlesystem.c */; };
+		5722FEBA21B0C986002865A8 /* vbl_particleplugin_gravity.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8121B0C986002865A8 /* vbl_particleplugin_gravity.c */; };
+		5722FEBB21B0C986002865A8 /* vbl_particleplugin_bounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8321B0C986002865A8 /* vbl_particleplugin_bounds.c */; };
+		5722FEBC21B0C986002865A8 /* vbl_particlesystem_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8421B0C986002865A8 /* vbl_particlesystem_mgr.c */; };
+		5722FEBD21B0C986002865A8 /* vbl_pad.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8A21B0C986002865A8 /* vbl_pad.c */; };
+		5722FEBE21B0C986002865A8 /* vbl_input_logger.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8D21B0C986002865A8 /* vbl_input_logger.c */; };
+		5722FEBF21B0C986002865A8 /* v_bank.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8F21B0C986002865A8 /* v_bank.c */; };
+		57917D682108D67800C49F7F /* vbl.c in Sources */ = {isa = PBXBuildFile; fileRef = 57917D672108D67700C49F7F /* vbl.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		57012DEC1EED5F5900F10594 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		57012DEE1EED5F5900F10594 /* libvbl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvbl.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5722FE2121B0C986002865A8 /* v_behave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_behave.h; sourceTree = "<group>"; };
+		5722FE2221B0C986002865A8 /* v_swarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_swarm.h; sourceTree = "<group>"; };
+		5722FE2321B0C986002865A8 /* vbl_perturbator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_perturbator.h; sourceTree = "<group>"; };
+		5722FE2421B0C986002865A8 /* vbl_scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_scene.h; sourceTree = "<group>"; };
+		5722FE2521B0C986002865A8 /* v_tracer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_tracer.c; sourceTree = "<group>"; };
+		5722FE2621B0C986002865A8 /* v_swarm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_swarm.c; sourceTree = "<group>"; };
+		5722FE2721B0C986002865A8 /* v_behave.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_behave.c; sourceTree = "<group>"; };
+		5722FE2821B0C986002865A8 /* vbl_perturbator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_perturbator.c; sourceTree = "<group>"; };
+		5722FE2921B0C986002865A8 /* v_tracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_tracer.h; sourceTree = "<group>"; };
+		5722FE2A21B0C986002865A8 /* vbl_scene.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_scene.c; sourceTree = "<group>"; };
+		5722FE2C21B0C986002865A8 /* v_bpm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_bpm.c; sourceTree = "<group>"; };
+		5722FE2D21B0C986002865A8 /* v_bpm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_bpm.h; sourceTree = "<group>"; };
+		5722FE2F21B0C986002865A8 /* v_slide.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_slide.c; sourceTree = "<group>"; };
+		5722FE3021B0C986002865A8 /* v_slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_slide.h; sourceTree = "<group>"; };
+		5722FE3221B0C986002865A8 /* vbl_hub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_hub.h; sourceTree = "<group>"; };
+		5722FE3321B0C986002865A8 /* vbl_hub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_hub.c; sourceTree = "<group>"; };
+		5722FE3521B0C986002865A8 /* v_trigger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_trigger.c; sourceTree = "<group>"; };
+		5722FE3621B0C986002865A8 /* v_unit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_unit.c; sourceTree = "<group>"; };
+		5722FE3721B0C986002865A8 /* v_serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_serial.c; sourceTree = "<group>"; };
+		5722FE3821B0C986002865A8 /* v_unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_unit.h; sourceTree = "<group>"; };
+		5722FE3921B0C986002865A8 /* v_trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_trigger.h; sourceTree = "<group>"; };
+		5722FE3A21B0C986002865A8 /* v_serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_serial.h; sourceTree = "<group>"; };
+		5722FE3C21B0C986002865A8 /* v_seq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_seq.h; sourceTree = "<group>"; };
+		5722FE3D21B0C986002865A8 /* v_mark.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_mark.c; sourceTree = "<group>"; };
+		5722FE3E21B0C986002865A8 /* v_player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_player.h; sourceTree = "<group>"; };
+		5722FE3F21B0C986002865A8 /* v_track.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_track.c; sourceTree = "<group>"; };
+		5722FE4021B0C986002865A8 /* v_player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_player.c; sourceTree = "<group>"; };
+		5722FE4121B0C986002865A8 /* v_mark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_mark.h; sourceTree = "<group>"; };
+		5722FE4221B0C986002865A8 /* v_seq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_seq.c; sourceTree = "<group>"; };
+		5722FE4321B0C986002865A8 /* v_track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_track.h; sourceTree = "<group>"; };
+		5722FE4521B0C986002865A8 /* v_plugins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_plugins.h; sourceTree = "<group>"; };
+		5722FE4621B0C986002865A8 /* v_plugins.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_plugins.c; sourceTree = "<group>"; };
+		5722FE4821B0C986002865A8 /* v_channel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_channel.c; sourceTree = "<group>"; };
+		5722FE4921B0C986002865A8 /* v_channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_channel.h; sourceTree = "<group>"; };
+		5722FE4B21B0C986002865A8 /* v_assimp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_assimp.c; sourceTree = "<group>"; };
+		5722FE4C21B0C986002865A8 /* v_extrude.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_extrude.c; sourceTree = "<group>"; };
+		5722FE4D21B0C986002865A8 /* vbl_hull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_hull.h; sourceTree = "<group>"; };
+		5722FE4E21B0C986002865A8 /* vbl_qhull.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_qhull.c; sourceTree = "<group>"; };
+		5722FE4F21B0C986002865A8 /* vbl_cork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_cork.h; sourceTree = "<group>"; };
+		5722FE5021B0C986002865A8 /* v_block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_block.c; sourceTree = "<group>"; };
+		5722FE5121B0C986002865A8 /* v_objseq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_objseq.c; sourceTree = "<group>"; };
+		5722FE5221B0C986002865A8 /* v_tesselate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_tesselate.c; sourceTree = "<group>"; };
+		5722FE5321B0C986002865A8 /* v_primitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_primitives.c; sourceTree = "<group>"; };
+		5722FE5421B0C986002865A8 /* v_lsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_lsystem.h; sourceTree = "<group>"; };
+		5722FE5521B0C986002865A8 /* v_extrude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_extrude.h; sourceTree = "<group>"; };
+		5722FE5621B0C986002865A8 /* v_assimp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_assimp.h; sourceTree = "<group>"; };
+		5722FE5721B0C986002865A8 /* vbl_cork.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_cork.c; sourceTree = "<group>"; };
+		5722FE5821B0C986002865A8 /* vbl_qhull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_qhull.h; sourceTree = "<group>"; };
+		5722FE5921B0C986002865A8 /* vbl_hull.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_hull.c; sourceTree = "<group>"; };
+		5722FE5A21B0C986002865A8 /* v_tesselate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_tesselate.h; sourceTree = "<group>"; };
+		5722FE5B21B0C986002865A8 /* v_objseq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_objseq.h; sourceTree = "<group>"; };
+		5722FE5C21B0C986002865A8 /* v_block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_block.h; sourceTree = "<group>"; };
+		5722FE5D21B0C986002865A8 /* v_lsystem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_lsystem.c; sourceTree = "<group>"; };
+		5722FE5E21B0C986002865A8 /* v_primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_primitives.h; sourceTree = "<group>"; };
+		5722FE6021B0C986002865A8 /* v_clock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_clock.c; sourceTree = "<group>"; };
+		5722FE6121B0C986002865A8 /* v_stepseq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_stepseq.h; sourceTree = "<group>"; };
+		5722FE6221B0C986002865A8 /* v_clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_clock.h; sourceTree = "<group>"; };
+		5722FE6321B0C986002865A8 /* v_stepseq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_stepseq.c; sourceTree = "<group>"; };
+		5722FE6521B0C986002865A8 /* vbl_lissajous.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_lissajous.c; sourceTree = "<group>"; };
+		5722FE6621B0C986002865A8 /* vbl_tracers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_tracers.c; sourceTree = "<group>"; };
+		5722FE6721B0C986002865A8 /* vbl_arc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_arc.c; sourceTree = "<group>"; };
+		5722FE6821B0C986002865A8 /* vbl_vec_acc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_vec_acc.h; sourceTree = "<group>"; };
+		5722FE6921B0C986002865A8 /* vbl_hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_hand.h; sourceTree = "<group>"; };
+		5722FE6A21B0C986002865A8 /* vbl_lissajous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_lissajous.h; sourceTree = "<group>"; };
+		5722FE6B21B0C986002865A8 /* vbl_arc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_arc.h; sourceTree = "<group>"; };
+		5722FE6C21B0C986002865A8 /* vbl_tracers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_tracers.h; sourceTree = "<group>"; };
+		5722FE6D21B0C986002865A8 /* vbl_vec_acc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_vec_acc.c; sourceTree = "<group>"; };
+		5722FE6E21B0C986002865A8 /* vbl_hand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_hand.c; sourceTree = "<group>"; };
+		5722FE7121B0C986002865A8 /* vbl_particle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particle.c; sourceTree = "<group>"; };
+		5722FE7221B0C986002865A8 /* vbl_particlesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particlesystem.h; sourceTree = "<group>"; };
+		5722FE7321B0C986002865A8 /* vbl_particlesystem_mgr_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particlesystem_mgr_plugin.c; sourceTree = "<group>"; };
+		5722FE7421B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particlesystem_mgr_plugin_autokill.c; sourceTree = "<group>"; };
+		5722FE7521B0C986002865A8 /* vbl_particleplugin_bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_bounds.h; sourceTree = "<group>"; };
+		5722FE7621B0C986002865A8 /* vbl_particleplugin_template.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_template.c; sourceTree = "<group>"; };
+		5722FE7721B0C986002865A8 /* vbl_particleplugin_gravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_gravity.h; sourceTree = "<group>"; };
+		5722FE7821B0C986002865A8 /* vbl_particleplugin_wind.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_wind.c; sourceTree = "<group>"; };
+		5722FE7921B0C986002865A8 /* vbl_particleplugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin.c; sourceTree = "<group>"; };
+		5722FE7A21B0C986002865A8 /* vbl_particlesystem_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particlesystem_mgr.h; sourceTree = "<group>"; };
+		5722FE7B21B0C986002865A8 /* vbl_particlesystem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particlesystem.c; sourceTree = "<group>"; };
+		5722FE7C21B0C986002865A8 /* vbl_particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particle.h; sourceTree = "<group>"; };
+		5722FE7E21B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particlesystem_mgr_plugin_autokill.h; sourceTree = "<group>"; };
+		5722FE7F21B0C986002865A8 /* vbl_particlesystem_mgr_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particlesystem_mgr_plugin.h; sourceTree = "<group>"; };
+		5722FE8121B0C986002865A8 /* vbl_particleplugin_gravity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_gravity.c; sourceTree = "<group>"; };
+		5722FE8221B0C986002865A8 /* vbl_particleplugin_template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_template.h; sourceTree = "<group>"; };
+		5722FE8321B0C986002865A8 /* vbl_particleplugin_bounds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_bounds.c; sourceTree = "<group>"; };
+		5722FE8421B0C986002865A8 /* vbl_particlesystem_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particlesystem_mgr.c; sourceTree = "<group>"; };
+		5722FE8521B0C986002865A8 /* vbl_particleplugin_wind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_wind.h; sourceTree = "<group>"; };
+		5722FE8621B0C986002865A8 /* vbl_particleplugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin.h; sourceTree = "<group>"; };
+		5722FE8821B0C986002865A8 /* vbl_input_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_input_logger.h; sourceTree = "<group>"; };
+		5722FE8921B0C986002865A8 /* .hgignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .hgignore; sourceTree = "<group>"; };
+		5722FE8A21B0C986002865A8 /* vbl_pad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_pad.c; sourceTree = "<group>"; };
+		5722FE8B21B0C986002865A8 /* v_bank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_bank.h; sourceTree = "<group>"; };
+		5722FE8C21B0C986002865A8 /* .hgrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .hgrc; sourceTree = "<group>"; };
+		5722FE8D21B0C986002865A8 /* vbl_input_logger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_input_logger.c; sourceTree = "<group>"; };
+		5722FE8E21B0C986002865A8 /* vbl_pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_pad.h; sourceTree = "<group>"; };
+		5722FE8F21B0C986002865A8 /* v_bank.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_bank.c; sourceTree = "<group>"; };
+		57917D672108D67700C49F7F /* vbl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vbl.c; path = ../vbl.c; sourceTree = "<group>"; };
+		D1786EBF1FD5C07E00CAC713 /* vbl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vbl.h; path = ../vbl.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		57012DEB1EED5F5900F10594 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		57012DE51EED5F5900F10594 = {
+			isa = PBXGroup;
+			children = (
+				5722FE1F21B0C986002865A8 /* src */,
+				D1786EBF1FD5C07E00CAC713 /* vbl.h */,
+				57917D672108D67700C49F7F /* vbl.c */,
+				57012DEF1EED5F5900F10594 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		57012DEF1EED5F5900F10594 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57012DEE1EED5F5900F10594 /* libvbl.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5722FE1F21B0C986002865A8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE2021B0C986002865A8 /* anim */,
+				5722FE2B21B0C986002865A8 /* study */,
+				5722FE2E21B0C986002865A8 /* slide */,
+				5722FE3121B0C986002865A8 /* core */,
+				5722FE3421B0C986002865A8 /* util */,
+				5722FE3B21B0C986002865A8 /* seq */,
+				5722FE4421B0C986002865A8 /* plugin */,
+				5722FE4721B0C986002865A8 /* comms */,
+				5722FE4A21B0C986002865A8 /* geo */,
+				5722FE5F21B0C986002865A8 /* time */,
+				5722FE6421B0C986002865A8 /* arcana */,
+				5722FE6F21B0C986002865A8 /* particle */,
+				5722FE8721B0C986002865A8 /* control */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		5722FE2021B0C986002865A8 /* anim */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE2121B0C986002865A8 /* v_behave.h */,
+				5722FE2221B0C986002865A8 /* v_swarm.h */,
+				5722FE2321B0C986002865A8 /* vbl_perturbator.h */,
+				5722FE2421B0C986002865A8 /* vbl_scene.h */,
+				5722FE2521B0C986002865A8 /* v_tracer.c */,
+				5722FE2621B0C986002865A8 /* v_swarm.c */,
+				5722FE2721B0C986002865A8 /* v_behave.c */,
+				5722FE2821B0C986002865A8 /* vbl_perturbator.c */,
+				5722FE2921B0C986002865A8 /* v_tracer.h */,
+				5722FE2A21B0C986002865A8 /* vbl_scene.c */,
+			);
+			path = anim;
+			sourceTree = "<group>";
+		};
+		5722FE2B21B0C986002865A8 /* study */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE2C21B0C986002865A8 /* v_bpm.c */,
+				5722FE2D21B0C986002865A8 /* v_bpm.h */,
+			);
+			path = study;
+			sourceTree = "<group>";
+		};
+		5722FE2E21B0C986002865A8 /* slide */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE2F21B0C986002865A8 /* v_slide.c */,
+				5722FE3021B0C986002865A8 /* v_slide.h */,
+			);
+			path = slide;
+			sourceTree = "<group>";
+		};
+		5722FE3121B0C986002865A8 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE3221B0C986002865A8 /* vbl_hub.h */,
+				5722FE3321B0C986002865A8 /* vbl_hub.c */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		5722FE3421B0C986002865A8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE3721B0C986002865A8 /* v_serial.c */,
+				5722FE3A21B0C986002865A8 /* v_serial.h */,
+				5722FE3521B0C986002865A8 /* v_trigger.c */,
+				5722FE3921B0C986002865A8 /* v_trigger.h */,
+				5722FE3621B0C986002865A8 /* v_unit.c */,
+				5722FE3821B0C986002865A8 /* v_unit.h */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		5722FE3B21B0C986002865A8 /* seq */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE3C21B0C986002865A8 /* v_seq.h */,
+				5722FE3D21B0C986002865A8 /* v_mark.c */,
+				5722FE3E21B0C986002865A8 /* v_player.h */,
+				5722FE3F21B0C986002865A8 /* v_track.c */,
+				5722FE4021B0C986002865A8 /* v_player.c */,
+				5722FE4121B0C986002865A8 /* v_mark.h */,
+				5722FE4221B0C986002865A8 /* v_seq.c */,
+				5722FE4321B0C986002865A8 /* v_track.h */,
+			);
+			path = seq;
+			sourceTree = "<group>";
+		};
+		5722FE4421B0C986002865A8 /* plugin */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE4521B0C986002865A8 /* v_plugins.h */,
+				5722FE4621B0C986002865A8 /* v_plugins.c */,
+			);
+			path = plugin;
+			sourceTree = "<group>";
+		};
+		5722FE4721B0C986002865A8 /* comms */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE4821B0C986002865A8 /* v_channel.c */,
+				5722FE4921B0C986002865A8 /* v_channel.h */,
+			);
+			path = comms;
+			sourceTree = "<group>";
+		};
+		5722FE4A21B0C986002865A8 /* geo */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE4B21B0C986002865A8 /* v_assimp.c */,
+				5722FE4C21B0C986002865A8 /* v_extrude.c */,
+				5722FE4D21B0C986002865A8 /* vbl_hull.h */,
+				5722FE4E21B0C986002865A8 /* vbl_qhull.c */,
+				5722FE4F21B0C986002865A8 /* vbl_cork.h */,
+				5722FE5021B0C986002865A8 /* v_block.c */,
+				5722FE5121B0C986002865A8 /* v_objseq.c */,
+				5722FE5221B0C986002865A8 /* v_tesselate.c */,
+				5722FE5321B0C986002865A8 /* v_primitives.c */,
+				5722FE5421B0C986002865A8 /* v_lsystem.h */,
+				5722FE5521B0C986002865A8 /* v_extrude.h */,
+				5722FE5621B0C986002865A8 /* v_assimp.h */,
+				5722FE5721B0C986002865A8 /* vbl_cork.c */,
+				5722FE5821B0C986002865A8 /* vbl_qhull.h */,
+				5722FE5921B0C986002865A8 /* vbl_hull.c */,
+				5722FE5A21B0C986002865A8 /* v_tesselate.h */,
+				5722FE5B21B0C986002865A8 /* v_objseq.h */,
+				5722FE5C21B0C986002865A8 /* v_block.h */,
+				5722FE5D21B0C986002865A8 /* v_lsystem.c */,
+				5722FE5E21B0C986002865A8 /* v_primitives.h */,
+			);
+			path = geo;
+			sourceTree = "<group>";
+		};
+		5722FE5F21B0C986002865A8 /* time */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE6021B0C986002865A8 /* v_clock.c */,
+				5722FE6121B0C986002865A8 /* v_stepseq.h */,
+				5722FE6221B0C986002865A8 /* v_clock.h */,
+				5722FE6321B0C986002865A8 /* v_stepseq.c */,
+			);
+			path = time;
+			sourceTree = "<group>";
+		};
+		5722FE6421B0C986002865A8 /* arcana */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE6521B0C986002865A8 /* vbl_lissajous.c */,
+				5722FE6621B0C986002865A8 /* vbl_tracers.c */,
+				5722FE6721B0C986002865A8 /* vbl_arc.c */,
+				5722FE6821B0C986002865A8 /* vbl_vec_acc.h */,
+				5722FE6921B0C986002865A8 /* vbl_hand.h */,
+				5722FE6A21B0C986002865A8 /* vbl_lissajous.h */,
+				5722FE6B21B0C986002865A8 /* vbl_arc.h */,
+				5722FE6C21B0C986002865A8 /* vbl_tracers.h */,
+				5722FE6D21B0C986002865A8 /* vbl_vec_acc.c */,
+				5722FE6E21B0C986002865A8 /* vbl_hand.c */,
+			);
+			path = arcana;
+			sourceTree = "<group>";
+		};
+		5722FE6F21B0C986002865A8 /* particle */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE7121B0C986002865A8 /* vbl_particle.c */,
+				5722FE7221B0C986002865A8 /* vbl_particlesystem.h */,
+				5722FE7321B0C986002865A8 /* vbl_particlesystem_mgr_plugin.c */,
+				5722FE7421B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */,
+				5722FE7521B0C986002865A8 /* vbl_particleplugin_bounds.h */,
+				5722FE7621B0C986002865A8 /* vbl_particleplugin_template.c */,
+				5722FE7721B0C986002865A8 /* vbl_particleplugin_gravity.h */,
+				5722FE7821B0C986002865A8 /* vbl_particleplugin_wind.c */,
+				5722FE7921B0C986002865A8 /* vbl_particleplugin.c */,
+				5722FE7A21B0C986002865A8 /* vbl_particlesystem_mgr.h */,
+				5722FE7B21B0C986002865A8 /* vbl_particlesystem.c */,
+				5722FE7C21B0C986002865A8 /* vbl_particle.h */,
+				5722FE7E21B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.h */,
+				5722FE7F21B0C986002865A8 /* vbl_particlesystem_mgr_plugin.h */,
+				5722FE8021B0C986002865A8 /* build */,
+				5722FE8121B0C986002865A8 /* vbl_particleplugin_gravity.c */,
+				5722FE8221B0C986002865A8 /* vbl_particleplugin_template.h */,
+				5722FE8321B0C986002865A8 /* vbl_particleplugin_bounds.c */,
+				5722FE8421B0C986002865A8 /* vbl_particlesystem_mgr.c */,
+				5722FE8521B0C986002865A8 /* vbl_particleplugin_wind.h */,
+				5722FE8621B0C986002865A8 /* vbl_particleplugin.h */,
+			);
+			path = particle;
+			sourceTree = "<group>";
+		};
+		5722FE8021B0C986002865A8 /* build */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
+		5722FE8721B0C986002865A8 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				5722FE8821B0C986002865A8 /* vbl_input_logger.h */,
+				5722FE8921B0C986002865A8 /* .hgignore */,
+				5722FE8A21B0C986002865A8 /* vbl_pad.c */,
+				5722FE8B21B0C986002865A8 /* v_bank.h */,
+				5722FE8C21B0C986002865A8 /* .hgrc */,
+				5722FE8D21B0C986002865A8 /* vbl_input_logger.c */,
+				5722FE8E21B0C986002865A8 /* vbl_pad.h */,
+				5722FE8F21B0C986002865A8 /* v_bank.c */,
+			);
+			path = control;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		57012DED1EED5F5900F10594 /* vbl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57012DF71EED5F5900F10594 /* Build configuration list for PBXNativeTarget "vbl" */;
+			buildPhases = (
+				57012DEA1EED5F5900F10594 /* Sources */,
+				57012DEB1EED5F5900F10594 /* Frameworks */,
+				57012DEC1EED5F5900F10594 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vbl;
+			productName = vbl;
+			productReference = 57012DEE1EED5F5900F10594 /* libvbl.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		57012DE61EED5F5900F10594 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = ruminant;
+				TargetAttributes = {
+					57012DED1EED5F5900F10594 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = YZJZ9TNW24;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 57012DE91EED5F5900F10594 /* Build configuration list for PBXProject "vbl-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 57012DE51EED5F5900F10594;
+			productRefGroup = 57012DEF1EED5F5900F10594 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				57012DED1EED5F5900F10594 /* vbl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		57012DEA1EED5F5900F10594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5722FEBC21B0C986002865A8 /* vbl_particlesystem_mgr.c in Sources */,
+				5722FEAC21B0C986002865A8 /* v_stepseq.c in Sources */,
+				5722FE9621B0C986002865A8 /* v_slide.c in Sources */,
+				5722FEBB21B0C986002865A8 /* vbl_particleplugin_bounds.c in Sources */,
+				5722FE9F21B0C986002865A8 /* v_plugins.c in Sources */,
+				5722FEBE21B0C986002865A8 /* vbl_input_logger.c in Sources */,
+				5722FEB321B0C986002865A8 /* vbl_particle.c in Sources */,
+				5722FEA221B0C986002865A8 /* v_extrude.c in Sources */,
+				5722FEB721B0C986002865A8 /* vbl_particleplugin_wind.c in Sources */,
+				57917D682108D67800C49F7F /* vbl.c in Sources */,
+				5722FEBF21B0C986002865A8 /* v_bank.c in Sources */,
+				5722FEAB21B0C986002865A8 /* v_clock.c in Sources */,
+				5722FE9B21B0C986002865A8 /* v_mark.c in Sources */,
+				5722FEA621B0C986002865A8 /* v_tesselate.c in Sources */,
+				5722FEAA21B0C986002865A8 /* v_lsystem.c in Sources */,
+				5722FE9121B0C986002865A8 /* v_swarm.c in Sources */,
+				5722FEA721B0C986002865A8 /* v_primitives.c in Sources */,
+				5722FEB021B0C986002865A8 /* vbl_vec_acc.c in Sources */,
+				5722FE9021B0C986002865A8 /* v_tracer.c in Sources */,
+				5722FEAD21B0C986002865A8 /* vbl_lissajous.c in Sources */,
+				5722FEA121B0C986002865A8 /* v_assimp.c in Sources */,
+				5722FEA321B0C986002865A8 /* vbl_qhull.c in Sources */,
+				5722FEB521B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */,
+				5722FEA021B0C986002865A8 /* v_channel.c in Sources */,
+				5722FEAF21B0C986002865A8 /* vbl_arc.c in Sources */,
+				5722FE9A21B0C986002865A8 /* v_serial.c in Sources */,
+				5722FEB921B0C986002865A8 /* vbl_particlesystem.c in Sources */,
+				5722FE9E21B0C986002865A8 /* v_seq.c in Sources */,
+				5722FE9C21B0C986002865A8 /* v_track.c in Sources */,
+				5722FEB821B0C986002865A8 /* vbl_particleplugin.c in Sources */,
+				5722FEBD21B0C986002865A8 /* vbl_pad.c in Sources */,
+				5722FE9921B0C986002865A8 /* v_unit.c in Sources */,
+				5722FEBA21B0C986002865A8 /* vbl_particleplugin_gravity.c in Sources */,
+				5722FEB121B0C986002865A8 /* vbl_hand.c in Sources */,
+				5722FE9721B0C986002865A8 /* vbl_hub.c in Sources */,
+				5722FEAE21B0C986002865A8 /* vbl_tracers.c in Sources */,
+				5722FEA821B0C986002865A8 /* vbl_cork.c in Sources */,
+				5722FE9221B0C986002865A8 /* v_behave.c in Sources */,
+				5722FEA921B0C986002865A8 /* vbl_hull.c in Sources */,
+				5722FEA521B0C986002865A8 /* v_objseq.c in Sources */,
+				5722FE9521B0C986002865A8 /* v_bpm.c in Sources */,
+				5722FE9D21B0C986002865A8 /* v_player.c in Sources */,
+				5722FEA421B0C986002865A8 /* v_block.c in Sources */,
+				5722FE9821B0C986002865A8 /* v_trigger.c in Sources */,
+				5722FEB421B0C986002865A8 /* vbl_particlesystem_mgr_plugin.c in Sources */,
+				5722FE9321B0C986002865A8 /* vbl_perturbator.c in Sources */,
+				5722FE9421B0C986002865A8 /* vbl_scene.c in Sources */,
+				5722FEB621B0C986002865A8 /* vbl_particleplugin_template.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		57012DF51EED5F5900F10594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		57012DF61EED5F5900F10594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		57012DF81EED5F5900F10594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YZJZ9TNW24;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/libs",
+					"$(r4_root)/contrib",
+					../../../contrib/deps,
+					../../../contrib/deps/cjson,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = ../../../build;
+				r4_root = "$(HOME)/art/r4";
+			};
+			name = Debug;
+		};
+		57012DF91EED5F5900F10594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YZJZ9TNW24;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/libs",
+					"$(r4_root)/contrib",
+					../../../contrib/deps,
+					../../../contrib/deps/cjson,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = ../../../build;
+				r4_root = "$(HOME)/art/r4";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		57012DE91EED5F5900F10594 /* Build configuration list for PBXProject "vbl-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57012DF51EED5F5900F10594 /* Debug */,
+				57012DF61EED5F5900F10594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57012DF71EED5F5900F10594 /* Build configuration list for PBXNativeTarget "vbl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57012DF81EED5F5900F10594 /* Debug */,
+				57012DF91EED5F5900F10594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 57012DE61EED5F5900F10594 /* Project object */;
+}
