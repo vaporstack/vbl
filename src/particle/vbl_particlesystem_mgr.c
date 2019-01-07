@@ -14,7 +14,7 @@ VParticleSystemMgr* vbl_particlesystem_mgr_create(int num)
 {
 	VParticleSystemMgr* mgr = calloc(1, sizeof(VParticleSystemMgr));
 	mgr->num		= num;
-	mgr->data		= calloc(num, sizeof(VParticleSystem));
+	mgr->data		= calloc(num, sizeof(VParticleSystemHnd*));
 	for (unsigned int i = 0; i < mgr->num; i++)
 	{
 		mgr->data[i]      = calloc(1, sizeof(VParticleSystemHnd));
@@ -76,7 +76,8 @@ void vbl_particlesystem_mgr_update(VParticleSystemMgr* mgr)
 
 //	todo:
 //	currently this assumes ownership. should probably rename to add/remove instead of register/unregister
-void		vbl_particlesystem_mgr_plugin_subplugin_register(VParticleSystemMgr* mgr, VParticlePlugin* plug)
+void
+vbl_particlesystem_mgr_plugin_subplugin_register(VParticleSystemMgr* mgr, VParticlePlugin* plug)
 {
 	if ( mgr->num_subplugins == 0)
 	{

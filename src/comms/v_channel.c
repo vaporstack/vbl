@@ -98,7 +98,7 @@ static int automatic_link_output(VChannelOutput* output)
 	printf("Checking for automatic link (o):\n");
 
 	VChannelInput* tmp = calloc(1, sizeof(VChannelInput));
-
+	bool succeeded = false;
 	for (int i = 0; i < v_inputs.length; i++)
 	{
 		vector_get(&v_inputs, i, tmp);
@@ -106,9 +106,11 @@ static int automatic_link_output(VChannelOutput* output)
 		{
 			printf("Candidate!!\n");
 			make_link(tmp, output);
+			succeeded = true;
 		}
 	}
-	// free(tmp);
+	if( !succeeded )
+		free(tmp);
 	return 1;
 }
 

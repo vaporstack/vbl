@@ -61,7 +61,7 @@ VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo info)
 	}
 	
 	
-	
+	free(rec);
 	return plug;
 	
 }

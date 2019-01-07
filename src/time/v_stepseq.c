@@ -29,7 +29,7 @@ StepSeq* v_stepseq_create(void)
 	seq->length       = seq->bars * seq->beats;
 	int num		  = seq->length;
 	seq->permutations = 3;
-	seq->fracs	= calloc(seq->subdiv, sizeof(float*));
+	seq->fracs	= calloc(seq->subdiv, sizeof(double));
 	seq->toggles      = calloc(seq->length, sizeof(int));
 	seq->fired	= calloc(seq->length, sizeof(int));
 
@@ -101,7 +101,7 @@ void v_stepseq_update(StepSeq* seq)
 
 	for (int i = 0; i < seq->subdiv; i++)
 	{
-		double redux = (float)i / .5;
+		double redux;// = (float)i / .5;
 		redux	= 1. / ((i)*2);
 		if (i == 0)
 		{
