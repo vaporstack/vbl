@@ -66,7 +66,7 @@ VBlock* v_block_create(int width)
 	// int x,y,z;
 
 	VBlock* bloc = calloc(1, sizeof(VBlock));
-
+	bloc->pos = 0;
 	bloc->width = width;
 	int width1  = width + 1;
 	bloc->len   = width1 * width1 * width1;
@@ -369,17 +369,19 @@ void v_block_set_index_vec(VBlock* block, int index, vec3_t* vec)
 	*/
 }
 
+#define TMP_BLOCK_SIZE 8
 void v_block_test()
 {
-	VBlock* block = v_block_create(10);
+	VBlock* block_src = v_block_create(TMP_BLOCK_SIZE);
+	VBlock* block_dst = v_block_create(TMP_BLOCK_SIZE);
 	vec3_t  vec   = vec3_create(NULL);
 	vec[0]	= 20.0f;
 	vec[1]	= 12.0f;
 	vec[2]	= 8.0f;
-	v_block_set_vec(block, 2, 2, 2, &vec);
+	v_block_set_vec(block_src, 2, 2, 2, &vec);
 
 	// Vec3* vec3 = v_block_get(block, 2,2,2);
-	v_block_destroy(block);
+	v_block_destroy(block_src);
 }
 
 //#endif

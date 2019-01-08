@@ -24,6 +24,7 @@ typedef struct VBlock
 {
 	// int dims;
 	int		   width;
+	int pos;
 	VVec**		   data;
 	VVec**		   data2;
 	VVec**		   extra;

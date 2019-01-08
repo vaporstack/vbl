@@ -1111,6 +1111,7 @@ void vbl_qhull_draw_edges(RQHull* data)
 		}
 	}
 }
+
 RQHull* vbl_qhull_create(int num_points)
 {
 
@@ -1124,7 +1125,7 @@ RQHull* vbl_qhull_create(int num_points)
 	{
 		RPoint3 p     = v_primitives_random_point_in_sphere(.5);
 		points[i + 0] = p.x;
-		points[i + 1] = fabs(p.y);
+		points[i + 1] = (p.y);
 		points[i + 2] = p.z;
 	}
 

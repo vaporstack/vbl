@@ -84,7 +84,8 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 		VParticlePlugin* plug = sys->plugins[i];
 		if (!plug->update)
 		{
-			printf("Can't update plugin!\n");
+			//toDO fix this:
+			//printf("Can't update plugin!\n");
 			continue;
 		}
 

@@ -38,7 +38,12 @@ static void fire_safely(VCascade* casc)
 		vbl_log("Can't fire, no fire function defined %s\n", __func__);
 		return;
 	}
-	casc->fire(casc->target);
+	if ( !casc->target)
+	{
+		printf("No target defined!\n");
+		return;
+	}
+	casc->fire(casc);
 }
 
 static void update_frame(VCascade* casc)
@@ -77,7 +82,11 @@ static void update_random(VCascade* casc)
 void vbl_cascade_update(VCascade* casc)
 {
 	//	do something
-	
+	if(!casc->target )
+	{
+		printf("Can't fire, no target provided.\n");
+		return;
+	}
 	switch (casc->attrs.type) {
 		case VBL_FREQUENCY_FRAME:
 			update_frame(casc);
