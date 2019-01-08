@@ -27,7 +27,7 @@
  {
  return;
  }
- VBlitBank* b = &hub->banks[hub->bank];
+ VblBank* b = &hub->banks[hub->bank];
  b->flipy     = !b->flipy;
  printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
  }
@@ -39,7 +39,7 @@ void vbl_hub_toggle_bank_color(VblHub * hub)
 	{
 		return;
 	}
-	VBlitBank* b = &hub->banks[hub->bank];
+	VblBank* b = &hub->banks[hub->bank];
 	b->color     = !b->color;
 	printf("[%d] color set to %d\n", hub->bank, hub->banks[hub->bank].color);
 }
@@ -50,7 +50,7 @@ void vbl_hub_toggle_bank_colorcycle(VblHub * hub)
 	{
 		return;
 	}
-	VBlitBank* b = &hub->banks[hub->bank];
+	VblBank* b = &hub->banks[hub->bank];
 	b->colorcycle++;
 	if ( b->colorcycle >= VBL_COLORCYCLE_END )
 		b->colorcycle = 0;
@@ -65,7 +65,7 @@ void vbl_hub_toggle_bank_fill(VblHub * hub)
 	{
 		return;
 	}
-	VBlitBank* b = &hub->banks[hub->bank];
+	VblBank* b = &hub->banks[hub->bank];
 	b->fill     = !b->fill;
 	printf("[%d] fill set to %d\n", hub->bank, hub->banks[hub->bank].fill);
 }
@@ -76,7 +76,7 @@ void vbl_hub_toggle_bank_flipx(VblHub * hub)
 	{
 		return;
 	}
-	VBlitBank* b = &hub->banks[hub->bank];
+	VblBank* b = &hub->banks[hub->bank];
 	b->flipx     = !b->flipx;
 	printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
 }
@@ -87,7 +87,7 @@ void vbl_hub_toggle_bank_flipy(VblHub * hub)
 	{
 		return;
 	}
-	VBlitBank* b = &hub->banks[hub->bank];
+	VblBank* b = &hub->banks[hub->bank];
 	b->flipy     = !b->flipy;
 	printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
 }
@@ -195,7 +195,7 @@ void vbl_hub_fire_hit(VblHub * hub, int which, int val)
 	
 }
 
-static void _unserialize_bank(cJSON* jsb, VBlitBank* b)
+static void _unserialize_bank(cJSON* jsb, VblBank* b)
 {
 
 	cJSON* v = NULL;
@@ -232,7 +232,7 @@ static void _unserialize_bank(cJSON* jsb, VBlitBank* b)
 		b->extra = v->valueint;
 }
 
-static cJSON* _serialize_bank(VBlitBank* b)
+static cJSON* _serialize_bank(VblBank* b)
 {
 	cJSON* jsb = cJSON_CreateObject();
 	cJSON_AddNumberToObject(jsb, "id", b->id);
@@ -286,14 +286,14 @@ void vbl_hub_unserialize(VblHub * hub, const char* path)
 	hub->speed_mult=1;
 	char* data = vbl_read_file_as_text_nc(path);
 
-	char* buf = calloc(PATH_MAX, sizeof(char));
+	//char* buf = calloc(PATH_MAX, sizeof(char));
 
 	if (!data)
 	{
-		char buf[256];
-		sprintf(buf, "An error occurred reading text file: %s\n", path);
-		l_warning(buf);
-		free(data);
+		//char buf[256];
+		//sprintf(buf, "An error occurred reading text file: %s\n", path);
+		l_warning("An error occurred reading text file: %s\n", path);
+		//free(data);
 		//free(buf);
 		return;
 	}
@@ -367,7 +367,7 @@ void vbl_hub_unserialize(VblHub * hub, const char* path)
 	}
 
 	free(data);
-	free(buf);
+	//free(buf);
 
 	cJSON_Delete(root);
 }

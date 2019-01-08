@@ -28,7 +28,9 @@ typedef struct VCascade
 {
 	VBLFrequencyAttrs attrs;
 	vbl_cascade_fire_fn fire;
+	vbl_cascade_fire_fn update;
 	void* target;
+	void* target2;
 	//int foo;
 	//unsigned frequency_type;
 	//double frequency;

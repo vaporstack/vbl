@@ -27,6 +27,7 @@ static V v_create(void)
 vec3_list vec_list_create(unsigned long long num)
 {
 	vec3_list res = calloc(num, sizeof(vec3_list));
+	
 	for (int i = 0; i < num; i += 2)
 	{
 		res[i] = vec3_create(NULL);
@@ -85,9 +86,9 @@ VBlock* v_block_create(int width)
 	//}
 */
 
-	bloc->data  = calloc(bloc->len, sizeof(VVec));
-	bloc->data2 = calloc(bloc->len, sizeof(VVec));
-	bloc->extra = calloc(bloc->len, sizeof(VVec));
+	bloc->data  = calloc(bloc->len, sizeof(VVec*));
+	bloc->data2 = calloc(bloc->len, sizeof(VVec*));
+	bloc->extra = calloc(bloc->len, sizeof(VVec*));
 
 	for (int i = 0; i < bloc->len; i++)
 	{

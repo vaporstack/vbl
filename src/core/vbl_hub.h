@@ -39,7 +39,7 @@ enum VBL_WAVEDATA_SOURCES
 };
 
 
-typedef struct VBlitBank
+typedef struct VblBank
 {
 	int id;
 	int routine;
@@ -51,19 +51,28 @@ typedef struct VBlitBank
 	int bang;
 	int extra;
 	int colorcycle;
-} VBlitBank;
+} VblBank;
 
-typedef struct VBlitData
+typedef struct VblData
 {
-	double wav1 ;
-	double wav2 ;
-	double wav3 ;
-	double wav4 ;
-	double hit1  ;
-	double hit2  ;
-	double hit3  ;
-	double hit4  ;
-}VBlitData;
+	double wav1;
+	double wav2;
+	double wav3;
+	double wav4;
+	double hit1;
+	double hit2;
+	double hit3;
+	double hit4;
+	double t;
+	double t2;
+	double t4;
+	double wsqr;
+	double wsaw;
+	double wtri;
+	double wsin;
+	double wcos;
+	double wtan;
+}VblData;
 
 typedef struct VblHub
 {
@@ -94,10 +103,10 @@ typedef struct VblHub
 	int overdrive;
 	double playback_speed;
 	
-	VBlitBank banks[VBL_NUM_BANKS];
+	VblBank banks[VBL_NUM_BANKS];
 	int       assignments[VBL_NUM_BANKS];
 	
-	VBlitData d;
+	VblData d;
 
 } VblHub;
 

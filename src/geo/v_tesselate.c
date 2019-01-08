@@ -62,7 +62,7 @@ TFace* v_face_create(VTesselate* tess)
 	face->sides = tess->sides;
 	face->size  = tess->sides;
 
-	face->verts = calloc(tess->sides, sizeof(TPoint2**));
+	face->verts = calloc(tess->sides, sizeof(TPoint2*));
 	int    num  = tess->sides;
 	double inc  = 2 * M_PI / ((float)num);
 

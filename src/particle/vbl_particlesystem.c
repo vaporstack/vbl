@@ -98,7 +98,7 @@ void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 	sys->num_plugins++;
 	if (!sys->plugins)
 	{
-		sys->plugins = calloc(sys->num_plugins, sizeof(VParticlePlugin));
+		sys->plugins = (void*)calloc(sys->num_plugins, sizeof(VParticlePlugin*));
 	}
 	else
 	{

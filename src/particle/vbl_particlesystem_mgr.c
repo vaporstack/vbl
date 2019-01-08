@@ -50,7 +50,7 @@ void vbl_particlesystem_mgr_destroy(VParticleSystemMgr* mgr)
 void vbl_particlesystem_mgr_update(VParticleSystemMgr* mgr)
 {
 	//	todo: get this out of here this spawns a new system on every frame wtf!!
-	vbl_particlesystem_mgr_spawn_next(mgr);
+	//vbl_particlesystem_mgr_spawn_next(mgr);
 
 	
 	//	so here we wana run through the uber plugins
@@ -81,7 +81,7 @@ vbl_particlesystem_mgr_plugin_subplugin_register(VParticleSystemMgr* mgr, VParti
 {
 	if ( mgr->num_subplugins == 0)
 	{
-		mgr->subplugins = calloc(1, sizeof(VParticleSystemMgrPlugin));
+		mgr->subplugins = calloc(1, sizeof(VParticlePlugin*));
 	}else{
 		mgr->subplugins = realloc(mgr->subplugins, sizeof(VParticleSystemMgrPlugin) * mgr->num_subplugins+1);
 	}
@@ -139,7 +139,7 @@ void		vbl_particlesystem_mgr_plugin_register(VParticleSystemMgr* mgr, VParticleS
 {
 	if ( mgr->num_plugins == 0 )
 	{
-		mgr->plugins = calloc(1, sizeof(VParticlePlugin));
+		mgr->plugins = calloc(1, sizeof(VParticleSystemMgrPlugin*));
 	}else{
 		mgr->plugins = realloc(mgr->plugins, sizeof(VParticlePlugin) * mgr->num_plugins+1);
 	}

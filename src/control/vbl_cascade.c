@@ -87,6 +87,9 @@ void vbl_cascade_update(VCascade* casc)
 		printf("Can't fire, no target provided.\n");
 		return;
 	}
+	if ( casc->update )
+		casc->update(casc);
+	
 	switch (casc->attrs.type) {
 		case VBL_FREQUENCY_FRAME:
 			update_frame(casc);

@@ -76,14 +76,14 @@ void v_swarm_update(VSwarm* swarm)
 
 	g_particle_system_update(swarm->sys);
 
-	for (int i = 0; i < sys->max; i++)
+	for (int i = 0; i < sys->max-1; i++)
 	{
 
 		Particle* p = sys->data[i];
 		if (!p)
 		{
-			RLine3* line = &swarm->trails[i];
-			r_line3_clear(line);
+			RLine3* myline = &swarm->trails[i];
+			r_line3_clear(myline);
 
 			continue;
 		}
