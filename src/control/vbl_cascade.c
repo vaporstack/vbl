@@ -17,7 +17,6 @@ VCascade* vbl_cascade_create(void)
 	return csc;
 }
 
-
 VCascade* vbl_cascade_create_attr(VBLFrequencyAttrs attr)
 {
 	VCascade* csc = vbl_cascade_create();
