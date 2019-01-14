@@ -20,8 +20,6 @@ int	 vbl_write_text_to_file(const char*, const char*);
 #ifndef RPLATFORM_IOS
 #include <cjson/cJSON.h>
 
-
-
 const char* v_serialize_sequence_json(void* data);
 void*       v_unserialize_sequence_json(const char* path);
 

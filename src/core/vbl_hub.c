@@ -33,18 +33,18 @@
  }
  */
 
-void vbl_hub_toggle_bank_color(VblHub * hub)
+void vbl_hub_toggle_bank_color(VblHub* hub)
 {
 	if (hub->bank == -1)
 	{
 		return;
 	}
 	VblBank* b = &hub->banks[hub->bank];
-	b->color     = !b->color;
+	b->color   = !b->color;
 	printf("[%d] color set to %d\n", hub->bank, hub->banks[hub->bank].color);
 }
 
-void vbl_hub_toggle_bank_colorcycle(VblHub * hub)
+void vbl_hub_toggle_bank_colorcycle(VblHub* hub)
 {
 	if (hub->bank == -1)
 	{
@@ -52,47 +52,47 @@ void vbl_hub_toggle_bank_colorcycle(VblHub * hub)
 	}
 	VblBank* b = &hub->banks[hub->bank];
 	b->colorcycle++;
-	if ( b->colorcycle >= VBL_COLORCYCLE_END )
+	if (b->colorcycle >= VBL_COLORCYCLE_END)
 		b->colorcycle = 0;
-	
+
 	//= !b->fill;
 	printf("[%d] colorcycle set to %d\n", hub->bank, hub->banks[hub->bank].colorcycle);
 }
 
-void vbl_hub_toggle_bank_fill(VblHub * hub)
+void vbl_hub_toggle_bank_fill(VblHub* hub)
 {
 	if (hub->bank == -1)
 	{
 		return;
 	}
 	VblBank* b = &hub->banks[hub->bank];
-	b->fill     = !b->fill;
+	b->fill    = !b->fill;
 	printf("[%d] fill set to %d\n", hub->bank, hub->banks[hub->bank].fill);
 }
 
-void vbl_hub_toggle_bank_flipx(VblHub * hub)
+void vbl_hub_toggle_bank_flipx(VblHub* hub)
 {
 	if (hub->bank == -1)
 	{
 		return;
 	}
 	VblBank* b = &hub->banks[hub->bank];
-	b->flipx     = !b->flipx;
+	b->flipx   = !b->flipx;
 	printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
 }
 
-void vbl_hub_toggle_bank_flipy(VblHub * hub)
+void vbl_hub_toggle_bank_flipy(VblHub* hub)
 {
 	if (hub->bank == -1)
 	{
 		return;
 	}
 	VblBank* b = &hub->banks[hub->bank];
-	b->flipy     = !b->flipy;
+	b->flipy   = !b->flipy;
 	printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
 }
 
-void vbl_hub_reset(VblHub * hub)
+void vbl_hub_reset(VblHub* hub)
 {
 	//printf("reset!\n");
 	//hub->debug = false;
@@ -101,45 +101,44 @@ void vbl_hub_reset(VblHub * hub)
 	hub->bank = -1;
 	for (int i = 0; i < VBL_NUM_BANKS; i++)
 	{
-		hub->banks[i].id	= i;
-		hub->banks[i].routine   = -1;
-		hub->banks[i].flipx     = false;
-		hub->banks[i].flipy     = false;
-		hub->banks[i].intensity = 1;
-		hub->banks[i].fill      = 0;
-		hub->banks[i].color     = 0;
+		hub->banks[i].id	 = i;
+		hub->banks[i].routine    = -1;
+		hub->banks[i].flipx      = false;
+		hub->banks[i].flipy      = false;
+		hub->banks[i].intensity  = 1;
+		hub->banks[i].fill       = 0;
+		hub->banks[i].color      = 0;
 		hub->banks[i].colorcycle = VBL_COLORCYCLE_NONE;
-		hub->assignments[i] = -1;
+		hub->assignments[i]      = -1;
 	}
-	
+
 	//if(sequencer)
 	//	v_stepseq_clear(sequencer);
 	hub->playback_speed = 1;
 }
 
-void vbl_hub_sequencer_reset(VblHub * hub)
+void vbl_hub_sequencer_reset(VblHub* hub)
 {
-//	if ( sequencer)
-//		v_stepseq_clear(sequencer);
+	//	if ( sequencer)
+	//		v_stepseq_clear(sequencer);
 }
 
-void vbl_hub_toggle_overdrive(VblHub * hub)
+void vbl_hub_toggle_overdrive(VblHub* hub)
 {
-//	hub->overdrive = !hub->overdrive;
-//	(hub->overdrive) ? 	printf("OVERDRIVE\n"): printf("NOVERDRIVE\n");
+	//	hub->overdrive = !hub->overdrive;
+	//	(hub->overdrive) ? 	printf("OVERDRIVE\n"): printf("NOVERDRIVE\n");
 }
 
-
-void vbl_hub_toggle_auto(VblHub * hub)
+void vbl_hub_toggle_auto(VblHub* hub)
 {
 	//vbl_control_auto_toggles = ! vbl_control_auto_toggles;
 	//(vbl_control_auto_toggles) ? 	printf("AUTO\n"): printf("NO AUTO\n");
 }
 
-void vbl_hub_switch_artist(VblHub * hub)
+void vbl_hub_switch_artist(VblHub* hub)
 {
 	hub->artist++;
-	if ( hub->artist > 3)
+	if (hub->artist > 3)
 	{
 		hub->artist = 0;
 	}
@@ -148,51 +147,44 @@ void vbl_hub_switch_artist(VblHub * hub)
 #endif
 }
 
-void vbl_hub_flip_sequencer_at_xy(VblHub * hub, int x, int y)
+void vbl_hub_flip_sequencer_at_xy(VblHub* hub, int x, int y)
 {
 	//v_stepseq_flip_xy(sequencer, x, y);
 }
 
-void vbl_hub_flip_sequencer_at_current_playhead(VblHub * hub)
+void vbl_hub_flip_sequencer_at_current_playhead(VblHub* hub)
 {
 	//v_stepseq_flip_at_playhead(sequencer);
-
 }
 /*
- 
+
 void vbl_hub_adjust_playback(double v )
 {
-	hub->playback_speed = 
+	hub->playback_speed =
 
 I}
 */
-void vbl_hub_toggle_mode3d(VblHub * hub)
+void vbl_hub_toggle_mode3d(VblHub* hub)
 {
 	printf("MODE3d\n");
 	hub->mode3d = !hub->mode3d;
 	//_update_display_mode3d((MonomeRec*)mdata);
-	
+
 	r_app_set_ortho(hub->mode3d);
-	
 }
 
-void vbl_hub_fire_hit(VblHub * hub, int which, int val)
+void vbl_hub_fire_hit(VblHub* hub, int which, int val)
 {
 	//printf("Doing hit for hit %d\n", val);
-	
-	int* hits_type_lut[4] = { &hub->hit1, &hub->hit2, &hub->hit3, &hub->hit4 };
-	
-	
-	
+
+	int* hits_type_lut[4] = {&hub->hit1, &hub->hit2, &hub->hit3, &hub->hit4};
+
 	//	this is almost DEFINITELY not right
 	//	I think?  having a hard time visualising n*n*n dimensions lol
 	//printf("Switching hit %d to type %d\n", val, val);
 	*hits_type_lut[val] = val;
-	
-	
-	
+
 	//ub.hit
-	
 }
 
 static void _unserialize_bank(cJSON* jsb, VblBank* b)
@@ -257,34 +249,32 @@ static char* state_path(void)
 	return buf;
 }
 
-
-void vbl_hub_init(VblHub * hub)
+void vbl_hub_init(VblHub* hub)
 {
-	hub->artist = 0;
-	hub->overdrive = 0;
+	hub->artist      = 0;
+	hub->overdrive   = 0;
 	const char* path = state_path();
 	if (r_file_exists(path))
 	{
 		vbl_hub_unserialize(hub, path);
 	}
-	
-	//show_hax_switch_artist(hub->artist);
 
+	//show_hax_switch_artist(hub->artist);
 }
 
-void vbl_hub_deinit(VblHub * hub)
+void vbl_hub_deinit(VblHub* hub)
 {
-	
+
 	const char* path = state_path();
 	vbl_hub_serialize(hub, path);
 }
 
-void vbl_hub_unserialize(VblHub * hub, const char* path)
+void vbl_hub_unserialize(VblHub* hub, const char* path)
 {
 
-	hub->speed = 1;
-	hub->speed_mult=1;
-	char* data = vbl_read_file_as_text_nc(path);
+	hub->speed      = 1;
+	hub->speed_mult = 1;
+	char* data      = vbl_read_file_as_text_nc(path);
 
 	//char* buf = calloc(PATH_MAX, sizeof(char));
 
@@ -307,11 +297,11 @@ void vbl_hub_unserialize(VblHub * hub, const char* path)
 	itr = cJSON_GetObjectItem(root, "bank");
 	if (itr)
 		hub->bank = itr->valueint;
-	
+
 	itr = cJSON_GetObjectItem(root, "playback_speed");
 	if (itr)
 		hub->playback_speed = itr->valuedouble;
-	
+
 	itr = cJSON_GetObjectItem(root, "artist");
 	if (itr)
 		hub->artist = itr->valueint;
@@ -372,7 +362,7 @@ void vbl_hub_unserialize(VblHub * hub, const char* path)
 	cJSON_Delete(root);
 }
 
-void vbl_hub_serialize(VblHub * hub, const char* path)
+void vbl_hub_serialize(VblHub* hub, const char* path)
 {
 	cJSON* root = cJSON_CreateObject();
 	cJSON_AddNumberToObject(root, "artist", hub->artist);
@@ -384,7 +374,7 @@ void vbl_hub_serialize(VblHub * hub, const char* path)
 	cJSON_AddNumberToObject(root, "debug", hub->debug);
 	cJSON_AddNumberToObject(root, "mode3d", hub->mode3d);
 	cJSON_AddNumberToObject(root, "playback_speed", hub->playback_speed);
-	
+
 	cJSON_AddNumberToObject(root, "wave1", hub->wave1);
 	cJSON_AddNumberToObject(root, "wave2", hub->wave2);
 	cJSON_AddNumberToObject(root, "wave3", hub->wave3);
