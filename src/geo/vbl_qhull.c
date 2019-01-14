@@ -1051,6 +1051,7 @@ void vbl_qhull_draw_fill(RQHull* data)
 		drw_color_c16(r_app_color_get_bg());
 		//drw_color(0.0, 0.4, 0.5, 1.0);
 		drw_line3_r(line);
+		drw_fill_pop();
 		r_line3_destroy(line);
 		drw_color_c16(r_app_color_get_fh());
 	}

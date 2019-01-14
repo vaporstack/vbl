@@ -1,5 +1,5 @@
-//
 //  v_serial.c
+//
 //  vbl
 //
 //  Created by Andrew Macfarlane on 4/22/17.
@@ -371,7 +371,7 @@ void* v_unserialize_sequence_json(const char* path)
 		version = obj->valuestring;
 		fixup_old_style_version_string(version);
 	}
-	if (!version )
+	if (!version)
 	{
 		vbl_log("Unable to discern version: %s", path);
 		return NULL;
@@ -405,15 +405,15 @@ void* vbl_read_file_as_bin(const char* path, long* len)
 		return NULL;
 	}
 	fseek(fileptr, 0, SEEK_END); // Jump to the end of the file
-	l = ftell(fileptr);	  // Get the current byte offset in the file
-	rewind(fileptr);	     // Jump back to the beginning of the file
+	l = ftell(fileptr); // Get the current byte offset in the file
+	rewind(fileptr); // Jump back to the beginning of the file
 
 	printf("%lu\n", *len);
 	long  sz  = (l + 1) * sizeof(char);
 	void* buf = malloc(sz); // Enough memory for file + \0
 	memset(buf, 0, sz);
 	fread(buf, l, 1, fileptr); // Read in the entire file
-	fclose(fileptr);	   // Close the file
+	fclose(fileptr); // Close the file
 	*len = l;
 	return 0;
 }

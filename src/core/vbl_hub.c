@@ -262,10 +262,10 @@ void vbl_hub_init(VblHub * hub)
 {
 	hub->artist = 0;
 	hub->overdrive = 0;
-	const char* path2 = state_path();
-	if (r_file_exists(path2))
+	const char* path = state_path();
+	if (r_file_exists(path))
 	{
-		vbl_hub_unserialize(path2, &hub);
+		vbl_hub_unserialize(hub, path);
 	}
 	
 	//show_hax_switch_artist(hub->artist);
@@ -276,7 +276,7 @@ void vbl_hub_deinit(VblHub * hub)
 {
 	
 	const char* path = state_path();
-	vbl_hub_serialize(path, &hub);
+	vbl_hub_serialize(hub, path);
 }
 
 void vbl_hub_unserialize(VblHub * hub, const char* path)
