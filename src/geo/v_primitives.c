@@ -160,3 +160,45 @@ RPoint3 v_primitives_random_point_in_sphere(double r)
 	return p;
 }
 
+
+RPoint3 v_primitives_random_point_in_box(double x, double y, double z)
+{
+	RPoint3 p;
+	RRandom* rng = vbl_rng_get();
+	p.x = r_rand_double(rng) * x;
+	p.y = r_rand_double(rng) * y;
+	p.z = r_rand_double(rng) * z;
+	p.x -= .5 * x;
+	p.y -= .5 * y;
+	p.z -= .5 * z;
+	return p;
+}
+
+
+void v_primitives_random_point_on_box(double x, double y, double z, double* rx, double *ry, double* rz)
+{
+	//RPoint3 p;
+	RRandom* rng = vbl_rng_get();
+	int which = r_rand_double(rng) * 3;
+	*rx = ( which == 0 ) ? x : r_rand_double(rng) * x;
+	*ry = ( which == 1 ) ? y : r_rand_double(rng) * y;
+	*rz = ( which == 2 ) ? z : r_rand_double(rng) * z;
+	*rx -= .5 * x;
+	*ry -= .5 * y;
+	*rz -= .5 * z;
+	
+	//return p;
+	/*
+	 RPoint3 p;
+	 RRandom* rng = vbl_rng_get();
+	 int which = r_rand_double(rng) * 3;
+	 p.x = ( which == 0 ) ? x : r_rand_double(rng) * x;
+	 p.y = ( which == 1 ) ? y : r_rand_double(rng) * y;
+	 p.z = ( which == 2 ) ? z : r_rand_double(rng) * z;
+	 p.x -= .5 * x;
+	 p.y -= .5 * y;
+	 p.z -= .5 * z;
+	 return p;
+	 */
+	
+}

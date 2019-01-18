@@ -32,6 +32,124 @@
  printf("[%d] flipy set to %d\n", hub->bank, hub->banks[hub->bank].flipx);
  }
  */
+//#define ARBITRARY_NUM_TBD 5
+
+enum
+{
+	VBL_HUB_MUT_TYPE_WAV1,
+	VBL_HUB_MUT_TYPE_WAV2,
+	VBL_HUB_MUT_TYPE_WAV3,
+	VBL_HUB_MUT_TYPE_WAV4,
+	VBL_HUB_MUT_TYPE_HIT1,
+	VBL_HUB_MUT_TYPE_HIT2,
+	VBL_HUB_MUT_TYPE_HIT3,
+	VBL_HUB_MUT_TYPE_HIT4,
+	VBL_HUB_MUT_TYPE_AUD1,
+	VBL_HUB_MUT_TYPE_AUD2,
+	VBL_HUB_MUT_TYPE_AUD3,
+	VBL_HUB_MUT_TYPE_WSQR,
+	VBL_HUB_MUT_TYPE_WSAW,
+	VBL_HUB_MUT_TYPE_WTRI,
+	VBL_HUB_MUT_TYPE_WSIN,
+	VBL_HUB_MUT_TYPE_WCOS,
+	VBL_HUB_MUT_TYPE_WTAN,
+	VBL_HUB_MUT_TYPE_NONE
+} VblHubMutationTypes;
+
+static double* cycle_mut(VblHub* hub, double* addr, int* type)
+{
+	int nval = *type;
+	nval++;
+	if (nval >= VBL_HUB_MUT_TYPE_NONE - 1)
+	{
+		nval = 0;
+	}
+	*type = nval;
+
+	switch (nval)
+	{
+	case VBL_HUB_MUT_TYPE_WAV1:
+		return &hub->d.wav1;
+		break;
+	case VBL_HUB_MUT_TYPE_WAV2:
+		return &hub->d.wav2;
+		break;
+	case VBL_HUB_MUT_TYPE_WAV3:
+		return &hub->d.wav3;
+		break;
+	case VBL_HUB_MUT_TYPE_WAV4:
+		return &hub->d.wav4;
+		break;
+	case VBL_HUB_MUT_TYPE_HIT1:
+		return &hub->d.hit1;
+		break;
+	case VBL_HUB_MUT_TYPE_HIT2:
+		return &hub->d.hit2;
+		break;
+	case VBL_HUB_MUT_TYPE_HIT3:
+		return &hub->d.hit3;
+		break;
+	case VBL_HUB_MUT_TYPE_HIT4:
+		return &hub->d.hit4;
+		break;
+
+	//	todo: move audio to data? do we even need to/
+	case VBL_HUB_MUT_TYPE_AUD1:
+		return &hub->audio1;
+		break;
+	case VBL_HUB_MUT_TYPE_AUD2:
+		return &hub->audio2;
+		break;
+	case VBL_HUB_MUT_TYPE_AUD3:
+		return &hub->audio3;
+		break;
+	case VBL_HUB_MUT_TYPE_WSQR:
+		return &hub->d.wsqr;
+		break;
+	case VBL_HUB_MUT_TYPE_WSAW:
+		return &hub->d.wsaw;
+		break;
+	case VBL_HUB_MUT_TYPE_WTRI:
+		return &hub->d.wtri;
+		break;
+	case VBL_HUB_MUT_TYPE_WSIN:
+		return &hub->d.wsin;
+		break;
+	case VBL_HUB_MUT_TYPE_WCOS:
+		return &hub->d.wcos;
+		break;
+	case VBL_HUB_MUT_TYPE_WTAN:
+		return &hub->d.wtan;
+		break;
+	default:
+		break;
+	}
+	return NULL;
+}
+
+void vbl_hub_cycle_mut1(VblHub* hub)
+{
+	hub->d.mut1 = cycle_mut(hub, hub->d.mut1, &hub->mut1);
+	printf("Cycled mut 1 to %d %p\n", hub->mut1, hub->d.mut1);
+}
+
+void vbl_hub_cycle_mut2(VblHub* hub)
+{
+	hub->d.mut2 = cycle_mut(hub, hub->d.mut2, &hub->mut2);
+	printf("Cycled mut 2 to %d %p\n", hub->mut2, hub->d.mut2);
+}
+
+void vbl_hub_cycle_mut3(VblHub* hub)
+{
+	hub->d.mut3 = cycle_mut(hub, hub->d.mut3, &hub->mut3);
+	printf("Cycled mut 3 to %d %p\n", hub->mut3, hub->d.mut3);
+}
+
+void vbl_hub_cycle_mut4(VblHub* hub)
+{
+	hub->d.mut4 = cycle_mut(hub, hub->d.mut4, &hub->mut4);
+	printf("Cycled mut 4 to %d %p\n", hub->mut4, hub->d.mut4);
+}
 
 void vbl_hub_toggle_bank_color(VblHub* hub)
 {
@@ -112,6 +230,8 @@ void vbl_hub_reset(VblHub* hub)
 		hub->assignments[i]      = -1;
 	}
 
+	hub->d.mut1 = hub->d.mut2 = hub->d.mut3 = hub->d.mut4 = 0;
+	hub->mut1 = hub->mut2 = hub->mut3 = hub->mut4 = 0;
 	//if(sequencer)
 	//	v_stepseq_clear(sequencer);
 	hub->playback_speed = 1;

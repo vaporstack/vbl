@@ -1037,6 +1037,8 @@ void vbl_qhull_draw_fill(RQHull* data)
 		for (int i = 0, j = 0; i < nv; i++, j += 2)
 		{
 			vertexT* v  = (vertexT*)facet->vertices->e[i].p;
+			if ( !v )
+				continue;
 			double*  p  = v->point;
 			dval[j]     = p[0];
 			dval[j + 1] = p[1];
@@ -1101,6 +1103,11 @@ void vbl_qhull_draw_edges(RQHull* data)
 		{
 			vertexT* a = facet->vertices->e[i + 0].p;
 			vertexT* b = facet->vertices->e[i + 1].p;
+			if (!a)
+				continue;
+			if (!b)
+				continue;
+			
 			if (!a->point)
 				continue;
 			if (!b->point)
@@ -1113,7 +1120,7 @@ void vbl_qhull_draw_edges(RQHull* data)
 	}
 }
 
-RQHull* vbl_qhull_create(int num_points)
+RQHull* vbl_qhull_create_randsphere(int num_points)
 {
 
 	qhT* qh = calloc(1, sizeof(qhT)); //my_qh;
@@ -1124,7 +1131,12 @@ RQHull* vbl_qhull_create(int num_points)
 	int tn = (num_points)*3;
 	for (int i = 0; i < tn; i += 3)
 	{
-		RPoint3 p     = v_primitives_random_point_in_sphere(.5);
+		RPoint3 p;
+		v_primitives_random_point_on_box(1,1,1, &p.x, &p.y, &p.z);
+		//RPoint3 p = v_primitives_random_point_on_sphere(1);
+		//RPoint3 p = v_primitives_random_point_on_box(1,1,1);
+
+		//RPoint3 p     = v_primitives_random_point_in_sphere(.5);
 		points[i + 0] = p.x;
 		points[i + 1] = (p.y);
 		points[i + 2] = p.z;
@@ -1134,10 +1146,12 @@ RQHull* vbl_qhull_create(int num_points)
 
 	//qh_setvoronoi_all(qh);
 
+	//free(points);
 	RQHull* rec = calloc(1, sizeof(RQHull));
 	rec->src    = qh;
 	return rec;
 }
+
 
 void vbl_qhull_destroy(RQHull* data)
 {
@@ -1163,7 +1177,7 @@ RQHull* vbl_qhull_create2d(RLine* line)
 	qh_new_qhull(qh, 2, line->num, points, true, "qhull ", NULL, NULL);
 
 	//qh_setvoronoi_all(qh);
-
+	//free(points);
 	RQHull* rec = calloc(1, sizeof(RQHull));
 	rec->src    = qh;
 	return rec;

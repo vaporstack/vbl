@@ -47,7 +47,7 @@ void v_plugins_load(const char* path)
 		free(directory);
 	}
 
-	if (debug_settings.plugin)
+	//if (debug_settings.plugin)
 		printf("Scanning for plugins in directory: %s\n", buf);
 	int successes = 0;
 

@@ -158,12 +158,19 @@ void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr)
 		VParticleSystem* sys = mgr->data[i]->src;
 		if ( !sys)
 		{
-			printf("can't draw sys no sys\n");
+			//printf("can't draw sys no sys\n");
 			continue;
 		}
-		if ( sys->draw )
+		
+		if ( !sys->draw )
 		{
-			sys->draw(sys);
+			printf("Error, had a system with no draw function.\n");
+			continue;
+			
 		}
+		
+		sys->draw(sys);
+		
+		
 	}
 }

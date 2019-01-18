@@ -31,7 +31,7 @@ void vbl_qhull_draw(RQHull* data );
 void vbl_qhull_draw_fill(RQHull* data);
 void vbl_qhull_draw_edges(RQHull* data);
 
-RQHull* vbl_qhull_create(int num);
+RQHull* vbl_qhull_create_randsphere(int num);
 void    vbl_qhull_destroy(RQHull*);
 
 RQHull* vbl_qhull_create2d(RLine* line);

@@ -83,7 +83,7 @@ void vbl_cascade_update(VCascade* casc)
 	//	do something
 	if(!casc->target )
 	{
-		printf("Can't fire, no target provided.\n");
+		//printf("Can't fire, no target provided.\n");
 		return;
 	}
 	if ( casc->update )
