@@ -26,7 +26,6 @@ static void apply_gravity(void* data, void* pdata)
 		VParticle* p = &sys->data[i];
 		if (!p)
 			continue;
-
 		p->x += grv->x;
 		p->y += grv->y;
 		p->z += grv->z;
