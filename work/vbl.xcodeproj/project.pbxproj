@@ -67,6 +67,8 @@
 		5798A61C202AA3180009BFCA /* v_tracer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5798A61A202AA3180009BFCA /* v_tracer.c */; };
 		57AB357221BA181B008512ED /* vbl_particleplugin_spawner.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AB357021BA181B008512ED /* vbl_particleplugin_spawner.h */; };
 		57AB357321BA181B008512ED /* vbl_particleplugin_spawner.c in Sources */ = {isa = PBXBuildFile; fileRef = 57AB357121BA181B008512ED /* vbl_particleplugin_spawner.c */; };
+		57BB01D121FFC5F80067AFCF /* vbl_particleplugin_attractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */; };
+		57BB01D221FFC5F80067AFCF /* vbl_particleplugin_attractor.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB01D021FFC5F80067AFCF /* vbl_particleplugin_attractor.c */; };
 		57BC722320802B0C0085C08D /* v_assimp.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BC722120802B0C0085C08D /* v_assimp.h */; };
 		57BC722420802B0C0085C08D /* v_assimp.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BC722220802B0C0085C08D /* v_assimp.c */; };
 		57BC722E20802E0F0085C08D /* vbl.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BC722D20802E0E0085C08D /* vbl.c */; };
@@ -172,6 +174,8 @@
 		5798A61A202AA3180009BFCA /* v_tracer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_tracer.c; sourceTree = "<group>"; };
 		57AB357021BA181B008512ED /* vbl_particleplugin_spawner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_spawner.h; sourceTree = "<group>"; };
 		57AB357121BA181B008512ED /* vbl_particleplugin_spawner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_spawner.c; sourceTree = "<group>"; };
+		57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_attractor.h; sourceTree = "<group>"; };
+		57BB01D021FFC5F80067AFCF /* vbl_particleplugin_attractor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_attractor.c; sourceTree = "<group>"; };
 		57BC722120802B0C0085C08D /* v_assimp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v_assimp.h; sourceTree = "<group>"; };
 		57BC722220802B0C0085C08D /* v_assimp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_assimp.c; sourceTree = "<group>"; };
 		57BC722D20802E0E0085C08D /* vbl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vbl.c; path = ../vbl.c; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			children = (
 				5722FCE921AB8C31002865A8 /* vbl_particle.c */,
 				5722FCDE21AB8C30002865A8 /* vbl_particle.h */,
+				57BB01D021FFC5F80067AFCF /* vbl_particleplugin_attractor.c */,
+				57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */,
 				5722FCE821AB8C31002865A8 /* vbl_particleplugin_bounds.c */,
 				5722FCE021AB8C30002865A8 /* vbl_particleplugin_bounds.h */,
 				5722FCE321AB8C31002865A8 /* vbl_particleplugin_gravity.c */,
@@ -498,6 +504,7 @@
 				57DF2DFF218904DA00EAAEDD /* vbl_arc.h in Headers */,
 				5710BC962166E3EE00DDB80D /* vbl_pad.h in Headers */,
 				D1FCA38E1F02E41400D11520 /* vbl.h in Headers */,
+				57BB01D121FFC5F80067AFCF /* vbl_particleplugin_attractor.h in Headers */,
 				5773B7C520E818EA0073669B /* v_primitives.h in Headers */,
 				5727DDFE21571F8100ED2616 /* vbl_lissajous.h in Headers */,
 				57AB357221BA181B008512ED /* vbl_particleplugin_spawner.h in Headers */,
@@ -633,6 +640,7 @@
 				499891901F3A3170006FFCA6 /* v_clock.c in Sources */,
 				D154FF421FC3AB9C00AE014F /* wildcardcmp.c in Sources */,
 				5710BC932166E3B700DDB80D /* v_bank.c in Sources */,
+				57BB01D221FFC5F80067AFCF /* vbl_particleplugin_attractor.c in Sources */,
 				570E8CB221990DC50093792A /* vbl_tracers.c in Sources */,
 				57134D9620FFDFEF0005CCD3 /* vbl_cork.c in Sources */,
 				57DF2E00218904DA00EAAEDD /* vbl_arc.c in Sources */,

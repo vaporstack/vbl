@@ -21,14 +21,16 @@ static void apply_gravity(void* data, void* pdata)
 {
 	GravityRec*      grv = (GravityRec*)pdata;
 	VParticleSystem* sys = (VParticleSystem*)data;
-	for (unsigned int i = 0; i < sys->num; i++)
+	if ( !sys->data)
+		return;
+	for (unsigned int i = 0; i < sys->max; i++)
 	{
-		VParticle* p = &sys->data[i];
+		VParticle* p = sys->data[i];
 		if (!p)
 			continue;
-		p->x += grv->x;
-		p->y += grv->y;
-		p->z += grv->z;
+		p->vx += grv->x;
+		p->vy += grv->y;
+		p->vz += grv->z;
 	}
 }
 

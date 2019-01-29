@@ -10,7 +10,7 @@
 
 #include <stdlib.h>
 
-VParticleSystemMgr* vbl_particlesystem_mgr_create(int num)
+VParticleSystemMgr* vbl_particlesystem_mgr_create(unsigned int num, unsigned int max)
 {
 	VParticleSystemMgr* mgr = calloc(1, sizeof(VParticleSystemMgr));
 	mgr->num		= num;
@@ -20,8 +20,19 @@ VParticleSystemMgr* vbl_particlesystem_mgr_create(int num)
 		mgr->data[i]      = calloc(1, sizeof(VParticleSystemHnd));
 		mgr->data[i]->src = NULL; //redundant because we're using calloc?
 	}
-	
+	mgr->max = max;
 	return mgr;
+}
+
+unsigned 	vbl_particlesystem_mgr_count_active(VParticleSystemMgr* mgr)
+{
+	unsigned res = 0;
+	for ( unsigned int i = 0; i < mgr->num; i++ )
+	{
+		if ( mgr->data[i]->src)
+			res++;
+	}
+	return res;
 }
 
 void vbl_particlesystem_mgr_destroy(VParticleSystemMgr* mgr)
@@ -105,6 +116,7 @@ static int get_next_available_system_slot(VParticleSystemMgr* mgr)
 	}
 	return -1;
 }
+
 void		    vbl_particlesystem_mgr_spawn(VParticleSystemMgr* mgr, unsigned int idx)
 {
 	VParticleSystemHnd* hnd = mgr->data[idx];
@@ -113,7 +125,7 @@ void		    vbl_particlesystem_mgr_spawn(VParticleSystemMgr* mgr, unsigned int idx
 		printf("Error, tried to spawn on top of an existing system.\n");
 		return;
 	}
-	VParticleSystem* sys = vbl_particlesystem_create();
+	VParticleSystem* sys = vbl_particlesystem_create(mgr->max);
 	for ( unsigned int i = 0; i < mgr->num_subplugins; i++ )
 	{
 		vbl_particlesystem_plugin_add(sys, mgr->subplugins[i]);
@@ -149,6 +161,23 @@ void		vbl_particlesystem_mgr_plugin_register(VParticleSystemMgr* mgr, VParticleS
 	
 }
 
+#include <drw/drw.h>
+static void error_draw(VParticleSystem* sys)
+{
+	for ( unsigned i = 0 ;i < sys->max;i++)
+	{
+		VParticle * p=  sys->data[i];
+		if ( !p )
+			continue;
+		drw_push();
+		drw_translate(p->x, p->y, p->z);
+		drw_scale_u(.1);
+		drw_square(.25);
+		//drw_rect(-.5,-.5, .5,1);
+		drw_point();
+		drw_pop();
+	}
+}
 
 void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr)
 {
@@ -165,6 +194,7 @@ void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr)
 		if ( !sys->draw )
 		{
 			printf("Error, had a system with no draw function.\n");
+			error_draw(sys);
 			continue;
 			
 		}

@@ -18,9 +18,9 @@ static bool check_if_any_particles_alive(VParticleSystem* sys)
 	// bullshit obv
 	//return true;
 	
-	for ( unsigned int i =0; i < sys->num; i++ )
+	for ( unsigned int i =0; i < sys->max; i++ )
 	{
-		VParticle* p = &sys->data[i];
+		VParticle* p = sys->data[i];
 		if ( p )
 			return true;
 	}
@@ -43,6 +43,9 @@ static void check_do_autokill(void* data, void* pdata)
 						continue;
 					if (!sys->src)
 						continue;
+					if (!sys->src->data)
+						continue;
+					
 					if ( check_if_any_particles_alive(sys->src))
 						killer->state = VBL_PARTICLE_AUTOKILL_WORKING;
 				}

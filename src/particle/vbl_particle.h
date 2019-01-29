@@ -11,10 +11,14 @@
 
 typedef struct VParticle
 {
+	
 	double x, y, z;
+	double ax, ay, az;
+	double vx, vy, vz;
 } VParticle;
 
 VParticle* vbl_particle_create(void);
 void       vbl_particle_destroy(VParticle* p);
+void	vbl_particle_update(VParticle* p );
 
 #endif /* vbl_particle_h */

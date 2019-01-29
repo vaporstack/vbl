@@ -13,16 +13,17 @@
 #include "vbl_particleplugin_gravity.h"
 #include <stdlib.h>
 
-VParticleSystem* vbl_particlesystem_create(void)
+VParticleSystem* vbl_particlesystem_create(unsigned max)
 {
 	VParticleSystem* sys = calloc(1, sizeof(VParticleSystem));
-
+	sys->data = calloc(max, sizeof(VParticle*));
+	sys->max = max;
 	return sys;
 }
 
-VParticleSystem* vbl_particlesystem_create_with_defaults(void)
+VParticleSystem* vbl_particlesystem_create_with_defaults(unsigned max)
 {
-	VParticleSystem* sys  = vbl_particlesystem_create();
+	VParticleSystem* sys  = vbl_particlesystem_create(max);
 	VParticlePlugin* grav = vbl_particleplugin_gravity_create(0, .001, 0);
 	VPPSBoundsInfo   info;
 	info.bounds_type     = VBL_PARTICLEPLUGIN_BOUNDSTYPE_BOX;
@@ -54,9 +55,9 @@ void vbl_particlesystem_destroy(VParticleSystem* sys)
 		free(plug);
 	}
 
-	for (unsigned int i = 0; i < sys->num; i++)
+	for (unsigned int i = 0; i < sys->max; i++)
 	{
-		VParticle* p = &sys->data[i];
+		VParticle* p = sys->data[i];
 		if (!p)
 			continue;
 	}
@@ -91,6 +92,13 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 
 		plug->update(sys, plug);
 	}
+	for ( int i = 0; i < sys->max ; i++ )
+	{
+		VParticle* p = sys->data[i];
+		if ( !p )
+			continue;
+		vbl_particle_update(p);
+	}
 }
 
 void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
@@ -105,4 +113,30 @@ void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 		sys->plugins = realloc(sys->plugins, sizeof(VParticlePlugin) * sys->num_plugins);
 	}
 	sys->plugins[sys->num_plugins - 1] = plug;
+}
+
+
+signed vbl_particlesystem_next_available(VParticleSystem* sys)
+{
+	for ( unsigned i = 0; i < sys->max; i++ )
+	{
+		VParticle* p = sys->data[i];
+		if ( !p )
+		{
+			sys->pos = i;
+			return sys->pos;
+		}
+	}
+	return -1;
+	
+}
+
+signed vbl_particlesystem_next(VParticleSystem* sys)
+{
+	sys->pos++;
+	if ( sys->pos == sys->max )
+		sys->pos = 0;
+	
+	return sys->pos;
+	
 }
