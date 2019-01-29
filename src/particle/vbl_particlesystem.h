@@ -13,29 +13,36 @@
 #include "vbl_particleplugin.h"
 #include <stdio.h>
 
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 typedef void (*vbl_particlesystem_draw_fun)(void*);
 typedef void (*vbl_particlesystem_draw_particle_fun)(void*, VParticle*);
+#endif
 
 typedef struct VParticleSystem
 {
-	VParticle**   data;
+	VParticle**  data;
 	unsigned int max;
 	void**       plugins;
 	unsigned int num_plugins;
 	unsigned int pos;
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
+#ifdef DEBUG
+	vbl_particlesystem_draw_fun draw_debug;
+#endif
 	vbl_particlesystem_draw_particle_fun draw_particle;
-	vbl_particlesystem_draw_fun draw;
-} VParticleSystem;
+	vbl_particlesystem_draw_fun	  draw;
+#endif
 
+} VParticleSystem;
 
 typedef struct VParticleSystemHnd
 {
 	VParticleSystem* src;
 } VParticleSystemHnd;
 
-
-
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 void vbl_particlesystem_draw(VParticleSystem* sys);
+#endif
 
 VParticleSystem* vbl_particlesystem_create(unsigned);
 VParticleSystem* vbl_particlesystem_create_with_defaults(unsigned);

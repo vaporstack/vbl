@@ -26,26 +26,23 @@ static inline double clamp(double value, double min, double max)
 	return value < min ? min : value > max ? max : value;
 }
 
-
 #define TMP_MAX .0001
-void vbl_particle_update(VParticle* p )
+void vbl_particle_update(VParticle* p)
 {
 	//	add acceleration to velocity
 	p->vx += p->ax;
 	p->vy += p->ay;
 	p->vz += p->az;
-	
+
 	//	clear acceleration
 	p->ax = p->ay = p->az = 0;
-	
+
 	//	clamp velocity
-	p->vx = clamp(p->vx, -TMP_MAX, TMP_MAX );
-	p->vy = clamp(p->vy, -TMP_MAX, TMP_MAX );
-	p->vz = clamp(p->vz, -TMP_MAX, TMP_MAX );
+	p->vx = clamp(p->vx, -TMP_MAX, TMP_MAX);
+	p->vy = clamp(p->vy, -TMP_MAX, TMP_MAX);
+	p->vz = clamp(p->vz, -TMP_MAX, TMP_MAX);
 	//	add velocity to position
 	p->x += p->vx;
 	p->y += p->vy;
 	p->z += p->vz;
-	
-	
 }

@@ -11,6 +11,12 @@
 #include "vbl_particlesystem.h"
 #include <stdlib.h>
 
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
+//#error hi
+#include <drw/drw.h>
+
+#endif
+
 typedef struct GravityRec
 {
 	double x, y, z;
@@ -28,11 +34,27 @@ static void apply_gravity(void* data, void* pdata)
 		VParticle* p = sys->data[i];
 		if (!p)
 			continue;
-		p->vx += grv->x;
-		p->vy += grv->y;
-		p->vz += grv->z;
+		p->ax += grv->x;
+		p->ay += grv->y;
+		p->az += grv->z;
 	}
 }
+#ifdef DEBUG
+//typedef void (*vbl_particle_plugin_fun)(void* data, void* plugdata);
+static void draw_debug(void* pdata, void* sdata)
+{
+	VParticlePlugin* plug = pdata;
+	VParticleSystem* sys  = sdata;
+	GravityRec* info = plug->data;
+	
+	drw_push();
+	drw_translate(-.125, -.125, 0);
+	drw_line_3f(0,0,0, info->x, info->y, info->z);
+	
+	drw_pop();
+}
+
+#endif
 
 VParticlePlugin* vbl_particleplugin_gravity_create(double x, double y, double z)
 {
@@ -44,5 +66,9 @@ VParticlePlugin* vbl_particleplugin_gravity_create(double x, double y, double z)
 	grv->y		     = y;
 	grv->z		     = z;
 	rec->data	    = grv;
+#ifdef DEBUG
+	rec->draw_debug = draw_debug;
+#endif
+	
 	return rec;
 }

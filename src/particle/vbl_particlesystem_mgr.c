@@ -161,6 +161,7 @@ void		vbl_particlesystem_mgr_plugin_register(VParticleSystemMgr* mgr, VParticleS
 	
 }
 
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 #include <drw/drw.h>
 static void error_draw(VParticleSystem* sys)
 {
@@ -204,3 +205,5 @@ void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr)
 		
 	}
 }
+#endif
+

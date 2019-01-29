@@ -17,6 +17,10 @@ typedef struct VParticlePlugin
 	vbl_particle_plugin_fun update;
 	vbl_particle_plugin_fun destroyself;
 	void*			data;
+#ifdef DEBUG
+	vbl_particle_plugin_fun draw_debug;
+#endif
+
 } VParticlePlugin;
 
 VParticlePlugin* vbl_particleplugin_create(void);

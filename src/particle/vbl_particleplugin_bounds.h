@@ -10,10 +10,11 @@
 #define vbl_particleplugin_bounds_h
 
 #include "vbl_particleplugin.h"
+#include <coer/coer.h>
 
 enum VBLParticlePluginBoundsType
 {
-	VBL_PARTICLEPLUGIN_BOUNDSTYPE_FLOOR,
+	VBL_PARTICLEPLUGIN_BOUNDSTYPE_PLANE,
 	VBL_PARTICLEPLUGIN_BOUNDSTYPE_BOX,
 	VBL_PARTICLEPLUGIN_BOUNDSTYPE_SPHERE,
 	VBL_PARTICLEPLUGIN_BOUNDSTYPE_NONE
@@ -32,13 +33,19 @@ typedef struct VPPSBoundsInfo
 {
 	unsigned int bounds_type;
 	unsigned int bounds_behavior;
+	unsigned int bounds_volume;
+	vbl_particle_plugin_fun inflict_func;
+	vbl_particle_plugin_fun constrain_func;
+	CPoint3 pos;
+	CPoint3 bnd;
 } VPPSBoundsInfo;
 
-typedef struct VPPSBoundsFRec
-{
-	vbl_particle_plugin_fun kill_func;
-	vbl_particle_plugin_fun test_func;
-}VPPSBoundsFRec;
+//
+//typedef struct VPPSBoundsFRec
+//{
+//	vbl_particle_plugin_fun modify_func;
+//	vbl_particle_plugin_fun constrain_func;
+//}VPPSBoundsFRec;
 
 VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo info);
 

@@ -16,8 +16,8 @@
 VParticleSystem* vbl_particlesystem_create(unsigned max)
 {
 	VParticleSystem* sys = calloc(1, sizeof(VParticleSystem));
-	sys->data = calloc(max, sizeof(VParticle*));
-	sys->max = max;
+	sys->data	    = calloc(max, sizeof(VParticle*));
+	sys->max	     = max;
 	return sys;
 }
 
@@ -49,7 +49,9 @@ void vbl_particlesystem_destroy(VParticleSystem* sys)
 		if (!plug->destroyself)
 		{
 			printf("Can't invoke destroy function, was not provided!\n");
-		}else{
+		}
+		else
+		{
 			plug->destroyself(sys, plug);
 		}
 		free(plug);
@@ -74,7 +76,7 @@ void vbl_particlesystem_draw(VParticleSystem* sys)
 			continue;
 		if ( sys->draw )
 			sys->draw(sys);
-		
+
 	}
 }*/
 
@@ -92,10 +94,10 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 
 		plug->update(sys, plug);
 	}
-	for ( int i = 0; i < sys->max ; i++ )
+	for (int i = 0; i < sys->max; i++)
 	{
 		VParticle* p = sys->data[i];
-		if ( !p )
+		if (!p)
 			continue;
 		vbl_particle_update(p);
 	}
@@ -115,28 +117,25 @@ void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 	sys->plugins[sys->num_plugins - 1] = plug;
 }
 
-
 signed vbl_particlesystem_next_available(VParticleSystem* sys)
 {
-	for ( unsigned i = 0; i < sys->max; i++ )
+	for (unsigned i = 0; i < sys->max; i++)
 	{
 		VParticle* p = sys->data[i];
-		if ( !p )
+		if (!p)
 		{
 			sys->pos = i;
 			return sys->pos;
 		}
 	}
 	return -1;
-	
 }
 
 signed vbl_particlesystem_next(VParticleSystem* sys)
 {
 	sys->pos++;
-	if ( sys->pos == sys->max )
+	if (sys->pos == sys->max)
 		sys->pos = 0;
-	
+
 	return sys->pos;
-	
 }

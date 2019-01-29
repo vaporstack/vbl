@@ -12,6 +12,7 @@
 #include "vbl_particlesystem.h"
 #include "vbl_particlesystem_mgr_plugin.h"
 
+
 typedef struct VParticleSystemMgr
 {
 	unsigned int	 num;
@@ -24,7 +25,10 @@ typedef struct VParticleSystemMgr
 	
 } VParticleSystemMgr;
 
+#ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr);
+#endif
+
 VParticleSystemMgr* vbl_particlesystem_mgr_create(unsigned num, unsigned maxparticles);
 void		    vbl_particlesystem_mgr_destroy(VParticleSystemMgr* mgr);
 void		    vbl_particlesystem_mgr_spawn_next(VParticleSystemMgr* mgr);
