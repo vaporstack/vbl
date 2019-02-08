@@ -23,9 +23,9 @@ option(BuildLibrary "Build the vbl library for embedding or linking" ON)
 option(BuildTestVBL "BuildTest" ON)
 option(BuildDocumentation "BuildDocumentation" OFF)
 
-if(${BuildTestVBL})
-  add_subdirectory("test")
-endif()
+#if(${BuildTestVBL})
+#  add_subdirectory("test")
+#endif()
 
 file(GLOB_RECURSE sources vbl.c src/*.c)
 

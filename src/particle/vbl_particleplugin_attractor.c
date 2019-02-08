@@ -64,7 +64,7 @@ static void apply(VPPSAttractor* attr, VParticle* p)
 	
 }
 
-static void update(void* dsys, void* dplug)
+static void update(void* dplug, void* dsys)
 {
 	VParticleSystem* sys = dsys;
 	VParticlePlugin* plug = dplug;

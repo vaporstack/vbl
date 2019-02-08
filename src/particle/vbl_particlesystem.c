@@ -25,9 +25,9 @@ VParticleSystem* vbl_particlesystem_create_with_defaults(unsigned max)
 {
 	VParticleSystem* sys  = vbl_particlesystem_create(max);
 	VParticlePlugin* grav = vbl_particleplugin_gravity_create(0, .001, 0);
-	VPPSBoundsInfo   info;
-	info.bounds_type     = VBL_PARTICLEPLUGIN_BOUNDSTYPE_BOX;
-	info.bounds_behavior = VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL;
+	VPPSBoundsInfo *  info = calloc(1,sizeof(VPPSBoundsInfo));
+	info->bounds_type     = VBL_PARTICLEPLUGIN_BOUNDSTYPE_BOX;
+	info->bounds_behavior = VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL;
 
 	VParticlePlugin* bounds = vbl_particleplugin_bounds_create(info);
 
@@ -92,7 +92,7 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 			continue;
 		}
 
-		plug->update(sys, plug);
+		plug->update(plug, sys);
 	}
 	for (int i = 0; i < sys->max; i++)
 	{

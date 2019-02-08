@@ -34,8 +34,8 @@ typedef struct VPPSBoundsInfo
 	unsigned int bounds_type;
 	unsigned int bounds_behavior;
 	unsigned int bounds_volume;
-	vbl_particle_plugin_fun inflict_func;
-	vbl_particle_plugin_fun constrain_func;
+	vbl_particle_plugin_fun adjust_func;
+	vbl_particle_plugin_constrain_func constrain_func;
 	CPoint3 pos;
 	CPoint3 bnd;
 } VPPSBoundsInfo;
@@ -47,6 +47,6 @@ typedef struct VPPSBoundsInfo
 //	vbl_particle_plugin_fun constrain_func;
 //}VPPSBoundsFRec;
 
-VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo info);
+VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info);
 
 #endif /* vbl_particleplugin_bounds_h */

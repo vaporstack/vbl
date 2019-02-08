@@ -12,7 +12,7 @@
 
 
 //	TODO: untangle this
-#include "../../vbl.h"
+#include "../core/vbl_rng.h"
 
 #include <r4/r4.h>
 
@@ -54,7 +54,9 @@ static bool check_time(struct VPPSSpawnerInfo* info)
 	return true;
 }
 
-static void update(void* dsys, void* dplug)
+#include "../core/vbl_rng.h"
+
+static void update(void* dplug, void* dsys)
 {
 	VParticlePlugin* plug = dplug;
 	VParticleSystem* sys = dsys;
@@ -71,7 +73,7 @@ static void update(void* dsys, void* dplug)
 	
 	signed (*next_fun)(VParticleSystem*);
 	next_fun =  ( info->reuse ) ? vbl_particlesystem_next : vbl_particlesystem_next_available;
-	
+	RRandom* rng = vbl_rng_get();
 	for ( unsigned int i = 0; i < num; i++ )
 	{
 		unsigned id = next_fun(sys);
@@ -86,8 +88,16 @@ static void update(void* dsys, void* dplug)
 		}
 		
 		p = vbl_particle_create();
+		p->mass = r_rand_double(rng);
+		if ( p->mass == 0 )
+		{
+			p->mass = .00001;
+			printf("Correct mass to %f\n", p->mass);
+		}
+		
 		info->place(plug, sys, &p->x, &p->y, &p->z );
 		sys->data[id] = p;
+		
 		printf("Placed new particle at %.1f %.1f %.1f\n", p->x, p->y, p->z);
 		
 	}

@@ -13,6 +13,7 @@
 VParticle* vbl_particle_create(void)
 {
 	VParticle* p = calloc(1, sizeof(VParticle));
+	
 	return p;
 }
 

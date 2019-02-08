@@ -9,8 +9,9 @@
 #ifndef vbl_particle_plugin_h
 #define vbl_particle_plugin_h
 
-typedef void (*vbl_particle_plugin_fun)(void* data, void* plugdata);
-typedef void (*vbl_particle_plugin_test_fun)(void* data, void* plugdata, void* pdata);
+typedef void (*vbl_particle_plugin_fun)(void* plugdata, void* sysdata);
+typedef int (*vbl_particle_plugin_constrain_func)(void* plugdata, void* sysdata);
+typedef void (*vbl_particle_plugin_test_fun)(void* plugdata, void* sysdata, void* pdata);
 
 typedef struct VParticlePlugin
 {

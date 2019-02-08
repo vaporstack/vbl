@@ -16,16 +16,14 @@
 
 #define VBL_VERSION_CHECK(maj, min) ((maj == VBL_VERSION_MAJOR) && (min <= VBL_VERSION_MINOR))
 
-#include <stdio.h>
-#include <stdlib.h>
-
-extern void* _vbl_internal_rng;
-void	 vbl_log(char* fmt, ...);
 
 int   vbl_check_version_match(const char* str);
 int   vbl_check_compat_match(const char* str);
 char* vbl_get_version_string(void);
 char* vbl_get_compat_string(void);
+
+#include <stdlib.h>
+#include <stdio.h>
 
 static inline char* vbl_get_compat_string_header(void)
 {
@@ -70,8 +68,6 @@ static inline char* vbl_get_version_string_header(void)
 #include "src/util/v_unit.h"
 #include "src/vbl_types.h"
 
-void  vbl_rng_set(void* rng);
-void* vbl_rng_get(void);
 
 void vbl_init(void);
 void vbl_deinit(void);

@@ -178,6 +178,14 @@ static void error_draw(VParticleSystem* sys)
 		drw_point();
 		drw_pop();
 	}
+	
+	
+	for ( unsigned i = 0; i < sys->num_plugins; i++ )
+	{
+		VParticlePlugin* plug = sys->plugins[i];
+		if ( plug->draw_debug )
+			plug->draw_debug(plug, sys);
+	}
 }
 
 void			vbl_particlesystem_mgr_draw(VParticleSystemMgr* mgr)
