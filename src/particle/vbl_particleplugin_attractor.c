@@ -43,7 +43,8 @@ static void apply(VPPSAttractor* attr, VParticle* p)
 	vec3_t dir = vec3_subtract(b, a, NULL);
 	vec3_t nrm = vec3_normalize(dir, NULL);
 	nrm	= vec3_multiply(nrm, constant, NULL);
-
+	
+	free(constant);
 	p->ax += nrm[0] * (1. / p->mass);
 	p->ay += nrm[1] * (1. / p->mass);
 	p->az += nrm[2] * (1. / p->mass);
@@ -59,14 +60,18 @@ static void apply(VPPSAttractor* attr, VParticle* p)
 	//	p->z += -dz * TMP_SPEED;
 	//
 }
+#include <math.h>
 
+#include <r4/src/core/r_time.h>
 static void update(void* dplug, void* dsys)
 {
+	
 	VParticleSystem* sys  = dsys;
 	VParticlePlugin* plug = dplug;
 
 	VPPSAttractorInfo* info = plug->data;
-
+	double t = r_time();
+	
 	for (unsigned i = 0; i < sys->max; i++)
 	{
 		VParticle* p = sys->data[i];
@@ -75,7 +80,11 @@ static void update(void* dplug, void* dsys)
 
 		for (unsigned j = 0; j < info->num; j++)
 		{
+			double v = .5 + sin(t*.5) * .5;
+			v *= .25;
+			//printf("%.2f\n", v);
 			VPPSAttractor* a = info->data[j];
+			a->strength = sqrt(v) * .0001;
 			apply(a, p);
 		}
 	}
@@ -100,28 +109,27 @@ void vbl_particleplugin_attractor_add(VParticlePlugin* plug, CPoint3 pos, double
 	printf("Added attractor %d\n", info->num);
 }
 
-
 #include <drw/drw.h>
 
 static void draw_attractor(VPPSAttractor* attr)
 {
 	drw_push();
 	drw_translate_cp3(attr->loc);
-	drw_circle(attr->strength * .5);
-	drw_line_3f(0,0,0,0,attr->strength, 0);
+	drw_circle(attr->strength * 100);
+	drw_line_3f(0, 0, 0, 0, attr->strength, 0);
 	drw_pop();
-
 }
-
+#ifdef DEBUG
 static void draw_debug(VParticlePlugin* plug, VParticleSystem* sys)
 {
 	VPPSAttractorInfo* info = plug->data;
-	for ( int i = 0 ;i < info->num; i++ )
+	for (int i = 0; i < info->num; i++)
 	{
 		VPPSAttractor* a = info->data[i];
 		draw_attractor(a);
 	}
 }
+#endif
 
 VParticlePlugin* vbl_particleplugin_attractor_create(VPPSAttractorInfo* info)
 {
@@ -133,6 +141,8 @@ VParticlePlugin* vbl_particleplugin_attractor_create(VPPSAttractorInfo* info)
 	plug->update      = update;
 	plug->data	= info;
 	plug->destroyself = destroy;
+#ifdef DEBUG
 	plug->draw_debug = draw_debug;
+#endif
 	return plug;
 }

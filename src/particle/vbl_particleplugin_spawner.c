@@ -26,9 +26,9 @@ static void place_box(VParticlePlugin* plug,VParticleSystem * sys, double* x, do
 
 	RRandom* rng = vbl_rng_get();
 	
-	*x = info->bx * -.5 + r_rand_double(rng) * info->bx;
-	*y = info->by * -.5 + r_rand_double(rng) * info->by;
-	*z = info->bz * -.5 + r_rand_double(rng) * info->bz;
+	*x = info->ox + (info->bx * -.5 + r_rand_double(rng) * info->bx);
+	*y = info->oy + (info->by * -.5 + r_rand_double(rng) * info->by);
+	*z = info->oz + (info->bz * -.5 + r_rand_double(rng) * info->bz);
 }
 
 static void place_sphere(VParticlePlugin* plug,VParticleSystem * sys, double* x, double *y, double* z)
@@ -49,9 +49,20 @@ static bool check_frame(struct VPPSSpawnerInfo* info)
 {
 	return true;
 }
+#include <r4/src/core/r_time.h>
+
 static bool check_time(struct VPPSSpawnerInfo* info)
 {
-	return true;
+	
+	double now = r_time();
+	double delta = now - info->last;
+	if ( delta > info->frequency)
+	{
+		printf("poop\n");
+		info->last = now;
+		return true;
+	}
+	return false;
 }
 
 #include "../core/vbl_rng.h"
@@ -110,32 +121,34 @@ static void setup(VParticlePlugin* plug)
 	VPPSSpawnerInfo* info = plug->data;
 	
 	switch (info->spawn_type) {
-		case VBL_PARTICLEPLUGIN_SPAWNERTYPE_POINT:
+		case VBL_PARTICLEPLUGIN_EMITTYPE_POINT:
 			info->place =  place_point;
 			break;
-		case VBL_PARTICLEPLUGIN_SPAWNERTYPE_BOX:
+		case VBL_PARTICLEPLUGIN_EMITTYPE_BOX:
 			info->place =  place_box;
 			break;
-		case VBL_PARTICLEPLUGIN_SPAWNERTYPE_SPHERE:
+		case VBL_PARTICLEPLUGIN_EMITTYPE_SPHERE:
 			info->place = place_sphere;
 		default:
 			break;
 	}
 	
 	switch (info->spawn_freq) {
-		case VBL_PARTICLEPLUGIN_SPAWNERFREQ_FRAME:
+		case VBL_PARTICLEPLUGIN_EMITFREQ_FRAME:
 			info->check = check_frame;
 			break;
-		case VBL_PARTICLEPLUGIN_SPAWNERFREQ_TIME:
+		case VBL_PARTICLEPLUGIN_EMITFREQ_TIME:
 			info->check = check_time;
+			///info->frequency = 1;
+			info->last = 0;
 		default:
 			break;
 	}
 	switch (info->spawn_density) {
-		case VBL_PARTICLEPLUGIN_SPAWNERDENSITY_ONE:
+		case VBL_PARTICLEPLUGIN_EMITDENSITY_ONE:
 			info->density = density_one;
 			break;
-		case VBL_PARTICLEPLUGIN_SPAWNERDENSITY_FIXED:
+		case VBL_PARTICLEPLUGIN_EMITDENSITY_FIXED:
 			info->density = density_fixed;
 			break;
 			
@@ -147,10 +160,10 @@ static void setup(VParticlePlugin* plug)
 VPPSSpawnerInfo* vbl_particleplugin_spawnerinfo_create(void)
 {
 	VPPSSpawnerInfo* info = calloc(1, sizeof(VPPSSpawnerInfo));
-	info->spawn_density = VBL_PARTICLEPLUGIN_SPAWNERDENSITY_ONE;
-	info->spawn_freq = VBL_PARTICLEPLUGIN_SPAWNERFREQ_TIME;
-	info->spawn_type = VBL_PARTICLEPLUGIN_SPAWNERTYPE_POINT;
-	info->density_n = 3;
+	info->spawn_density = VBL_PARTICLEPLUGIN_EMITDENSITY_ONE;
+	info->spawn_freq = VBL_PARTICLEPLUGIN_EMITFREQ_TIME;
+	info->spawn_type = VBL_PARTICLEPLUGIN_EMITTYPE_POINT;
+	info->density_n = 1;
 	
 	return info;
 }

@@ -83,6 +83,7 @@ static void update(void* pdata, void* sdata)
 	}
 }
 
+#ifdef DEBUG
 #include <drw/drw.h>
 
 static void draw_debug(VParticlePlugin* plug, void* idk)
@@ -97,17 +98,19 @@ static void draw_debug(VParticlePlugin* plug, void* idk)
 
 	//drw_push();
 
-	drw_type_draw(buf);
+	//drw_type_draw(buf);
 	free(buf);
 }
+#endif
 
 VParticlePlugin* vbl_particleplugin_wind_create(VPPSWindInfo* info)
 {
 	VParticlePlugin* plug = vbl_particleplugin_create();
 
-	plug->data       = info;
-	plug->update     = update;
+	plug->data   = info;
+	plug->update = update;
+#ifdef DEBUG
 	plug->draw_debug = draw_debug;
-
+#endif
 	return plug;
 }

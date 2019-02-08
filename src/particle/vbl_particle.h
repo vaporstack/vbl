@@ -17,6 +17,7 @@ typedef struct VParticle
 	double ax, ay, az;
 	double vx, vy, vz;
 	double mass;
+	double birth;
 } VParticle;
 
 VParticle* vbl_particle_create(void);

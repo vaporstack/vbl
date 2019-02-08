@@ -69,6 +69,8 @@
 		577F56C521533C4C00C21917 /* vbl_hub.c in Sources */ = {isa = PBXBuildFile; fileRef = 577F56C321533C4C00C21917 /* vbl_hub.c */; };
 		5798A61B202AA3180009BFCA /* v_tracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5798A619202AA3180009BFCA /* v_tracer.h */; };
 		5798A61C202AA3180009BFCA /* v_tracer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5798A61A202AA3180009BFCA /* v_tracer.c */; };
+		57A2317E220E3B0C00E5B912 /* vbl_particleplugin_reaper.h in Headers */ = {isa = PBXBuildFile; fileRef = 57A2317C220E3B0C00E5B912 /* vbl_particleplugin_reaper.h */; };
+		57A2317F220E3B0C00E5B912 /* vbl_particleplugin_reaper.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A2317D220E3B0C00E5B912 /* vbl_particleplugin_reaper.c */; };
 		57AB357221BA181B008512ED /* vbl_particleplugin_spawner.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AB357021BA181B008512ED /* vbl_particleplugin_spawner.h */; };
 		57AB357321BA181B008512ED /* vbl_particleplugin_spawner.c in Sources */ = {isa = PBXBuildFile; fileRef = 57AB357121BA181B008512ED /* vbl_particleplugin_spawner.c */; };
 		57BB01D121FFC5F80067AFCF /* vbl_particleplugin_attractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */; };
@@ -180,6 +182,8 @@
 		577F56C321533C4C00C21917 /* vbl_hub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_hub.c; sourceTree = "<group>"; };
 		5798A619202AA3180009BFCA /* v_tracer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v_tracer.h; sourceTree = "<group>"; };
 		5798A61A202AA3180009BFCA /* v_tracer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_tracer.c; sourceTree = "<group>"; };
+		57A2317C220E3B0C00E5B912 /* vbl_particleplugin_reaper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_reaper.h; sourceTree = "<group>"; };
+		57A2317D220E3B0C00E5B912 /* vbl_particleplugin_reaper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_reaper.c; sourceTree = "<group>"; };
 		57AB357021BA181B008512ED /* vbl_particleplugin_spawner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_spawner.h; sourceTree = "<group>"; };
 		57AB357121BA181B008512ED /* vbl_particleplugin_spawner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_spawner.c; sourceTree = "<group>"; };
 		57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_attractor.h; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				5722FD0221ABA033002865A8 /* vbl_particleplugin_template.h */,
 				5722FCFB21ABA00C002865A8 /* vbl_particleplugin_wind.c */,
 				5722FCFA21ABA00C002865A8 /* vbl_particleplugin_wind.h */,
+				57A2317C220E3B0C00E5B912 /* vbl_particleplugin_reaper.h */,
+				57A2317D220E3B0C00E5B912 /* vbl_particleplugin_reaper.c */,
 				5722FCE421AB8C31002865A8 /* vbl_particleplugin.c */,
 				5722FCE121AB8C30002865A8 /* vbl_particleplugin.h */,
 				5722FD1C21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */,
@@ -556,6 +562,7 @@
 				5722FCED21AB8C31002865A8 /* vbl_particleplugin.h in Headers */,
 				577DD21220D3541400623919 /* vbl_vec_acc.h in Headers */,
 				D149F9261F3106B300647B3A /* v_unit.h in Headers */,
+				57A2317E220E3B0C00E5B912 /* vbl_particleplugin_reaper.h in Headers */,
 				5798A61B202AA3180009BFCA /* v_tracer.h in Headers */,
 				5722FCEC21AB8C31002865A8 /* vbl_particleplugin_bounds.h in Headers */,
 				5722FCF321AB8C31002865A8 /* vbl_particleplugin_gravity.h in Headers */,
@@ -638,6 +645,7 @@
 				571E861C220E05C40017F07C /* vbl_log.c in Sources */,
 				57465B7120FC06250005A319 /* vbl_scene.c in Sources */,
 				D133333E1EA6A421008284B1 /* v_seq.c in Sources */,
+				57A2317F220E3B0C00E5B912 /* vbl_particleplugin_reaper.c in Sources */,
 				573E63BD21C34999004CAA9C /* v_vec.c in Sources */,
 				571E8618220E057D0017F07C /* vbl_rng.c in Sources */,
 				D13333401EA6A421008284B1 /* v_track.c in Sources */,

@@ -25,7 +25,8 @@ typedef struct GravityRec
 
 static void apply_gravity(void* pdata, void* sdata)
 {
-	GravityRec*      grv = (GravityRec*)pdata;
+	VParticlePlugin* plug = pdata;
+	GravityRec*      grv = plug->data;
 	VParticleSystem* sys = (VParticleSystem*)sdata;
 	if ( !sys->data)
 		return;
@@ -49,13 +50,16 @@ static void draw_debug(void* pdata, void* sdata)
 	
 	drw_push();
 	//drw_translate(-.125, -.125, 0);
-	drw_axis_living();
+	//drw_axis_living();
+	drw_color(0,1,.5,1);
+	
 	drw_line_3f(0,0,0, info->x, info->y, info->z);
 	
 	drw_translate(info->x, info->y, info->z);
 
-	drw_type_draw("%.2f %.2f %.2f", info->x, info->y, info->z );
-	drw_axis();
+	//drw_type_draw("%.2f %.2f %.2f", info->x, info->y, info->z );
+	drw_color_pop();
+	//drw_axis();
 	drw_pop();
 	
 }

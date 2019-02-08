@@ -36,6 +36,7 @@ typedef struct VPPSBoundsInfo
 	unsigned int			   bounds_volume;
 	vbl_particle_plugin_fun		   adjust_func;
 	vbl_particle_plugin_constrain_func constrain_func;
+	double bounce_drag;
 	CPoint3				   pos;
 	CPoint3				   bnd;
 } VPPSBoundsInfo;

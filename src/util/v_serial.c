@@ -9,6 +9,7 @@
 #include "v_serial.h"
 
 #include <r4/r4.h>
+#include <vbl/src/core/vbl_log.h>
 #include <vbl/vbl.h>
 
 #ifndef RPLATFORM_IOS
@@ -405,15 +406,15 @@ void* vbl_read_file_as_bin(const char* path, long* len)
 		return NULL;
 	}
 	fseek(fileptr, 0, SEEK_END); // Jump to the end of the file
-	l = ftell(fileptr); // Get the current byte offset in the file
-	rewind(fileptr); // Jump back to the beginning of the file
+	l = ftell(fileptr);	  // Get the current byte offset in the file
+	rewind(fileptr);	     // Jump back to the beginning of the file
 
 	printf("%lu\n", *len);
 	long  sz  = (l + 1) * sizeof(char);
 	void* buf = malloc(sz); // Enough memory for file + \0
 	memset(buf, 0, sz);
 	fread(buf, l, 1, fileptr); // Read in the entire file
-	fclose(fileptr); // Close the file
+	fclose(fileptr);	   // Close the file
 	*len = l;
 	return 0;
 }

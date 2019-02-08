@@ -136,6 +136,8 @@ signed vbl_particlesystem_next(VParticleSystem* sys)
 	sys->pos++;
 	if (sys->pos == sys->max)
 		sys->pos = 0;
-
+	
+	free(sys->data[sys->pos]);
+	sys->data[sys->pos] = NULL;
 	return sys->pos;
 }

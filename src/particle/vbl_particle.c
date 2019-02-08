@@ -10,10 +10,12 @@
 
 #include <stdlib.h>
 
+#include <r4/src/core/r_time.h>
+
 VParticle* vbl_particle_create(void)
 {
 	VParticle* p = calloc(1, sizeof(VParticle));
-	
+	p->birth = r_time();
 	return p;
 }
 

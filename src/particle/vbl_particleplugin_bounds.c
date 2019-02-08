@@ -35,25 +35,76 @@ static int bounds_constrain_floor(void* data, void* pdata)
 	return false;
 }
 
+
 static int bounds_constrain_box(void* data, void* pdata)
 {
 	VParticle*       p    = pdata;
 	VParticlePlugin* plug = data;
 	VPPSBoundsInfo*  inf  = plug->data;
 	VParticle	old  = *p;
+	
+	bool crossed_x = false;
+	bool crossed_y = false;
+	bool crossed_z = false;
+	if (p->x < -inf->bnd.x || p->x >inf->bnd.x)
+	{
+		double v = inf->bnd.x;
+		if (p->x < 0)
+			v *= -1;
+		p->x = v;
 
-	if (p->x < -inf->bnd.x)
-		p->x = -inf->bnd.x;
-	if (p->x > inf->bnd.x)
-		p->x = inf->bnd.x;
-	if (p->y < -inf->bnd.y)
-		p->y = -inf->bnd.y;
-	if (p->y > inf->bnd.y)
-		p->y = inf->bnd.y;
-	if (p->z < -inf->bnd.z)
-		p->z = -inf->bnd.z;
-	if (p->z > inf->bnd.z)
-		p->z = inf->bnd.z;
+		crossed_x = true;
+	}
+	if (p->y < -inf->bnd.y || p->y >inf->bnd.y)
+	{
+		double v = inf->bnd.y;
+		if (p->y < 0)
+			v *= -1;
+		p->y = v;
+		
+		crossed_y = true;
+	}
+	
+	if (p->z < -inf->bnd.z || p->z >inf->bnd.z)
+	{
+		double v = inf->bnd.z;
+		if (p->z < 0)
+			v *= -1;
+		p->z = v;
+		
+		crossed_z = true;
+	}
+
+
+	switch (inf->bounds_behavior) {
+		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
+			
+			break;
+		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_BOUNCE:
+			if ( crossed_x)
+				p->vx *= -inf->bounce_drag;
+			if ( crossed_y)
+				p->vy *= -inf->bounce_drag;
+			if ( crossed_z)
+				p->vz *= -inf->bounce_drag;
+			break;
+		default:
+			break;
+	}
+
+
+	//if (p->x < -inf->bnd.x)
+	//	p->x = -inf->bnd.x;
+	//if (p->x > inf->bnd.x)
+	//	p->x = inf->bnd.x;
+//	if (p->y < -inf->bnd.y)
+//		p->y = -inf->bnd.y;
+//	if (p->y > inf->bnd.y)
+//		p->y = inf->bnd.y;
+//	if (p->z < -inf->bnd.z)
+//		p->z = -inf->bnd.z;
+//	if (p->z > inf->bnd.z)
+//		p->z = inf->bnd.z;
 
 	return (old.x != p->x || old.y != p->y || old.z != p->z);
 
@@ -105,8 +156,8 @@ static void update(void* plugd, void* sysd)
 		switch (info->bounds_behavior)
 		{
 		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
-			free(p);
-			sys->data[i] = NULL;
+			//free(p);
+			//sys->data[i] = NULL;
 			break;
 
 		default:
@@ -156,10 +207,13 @@ VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info)
 		break;
 	}
 
+	info->bounce_drag = .44;
 	//free(rec);
 	plug->data	= info;
 	plug->destroyself = destroy;
 	plug->update      = update;
-	plug->draw_debug  = draw_debug;
+#ifdef DEBUG
+	plug->draw_debug = draw_debug;
+#endif
 	return plug;
 }
