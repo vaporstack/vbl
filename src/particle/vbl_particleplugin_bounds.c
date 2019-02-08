@@ -26,18 +26,12 @@ static void bounds_adjust_reset(void* data, void* idk)
 
 static void bounds_adjust_bounce(void* data, void* idk)
 {
-	//if ( p->x < -)
-	
 }
+
 #include <stdbool.h>
 
 static int bounds_constrain_floor(void* data, void* pdata)
 {
-	VParticle*       p    = pdata;
-	VParticlePlugin* plug = data;
-	VPPSBoundsInfo*  inf  = plug->data;
-
-	
 	return false;
 }
 
@@ -46,10 +40,8 @@ static int bounds_constrain_box(void* data, void* pdata)
 	VParticle*       p    = pdata;
 	VParticlePlugin* plug = data;
 	VPPSBoundsInfo*  inf  = plug->data;
-	double px = p->x;
-	double py = p->y;
-	double pz = p->z;
-	
+	VParticle	old  = *p;
+
 	if (p->x < -inf->bnd.x)
 		p->x = -inf->bnd.x;
 	if (p->x > inf->bnd.x)
@@ -62,28 +54,11 @@ static int bounds_constrain_box(void* data, void* pdata)
 		p->z = -inf->bnd.z;
 	if (p->z > inf->bnd.z)
 		p->z = inf->bnd.z;
-	
-	
-//	switch (inf->bounds_behavior) {
-//		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
-//
-//			break;
-//
-//		default:
-//			break;
-//	}
-//	if ( inf->bounds_behavior == VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_BOUNCE )
-//	{
-//
-//	}
-//
-	return (px != p->x || py != p->y || pz != p->z );
+
+	return (old.x != p->x || old.y != p->y || old.z != p->z);
+
 	//printf("asdf\n");
 }
-
-
-//	todo remove this
-#include <drw/drw.h>
 
 static int bounds_constrain_sphere(void* data, void* pdata)
 {
@@ -95,19 +70,13 @@ static int bounds_constrain_sphere(void* data, void* pdata)
 
 static void draw_debug_box(VPPSBoundsInfo* info)
 {
-	double x = info->bnd.x;
-	double y = info->bnd.y;
-	double z = info->bnd.z;
-	drw_cube(info->bnd.x * 2);
-	//drw_line_3f(x,y,z, -x,y,z);
-	//drw_line_3f(x,-y,z, -x,-y,z);
-	
 }
 
 void draw_debug(VParticlePlugin* plug)
 {
 	VPPSBoundsInfo* info = plug->data;
-	draw_debug_box(info);
+	drw_cube(info->bnd.x * 2);
+
 	//drw_push();
 	//drw_translate(info->)
 }
@@ -116,7 +85,6 @@ void draw_debug(VParticlePlugin* plug)
 
 static void update(void* plugd, void* sysd)
 {
-	//printf("UPDATING\n");
 	VParticleSystem* sys  = sysd;
 	VParticlePlugin* plug = plugd;
 	VPPSBoundsInfo*  info = plug->data;
@@ -126,28 +94,26 @@ static void update(void* plugd, void* sysd)
 		VParticle* p = sys->data[i];
 		if (!p)
 			continue;
+
 		int violated = false;
 		if (info->constrain_func)
 			violated = info->constrain_func(plugd, p);
-		
-		if ( violated)
+
+		if (!violated)
+			continue;
+
+		switch (info->bounds_behavior)
 		{
-			
-		switch (info->bounds_behavior) {
-			case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
-				free(p);
-				sys->data[i] = NULL;
-				break;
-				
-			default:
-				break;
+		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
+			free(p);
+			sys->data[i] = NULL;
+			break;
+
+		default:
+			break;
 		}
-		
-		
-		}
-		//if (info->adjust_func)
-		//	if ( violated )
-		//		info->adjust_func(plugd, p);
+		//		if (info->adjust_func)
+		//			info->adjust_func(plugd, p);
 	}
 }
 
@@ -194,6 +160,6 @@ VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info)
 	plug->data	= info;
 	plug->destroyself = destroy;
 	plug->update      = update;
-	plug->draw_debug = draw_debug;
+	plug->draw_debug  = draw_debug;
 	return plug;
 }

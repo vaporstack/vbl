@@ -88,7 +88,7 @@ static void update(void* dplug, void* dsys)
 		}
 		
 		p = vbl_particle_create();
-		p->mass = r_rand_double(rng);
+		p->mass = r_rand_double(rng) * 50;
 		if ( p->mass == 0 )
 		{
 			p->mass = .00001;

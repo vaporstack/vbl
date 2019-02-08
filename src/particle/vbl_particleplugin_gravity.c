@@ -23,10 +23,10 @@ typedef struct GravityRec
 
 } GravityRec;
 
-static void apply_gravity(void* data, void* pdata)
+static void apply_gravity(void* pdata, void* sdata)
 {
 	GravityRec*      grv = (GravityRec*)pdata;
-	VParticleSystem* sys = (VParticleSystem*)data;
+	VParticleSystem* sys = (VParticleSystem*)sdata;
 	if ( !sys->data)
 		return;
 	for (unsigned int i = 0; i < sys->max; i++)
@@ -48,10 +48,16 @@ static void draw_debug(void* pdata, void* sdata)
 	GravityRec* info = plug->data;
 	
 	drw_push();
-	drw_translate(-.125, -.125, 0);
+	//drw_translate(-.125, -.125, 0);
+	drw_axis_living();
 	drw_line_3f(0,0,0, info->x, info->y, info->z);
 	
+	drw_translate(info->x, info->y, info->z);
+
+	drw_type_draw("%.2f %.2f %.2f", info->x, info->y, info->z );
+	drw_axis();
 	drw_pop();
+	
 }
 
 #endif
@@ -59,16 +65,16 @@ static void draw_debug(void* pdata, void* sdata)
 VParticlePlugin* vbl_particleplugin_gravity_create(double x, double y, double z)
 {
 
-	VParticlePlugin* rec = vbl_particleplugin_create();
-	rec->update	  = apply_gravity;
+	VParticlePlugin* plug = vbl_particleplugin_create();
+	plug->update	  = apply_gravity;
 	GravityRec* grv      = calloc(1, sizeof(GravityRec));
 	grv->x		     = x;
 	grv->y		     = y;
 	grv->z		     = z;
-	rec->data	    = grv;
+	plug->data	    = grv;
 #ifdef DEBUG
-	rec->draw_debug = draw_debug;
+	plug->draw_debug = draw_debug;
 #endif
 	
-	return rec;
+	return plug;
 }
