@@ -74,7 +74,7 @@ void vbl_deinit(void);
 
 /*
 
- enum VBLParticlePluginSpawnerFrequency
+ enum VBLParticlePluginEmitterFrequency
  {
  VBL_PARTICLEPLUGIN_EMITFREQ_FRAME,
  VBL_PARTICLEPLUGIN_EMITFREQ_TIME,

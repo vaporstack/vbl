@@ -116,6 +116,8 @@ RLine* v_primitives_generate_hex_facet(double size, double offset)
 
 #pragma mark placers
 
+#include <vbl/src/core/vbl_rng.h>
+
 RPoint3 v_primitives_random_point_on_sphere(double r)
 {
 	

@@ -1,12 +1,12 @@
 //
-//  vbl_particleplugin_spawner.c
+//  vbl_particleplugin_emitter.c
 //  vbl
 //
 //  Created by vs on 12/6/18.
 //  Copyright © 2018 vaporstack. All rights reserved.
 //
 
-#include "vbl_particleplugin_spawner.h"
+#include "vbl_particleplugin_emitter.h"
 
 #include <stdlib.h>
 
@@ -16,13 +16,34 @@
 
 #include <r4/r4.h>
 
+static void set_velocity(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p)
+{
+	VPPSEmitInfo* info = plug->data;
+	
+	switch (info->emit_dir) {
+		case VBL_PARTICLEPLUGIN_EMITDIR_NONE:
+			break;
+		case VBL_PARTICLEPLUGIN_EMITDIR_CONE:
+			break;
+			
+		case VBL_PARTICLEPLUGIN_EMITDIR_DIRECTIONAL:
+			p->ax += info->vx;
+			p->ay += info->vy;
+			p->az += info->vz;
+			break;
+			
+		default:
+			break;
+	}
+}
+
 static void place_point(VParticlePlugin* plug,VParticleSystem * sys, double* x, double *y, double* z)
 {
 	
 }
 static void place_box(VParticlePlugin* plug,VParticleSystem * sys, double* x, double *y, double* z)
 {
-	VPPSSpawnerInfo* info = plug->data;
+	VPPSEmitInfo* info = plug->data;
 
 	RRandom* rng = vbl_rng_get();
 	
@@ -31,34 +52,45 @@ static void place_box(VParticlePlugin* plug,VParticleSystem * sys, double* x, do
 	*z = info->oz + (info->bz * -.5 + r_rand_double(rng) * info->bz);
 }
 
+#include "../geo/v_primitives.h"
+
 static void place_sphere(VParticlePlugin* plug,VParticleSystem * sys, double* x, double *y, double* z)
 {
+	VPPSEmitInfo* info = plug->data;
+	double r = info->r * (1./10.);
+	RPoint3 p = v_primitives_random_point_on_sphere(r);
+	*x = p.x;
+	*y = p.y;
+	*z = p.z;
+	
+	//RPoint3 p = v_primitives_random_point_on_sphere(1);
+	//RPoint3 p = v_primitives_random_point_on_box(1,1,1);
 }
 
-static unsigned density_one(struct VPPSSpawnerInfo* info)
+static unsigned density_one(struct VPPSEmitInfo* info)
 {
 	return 1;
 }
 
-static unsigned density_fixed(struct VPPSSpawnerInfo* info)
+static unsigned density_fixed(struct VPPSEmitInfo* info)
 {
 	return info->density_n;
 }
 
-static bool check_frame(struct VPPSSpawnerInfo* info)
+static bool check_frame(struct VPPSEmitInfo* info)
 {
 	return true;
 }
 #include <r4/src/core/r_time.h>
 
-static bool check_time(struct VPPSSpawnerInfo* info)
+static bool check_time(struct VPPSEmitInfo* info)
 {
 	
 	double now = r_time();
 	double delta = now - info->last;
 	if ( delta > info->frequency)
 	{
-		printf("poop\n");
+		//printf("poop\n");
 		info->last = now;
 		return true;
 	}
@@ -72,7 +104,7 @@ static void update(void* dplug, void* dsys)
 	VParticlePlugin* plug = dplug;
 	VParticleSystem* sys = dsys;
 	
-	VPPSSpawnerInfo* info = plug->data;
+	VPPSEmitInfo* info = plug->data;
 	
 	if ( !info->check(info) )
 		return;
@@ -107,6 +139,8 @@ static void update(void* dplug, void* dsys)
 		}
 		
 		info->place(plug, sys, &p->x, &p->y, &p->z );
+		set_velocity(plug, sys, p);
+		
 		sys->data[id] = p;
 		
 		printf("Placed new particle at %.1f %.1f %.1f\n", p->x, p->y, p->z);
@@ -118,7 +152,7 @@ static void update(void* dplug, void* dsys)
 
 static void setup(VParticlePlugin* plug)
 {
-	VPPSSpawnerInfo* info = plug->data;
+	VPPSEmitInfo* info = plug->data;
 	
 	switch (info->spawn_type) {
 		case VBL_PARTICLEPLUGIN_EMITTYPE_POINT:
@@ -157,9 +191,9 @@ static void setup(VParticlePlugin* plug)
 	}
 }
 
-VPPSSpawnerInfo* vbl_particleplugin_spawnerinfo_create(void)
+VPPSEmitInfo* vbl_particleplugin_emitterinfo_create(void)
 {
-	VPPSSpawnerInfo* info = calloc(1, sizeof(VPPSSpawnerInfo));
+	VPPSEmitInfo* info = calloc(1, sizeof(VPPSEmitInfo));
 	info->spawn_density = VBL_PARTICLEPLUGIN_EMITDENSITY_ONE;
 	info->spawn_freq = VBL_PARTICLEPLUGIN_EMITFREQ_TIME;
 	info->spawn_type = VBL_PARTICLEPLUGIN_EMITTYPE_POINT;
@@ -168,7 +202,7 @@ VPPSSpawnerInfo* vbl_particleplugin_spawnerinfo_create(void)
 	return info;
 }
 
-VParticlePlugin* vbl_particleplugin_spawner_create(VPPSSpawnerInfo* info)
+VParticlePlugin* vbl_particleplugin_emitter_create(VPPSEmitInfo* info)
 {
 	VParticlePlugin* plug = vbl_particleplugin_create();
 	plug->data = info;
