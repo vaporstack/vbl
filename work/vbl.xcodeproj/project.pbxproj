@@ -80,6 +80,8 @@
 		57BC722E20802E0F0085C08D /* vbl.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BC722D20802E0E0085C08D /* vbl.c */; };
 		57DF2DFF218904DA00EAAEDD /* vbl_arc.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DF2DFD218904DA00EAAEDD /* vbl_arc.h */; };
 		57DF2E00218904DA00EAAEDD /* vbl_arc.c in Sources */ = {isa = PBXBuildFile; fileRef = 57DF2DFE218904DA00EAAEDD /* vbl_arc.c */; };
+		57EA52AD221146E9000F34AD /* vbl_particleplugin_perturbator.h in Headers */ = {isa = PBXBuildFile; fileRef = 57EA52AB221146E9000F34AD /* vbl_particleplugin_perturbator.h */; };
+		57EA52AE221146E9000F34AD /* vbl_particleplugin_perturbator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57EA52AC221146E9000F34AD /* vbl_particleplugin_perturbator.c */; };
 		57F457852158529A002E551B /* vbl_perturbator.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F457832158529A002E551B /* vbl_perturbator.h */; };
 		57F457862158529A002E551B /* vbl_perturbator.c in Sources */ = {isa = PBXBuildFile; fileRef = 57F457842158529A002E551B /* vbl_perturbator.c */; };
 		57F4834621E1B077003C68AD /* vbl_cascade.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F4834421E1B077003C68AD /* vbl_cascade.h */; };
@@ -195,6 +197,8 @@
 		57BC722D20802E0E0085C08D /* vbl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vbl.c; path = ../vbl.c; sourceTree = "<group>"; };
 		57DF2DFD218904DA00EAAEDD /* vbl_arc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_arc.h; sourceTree = "<group>"; };
 		57DF2DFE218904DA00EAAEDD /* vbl_arc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_arc.c; sourceTree = "<group>"; };
+		57EA52AB221146E9000F34AD /* vbl_particleplugin_perturbator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_perturbator.h; sourceTree = "<group>"; };
+		57EA52AC221146E9000F34AD /* vbl_particleplugin_perturbator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_perturbator.c; sourceTree = "<group>"; };
 		57F457832158529A002E551B /* vbl_perturbator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_perturbator.h; sourceTree = "<group>"; };
 		57F457842158529A002E551B /* vbl_perturbator.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_perturbator.c; sourceTree = "<group>"; };
 		57F4834421E1B077003C68AD /* vbl_cascade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_cascade.h; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 				57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */,
 				5722FCE821AB8C31002865A8 /* vbl_particleplugin_bounds.c */,
 				5722FCE021AB8C30002865A8 /* vbl_particleplugin_bounds.h */,
+				57EA52AB221146E9000F34AD /* vbl_particleplugin_perturbator.h */,
+				57EA52AC221146E9000F34AD /* vbl_particleplugin_perturbator.c */,
 				57F51A80220E4D2700CC0526 /* vbl_particleplugin_emitter.c */,
 				57F51A81220E4D2700CC0526 /* vbl_particleplugin_emitter.h */,
 				5722FCE321AB8C31002865A8 /* vbl_particleplugin_gravity.c */,
@@ -552,6 +558,7 @@
 				D13333431EA6A421008284B1 /* v_bpm.h in Headers */,
 				5722FCF121AB8C31002865A8 /* vbl_particlesystem_mgr.h in Headers */,
 				5722FCFC21ABA00C002865A8 /* vbl_particleplugin_wind.h in Headers */,
+				57EA52AD221146E9000F34AD /* vbl_particleplugin_perturbator.h in Headers */,
 				57134D9820FFDFEF0005CCD3 /* vbl_hull.h in Headers */,
 				D13333411EA6A421008284B1 /* v_track.h in Headers */,
 				D133333F1EA6A421008284B1 /* v_seq.h in Headers */,
@@ -676,6 +683,7 @@
 				57134D9620FFDFEF0005CCD3 /* vbl_cork.c in Sources */,
 				57DF2E00218904DA00EAAEDD /* vbl_arc.c in Sources */,
 				5722715420460C3C00DABEA3 /* v_objseq.c in Sources */,
+				57EA52AE221146E9000F34AD /* vbl_particleplugin_perturbator.c in Sources */,
 				5722FD1E21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */,
 				57526C4A217AB744004D5318 /* vbl_input_logger.c in Sources */,
 				499891911F3A3170006FFCA6 /* v_stepseq.c in Sources */,

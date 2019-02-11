@@ -49,5 +49,6 @@ typedef struct VPPSBoundsInfo
 //}VPPSBoundsFRec;
 
 VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info);
+VParticlePlugin* vbl_particleplugin_bounds_createdefault(VPPSBoundsInfo* info, double x, double y, double z);
 
 #endif /* vbl_particleplugin_bounds_h */
