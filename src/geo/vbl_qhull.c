@@ -1132,11 +1132,7 @@ RQHull* vbl_qhull_create_randsphere(int num_points)
 	for (int i = 0; i < tn; i += 3)
 	{
 		RPoint3 p;
-		v_primitives_random_point_on_box(1,1,1, &p.x, &p.y, &p.z);
-		//RPoint3 p = v_primitives_random_point_on_sphere(1);
-		//RPoint3 p = v_primitives_random_point_on_box(1,1,1);
-
-		//RPoint3 p     = v_primitives_random_point_in_sphere(.5);
+		v_primitives_random_point_on_box_oldschool(1,1,1, &p.x, &p.y, &p.z);
 		points[i + 0] = p.x;
 		points[i + 1] = (p.y);
 		points[i + 2] = p.z;

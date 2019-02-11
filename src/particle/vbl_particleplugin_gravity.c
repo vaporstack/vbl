@@ -16,12 +16,12 @@
 #include <drw/drw.h>
 
 #endif
-
-typedef struct GravityRec
-{
-	double x, y, z;
-
-} GravityRec;
+//
+//typedef struct GravityRec
+//{
+//	double x, y, z;
+//
+//} GravityRec;
 
 static void apply_gravity(void* pdata, void* sdata)
 {
@@ -66,19 +66,34 @@ static void draw_debug(void* pdata, void* sdata)
 
 #endif
 
-VParticlePlugin* vbl_particleplugin_gravity_create(double x, double y, double z)
+//	the create family of particle plugins assumes you're customizing things
+//	yourself
+VParticlePlugin* vbl_particleplugin_gravity_create(GravityRec* info)
 {
-
 	VParticlePlugin* plug = vbl_particleplugin_create();
-	plug->update	  = apply_gravity;
-	GravityRec* grv      = calloc(1, sizeof(GravityRec));
-	grv->x		     = x;
-	grv->y		     = y;
-	grv->z		     = z;
-	plug->data	    = grv;
+	plug->update = apply_gravity;
+	plug->data = info;
 #ifdef DEBUG
 	plug->draw_debug = draw_debug;
 #endif
 	
+	return plug;
+}
+
+//	the createdefault family assumes you don't care about the details
+//	and just want to supply soem default values.
+VParticlePlugin* vbl_particleplugin_gravity_createdefault(double x, double y, double z)
+{
+	GravityRec* grv      = calloc(1, sizeof(GravityRec));
+	grv->x		     = x;
+	grv->y		     = y;
+	grv->z		     = z;
+	VParticlePlugin* plug = vbl_particleplugin_gravity_create(grv);
+	
+	//VParticlePlugin* plug = vbl_particleplugin_create();
+	//plug->update	  = apply_gravity;
+	
+	//plug->data	    = grv;
+
 	return plug;
 }

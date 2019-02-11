@@ -25,9 +25,12 @@ static VPPSAttractor* attractor_create(CPoint3 p, double s)
 }
 
 #define TMP_SPEED .01
+
 static void apply(VPPSAttractor* attr, VParticle* p)
 {
-
+	//	todo: only have attractors work based on distance
+	//	not doing this *at all* now
+	
 	vec3_t a = vec3_create(NULL);
 	vec3_t b = vec3_create(NULL);
 	a[0]     = p->x;
@@ -44,11 +47,11 @@ static void apply(VPPSAttractor* attr, VParticle* p)
 	vec3_t nrm = vec3_normalize(dir, NULL);
 	nrm	= vec3_multiply(nrm, constant, NULL);
 	
-	free(constant);
 	p->ax += nrm[0] * (1. / p->mass);
 	p->ay += nrm[1] * (1. / p->mass);
 	p->az += nrm[2] * (1. / p->mass);
 
+	free(constant);
 	free(a);
 	free(b);
 	//	double dx = p->x - attr->loc.x;

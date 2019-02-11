@@ -23,5 +23,6 @@ typedef struct VPPSWindInfo
 } VPPSWindInfo;
 
 VParticlePlugin* vbl_particleplugin_wind_create(VPPSWindInfo* info);
+VParticlePlugin* vbl_particleplugin_wind_createdefault(int varying, double vx, double vy, double vz);
 
 #endif /* vbl_particleplugin_wind_h */

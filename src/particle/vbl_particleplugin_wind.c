@@ -103,6 +103,17 @@ static void draw_debug(VParticlePlugin* plug, void* idk)
 }
 #endif
 
+VParticlePlugin* vbl_particleplugin_wind_createdefault(int varying, double vx, double vy, double vz)
+{
+	VPPSWindInfo* winfo = calloc(1, sizeof(VPPSWindInfo));
+	winfo->variance     = true;
+	winfo->vspeed       = 1 - .00000001;
+	winfo->vmx = winfo->vmy = winfo->vmz = .0001;
+	VParticlePlugin* wind = vbl_particleplugin_wind_create(winfo);
+	return wind;
+	//vbl_particlesystem_mgr_plugin_subplugin_register(particle_mgr, wind);
+}
+
 VParticlePlugin* vbl_particleplugin_wind_create(VPPSWindInfo* info)
 {
 	VParticlePlugin* plug = vbl_particleplugin_create();

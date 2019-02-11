@@ -18,5 +18,6 @@ typedef struct VPPSReaperInfo
 
 VPPSReaperInfo* vbl_particleplugin_reaperinfo_create(void);
 VParticlePlugin* vbl_particleplugin_reaper_create(VPPSReaperInfo* info);
+VParticlePlugin* vbl_particleplugin_reaper_createdefault(double lifespan);
 
 #endif /* vbl_particleplugin_reaper_h */

@@ -57,3 +57,13 @@ VParticlePlugin* vbl_particleplugin_reaper_create(VPPSReaperInfo* info)
 	
 	return plug;
 }
+
+VParticlePlugin* vbl_particleplugin_reaper_createdefault(double lifespan)
+{
+	VPPSReaperInfo* info = vbl_particleplugin_reaperinfo_create();
+	info->lifespan = lifespan;
+	VParticlePlugin* reaper =  vbl_particleplugin_reaper_create(info);
+	//vbl_particlesystem_mgr_plugin_subplugin_register(particle_mgr, reaper);
+	
+	return reaper;
+}
