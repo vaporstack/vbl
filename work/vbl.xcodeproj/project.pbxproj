@@ -63,6 +63,8 @@
 		576D6E5B20F8454A00A87D72 /* v_trigger.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6E5920F8454A00A87D72 /* v_trigger.c */; };
 		5773B7C520E818EA0073669B /* v_primitives.h in Headers */ = {isa = PBXBuildFile; fileRef = 5773B7C320E818E90073669B /* v_primitives.h */; };
 		5773B7C620E818EA0073669B /* v_primitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 5773B7C420E818E90073669B /* v_primitives.c */; };
+		5773EB232212699400FDDB5D /* vbl_particleplugin_windresistance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5773EB212212699400FDDB5D /* vbl_particleplugin_windresistance.h */; };
+		5773EB242212699400FDDB5D /* vbl_particleplugin_windresistance.c in Sources */ = {isa = PBXBuildFile; fileRef = 5773EB222212699400FDDB5D /* vbl_particleplugin_windresistance.c */; };
 		577DD21220D3541400623919 /* vbl_vec_acc.h in Headers */ = {isa = PBXBuildFile; fileRef = 577DD21020D3541400623919 /* vbl_vec_acc.h */; };
 		577DD21320D3541400623919 /* vbl_vec_acc.c in Sources */ = {isa = PBXBuildFile; fileRef = 577DD21120D3541400623919 /* vbl_vec_acc.c */; };
 		577F56C421533C4C00C21917 /* vbl_hub.h in Headers */ = {isa = PBXBuildFile; fileRef = 577F56C221533C4C00C21917 /* vbl_hub.h */; };
@@ -180,6 +182,8 @@
 		576D6E5920F8454A00A87D72 /* v_trigger.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_trigger.c; sourceTree = "<group>"; };
 		5773B7C320E818E90073669B /* v_primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_primitives.h; sourceTree = "<group>"; };
 		5773B7C420E818E90073669B /* v_primitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_primitives.c; sourceTree = "<group>"; };
+		5773EB212212699400FDDB5D /* vbl_particleplugin_windresistance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_windresistance.h; sourceTree = "<group>"; };
+		5773EB222212699400FDDB5D /* vbl_particleplugin_windresistance.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_windresistance.c; sourceTree = "<group>"; };
 		577DD21020D3541400623919 /* vbl_vec_acc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_vec_acc.h; sourceTree = "<group>"; };
 		577DD21120D3541400623919 /* vbl_vec_acc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_vec_acc.c; sourceTree = "<group>"; };
 		577F56C221533C4C00C21917 /* vbl_hub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_hub.h; sourceTree = "<group>"; };
@@ -277,18 +281,20 @@
 				57BB01CF21FFC5F80067AFCF /* vbl_particleplugin_attractor.h */,
 				5722FCE821AB8C31002865A8 /* vbl_particleplugin_bounds.c */,
 				5722FCE021AB8C30002865A8 /* vbl_particleplugin_bounds.h */,
-				57EA52AB221146E9000F34AD /* vbl_particleplugin_perturbator.h */,
-				57EA52AC221146E9000F34AD /* vbl_particleplugin_perturbator.c */,
 				57F51A80220E4D2700CC0526 /* vbl_particleplugin_emitter.c */,
 				57F51A81220E4D2700CC0526 /* vbl_particleplugin_emitter.h */,
 				5722FCE321AB8C31002865A8 /* vbl_particleplugin_gravity.c */,
 				5722FCE721AB8C31002865A8 /* vbl_particleplugin_gravity.h */,
+				57EA52AC221146E9000F34AD /* vbl_particleplugin_perturbator.c */,
+				57EA52AB221146E9000F34AD /* vbl_particleplugin_perturbator.h */,
 				57A2317D220E3B0C00E5B912 /* vbl_particleplugin_reaper.c */,
 				57A2317C220E3B0C00E5B912 /* vbl_particleplugin_reaper.h */,
 				5722FD0321ABA033002865A8 /* vbl_particleplugin_template.c */,
 				5722FD0221ABA033002865A8 /* vbl_particleplugin_template.h */,
 				5722FCFB21ABA00C002865A8 /* vbl_particleplugin_wind.c */,
 				5722FCFA21ABA00C002865A8 /* vbl_particleplugin_wind.h */,
+				5773EB222212699400FDDB5D /* vbl_particleplugin_windresistance.c */,
+				5773EB212212699400FDDB5D /* vbl_particleplugin_windresistance.h */,
 				5722FCE421AB8C31002865A8 /* vbl_particleplugin.c */,
 				5722FCE121AB8C30002865A8 /* vbl_particleplugin.h */,
 				5722FD1C21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */,
@@ -552,6 +558,7 @@
 				573F045B1F983A3A00B7128B /* v_lsystem.h in Headers */,
 				5722FD1921AF9BF2002865A8 /* vbl_particlesystem_mgr_plugin.h in Headers */,
 				D117985B1F9161A900D9C4E9 /* v_tesselate.h in Headers */,
+				5773EB232212699400FDDB5D /* vbl_particleplugin_windresistance.h in Headers */,
 				D154FF3A1FC3AB5B00AE014F /* v_behave.h in Headers */,
 				5710BC922166E3B700DDB80D /* v_bank.h in Headers */,
 				5722FD1D21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.h in Headers */,
@@ -663,6 +670,7 @@
 				573E63BD21C34999004CAA9C /* v_vec.c in Sources */,
 				571E8618220E057D0017F07C /* vbl_rng.c in Sources */,
 				D13333401EA6A421008284B1 /* v_track.c in Sources */,
+				5773EB242212699400FDDB5D /* vbl_particleplugin_windresistance.c in Sources */,
 				D117985A1F9161A900D9C4E9 /* v_tesselate.c in Sources */,
 				D13333761EA6B528008284B1 /* v_slide.c in Sources */,
 				57BC722420802B0C0085C08D /* v_assimp.c in Sources */,
