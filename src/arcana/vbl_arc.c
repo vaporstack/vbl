@@ -89,7 +89,7 @@ void vbl_arc_draw_fill(VblArc* arc)
 	drw_depth_enable();
 	//drw_color_bg_set(<#double r#>, <#double g#>, <#double b#>, <#double a#>)
 	//drw_color_bg();
-	drw_tristrip_3d(arr, l->num, 0);
+	drw_tristrip_3d(arr, l->num);
 	//drw_color_pop();
 	drw_depth_disable();
 	free(arr);

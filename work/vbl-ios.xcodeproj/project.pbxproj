@@ -54,6 +54,8 @@
 		5722FEBD21B0C986002865A8 /* vbl_pad.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8A21B0C986002865A8 /* vbl_pad.c */; };
 		5722FEBE21B0C986002865A8 /* vbl_input_logger.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8D21B0C986002865A8 /* vbl_input_logger.c */; };
 		5722FEBF21B0C986002865A8 /* v_bank.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FE8F21B0C986002865A8 /* v_bank.c */; };
+		57657855221369FD000EB114 /* vbl_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57657851221369FD000EB114 /* vbl_log.c */; };
+		57657856221369FD000EB114 /* vbl_rng.c in Sources */ = {isa = PBXBuildFile; fileRef = 57657852221369FD000EB114 /* vbl_rng.c */; };
 		57917D682108D67800C49F7F /* vbl.c in Sources */ = {isa = PBXBuildFile; fileRef = 57917D672108D67700C49F7F /* vbl.c */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +169,10 @@
 		5722FE8D21B0C986002865A8 /* vbl_input_logger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_input_logger.c; sourceTree = "<group>"; };
 		5722FE8E21B0C986002865A8 /* vbl_pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_pad.h; sourceTree = "<group>"; };
 		5722FE8F21B0C986002865A8 /* v_bank.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_bank.c; sourceTree = "<group>"; };
+		57657851221369FD000EB114 /* vbl_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_log.c; sourceTree = "<group>"; };
+		57657852221369FD000EB114 /* vbl_rng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_rng.c; sourceTree = "<group>"; };
+		57657853221369FD000EB114 /* vbl_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_log.h; sourceTree = "<group>"; };
+		57657854221369FD000EB114 /* vbl_rng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_rng.h; sourceTree = "<group>"; };
 		57917D672108D67700C49F7F /* vbl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vbl.c; path = ../vbl.c; sourceTree = "<group>"; };
 		D1786EBF1FD5C07E00CAC713 /* vbl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vbl.h; path = ../vbl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +265,10 @@
 		5722FE3121B0C986002865A8 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				57657851221369FD000EB114 /* vbl_log.c */,
+				57657853221369FD000EB114 /* vbl_log.h */,
+				57657852221369FD000EB114 /* vbl_rng.c */,
+				57657854221369FD000EB114 /* vbl_rng.h */,
 				5722FE3221B0C986002865A8 /* vbl_hub.h */,
 				5722FE3321B0C986002865A8 /* vbl_hub.c */,
 			);
@@ -498,6 +508,7 @@
 				5722FEA321B0C986002865A8 /* vbl_qhull.c in Sources */,
 				5722FEB521B0C986002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */,
 				5722FEA021B0C986002865A8 /* v_channel.c in Sources */,
+				57657856221369FD000EB114 /* vbl_rng.c in Sources */,
 				5722FEAF21B0C986002865A8 /* vbl_arc.c in Sources */,
 				5722FE9A21B0C986002865A8 /* v_serial.c in Sources */,
 				5722FEB921B0C986002865A8 /* vbl_particlesystem.c in Sources */,
@@ -512,6 +523,7 @@
 				5722FEAE21B0C986002865A8 /* vbl_tracers.c in Sources */,
 				5722FEA821B0C986002865A8 /* vbl_cork.c in Sources */,
 				5722FE9221B0C986002865A8 /* v_behave.c in Sources */,
+				57657855221369FD000EB114 /* vbl_log.c in Sources */,
 				5722FEA921B0C986002865A8 /* vbl_hull.c in Sources */,
 				5722FEA521B0C986002865A8 /* v_objseq.c in Sources */,
 				5722FE9521B0C986002865A8 /* v_bpm.c in Sources */,
