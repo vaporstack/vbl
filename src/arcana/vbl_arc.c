@@ -67,17 +67,17 @@ void vbl_arc_draw(VblArc* arc)
 
 void vbl_arc_draw_fill(VblArc* arc)
 {
-	RLine*  l   = arc->data;
-	unsigned long     num = l->num * 3 * 2;
-	double* arr = calloc(num, sizeof(double));
+	RLine*	l   = arc->data;
+	unsigned long num = l->num * 3 * 2;
+	double*       arr = calloc(num, sizeof(double));
 
 	double a = arc->height * .5;
 	double b = arc->height * -.5;
-	for (int i = 0, j =0; i < l->num; i++, j+=6)
+	for (int i = 0, j = 0; i < l->num; i++, j += 6)
 	{
-		RPoint p   = l->data[i];
-		double x   = p.x;
-		double y   = p.y;
+		RPoint p = l->data[i];
+		double x = p.x;
+		double y = p.y;
 		//double z   = a;
 		arr[0 + j] = x;
 		arr[1 + j] = y;
