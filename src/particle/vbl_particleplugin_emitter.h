@@ -14,13 +14,7 @@
 
 typedef void (*generic_void_pointer)(void);
 
-enum VBLParticlePluginEmitterVolumeType
-{
-	VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_WITHIN,
-	VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_SURFACE,
-	VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_OUTSIDE,
-	VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_NONE
-};
+
 
 enum VBLParticlePluginEmitterType
 {
@@ -90,5 +84,7 @@ VPPSEmitInfo*    vbl_particleplugin_emitterinfo_create(void);
 VParticlePlugin* vbl_particleplugin_emitter_create(VPPSEmitInfo* info);
 void		 vbl_particleplugin_emitter_add_trigger(VParticlePlugin* plug, generic_void_pointer trigger);
 void		 vbl_particleplugin_emitter_emit(VParticlePlugin* plug, void* sys);
-
+VParticlePlugin* vbl_particleplugin_emitter_create_point(void);
+VParticlePlugin* vbl_particleplugin_emitter_create_box(double x, double y, double z);
+void		vbl_particleplugin_emitter_reset(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p);
 #endif /* vbl_particleplugin_emitter_h */

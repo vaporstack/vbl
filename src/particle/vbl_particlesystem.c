@@ -10,6 +10,7 @@
 #include "vbl_particleplugin.h"
 
 #include "vbl_particleplugin_bounds.h"
+#include "vbl_particleplugin_emitter.h"
 #include "vbl_particleplugin_gravity.h"
 #include <stdlib.h>
 
@@ -103,6 +104,8 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 	}
 }
 
+#include "../core/vbl_log.h"
+
 void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 {
 	sys->num_plugins++;
@@ -115,6 +118,16 @@ void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 		sys->plugins = realloc(sys->plugins, sizeof(VParticlePlugin) * sys->num_plugins);
 	}
 	sys->plugins[sys->num_plugins - 1] = plug;
+	
+	//	sneak a copy of the emitter for ourselves! we'll need it later. lol
+	//VPPSEmitInfo* info = (VPPSEmitInfo*)plug->data;
+	if ( plug->type == VBL_PARTICLEPLUGIN_TYPE_EMITTER )
+	{
+		//	it worked! yoink
+		vbl_log("yoink!");
+		sys->emitter = plug;
+	}
+
 }
 
 signed vbl_particlesystem_next_available(VParticleSystem* sys)

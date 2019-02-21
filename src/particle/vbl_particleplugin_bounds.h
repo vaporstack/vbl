@@ -34,11 +34,12 @@ typedef struct VPPSBoundsInfo
 	unsigned int			   bounds_type;
 	unsigned int			   bounds_behavior;
 	unsigned int			   bounds_volume;
-	vbl_particle_plugin_fun		   adjust_func;
+	vbl_particle_plugin_single_fun	   adjust_func;
 	vbl_particle_plugin_constrain_func constrain_func;
 	double bounce_drag;
 	CPoint3				   pos;
 	CPoint3				   bnd;
+	double radius;
 } VPPSBoundsInfo;
 
 //
@@ -48,6 +49,7 @@ typedef struct VPPSBoundsInfo
 //	vbl_particle_plugin_fun constrain_func;
 //}VPPSBoundsFRec;
 
+VPPSBoundsInfo* vbl_particleplugin_boundsinfo_create(void);
 VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info);
 VParticlePlugin* vbl_particleplugin_bounds_createdefault(VPPSBoundsInfo* info, double x, double y, double z);
 

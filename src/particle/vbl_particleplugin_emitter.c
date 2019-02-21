@@ -23,6 +23,7 @@ static void set_velocity(VParticlePlugin* plug, VParticleSystem* sys, VParticle*
 	switch (info->emit_dir)
 	{
 	case VBL_PARTICLEPLUGIN_EMITDIR_NONE:
+		p->vx = p->vy = p->vz = 0;
 		break;
 	case VBL_PARTICLEPLUGIN_EMITDIR_CONE:
 		break;
@@ -40,7 +41,12 @@ static void set_velocity(VParticlePlugin* plug, VParticleSystem* sys, VParticle*
 
 static void place_point(VParticlePlugin* plug, VParticleSystem* sys, double* x, double* y, double* z)
 {
+	VPPSEmitInfo* info = plug->data;
+	*x = info->ox;
+	*y = info->oy;
+	*z = info->oz;
 }
+
 static void place_box(VParticlePlugin* plug, VParticleSystem* sys, double* x, double* y, double* z)
 {
 	VPPSEmitInfo* info = plug->data;
@@ -49,10 +55,10 @@ static void place_box(VParticlePlugin* plug, VParticleSystem* sys, double* x, do
 	RPoint3 p;
 	
 	switch (info->spawn_volume) {
-		case VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_WITHIN:
+		case VBL_PARTICLE_VOLUMETYPE_WITHIN:
 			p = v_primitives_random_point_in_box(info->bx, info->by, info->bz);
 			break;
-		case VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_SURFACE:
+		case VBL_PARTICLE_VOLUMETYPE_SURFACE:
 			p = v_primitives_random_point_on_box(info->bx, info->by, info->bz);
 			break;
 			
@@ -74,10 +80,10 @@ static void place_sphere(VParticlePlugin* plug, VParticleSystem* sys, double* x,
 	RPoint3 p;
 	
 	switch (info->spawn_volume) {
-		case VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_WITHIN:
+		case VBL_PARTICLE_VOLUMETYPE_WITHIN:
 			p = v_primitives_random_point_in_sphere(r);
 			break;
-		case VBL_PARTICLEPLUGIN_EMITVOLUMETYPE_SURFACE:
+		case VBL_PARTICLE_VOLUMETYPE_SURFACE:
 			p = v_primitives_random_point_on_sphere(r);
 			break;
 		default:
@@ -128,6 +134,16 @@ static bool check_time(struct VPPSEmitInfo* info)
 }
 
 #include "../core/vbl_rng.h"
+
+
+void		vbl_particleplugin_emitter_reset(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p)
+{
+	VPPSEmitInfo* info = plug->data;
+	info->place(plug, sys, &p->x, &p->y, &p->z);
+	set_velocity(plug, sys, p);
+
+}
+
 
 static void update(void* dplug, void* dsys)
 {
@@ -235,9 +251,30 @@ VPPSEmitInfo* vbl_particleplugin_emitterinfo_create(void)
 VParticlePlugin* vbl_particleplugin_emitter_create(VPPSEmitInfo* info)
 {
 	VParticlePlugin* plug = vbl_particleplugin_create();
+	plug->type = VBL_PARTICLEPLUGIN_TYPE_EMITTER;
 	plug->data	    = info;
 	plug->update	  = update;
 	setup(plug);
 
 	return plug;
+}
+
+VParticlePlugin* vbl_particleplugin_emitter_create_point(void)
+{
+	VPPSEmitInfo* info = vbl_particleplugin_emitterinfo_create();
+	info->spawn_density = VBL_PARTICLEPLUGIN_EMITDENSITY_ONE;
+	info->spawn_freq = VBL_PARTICLEPLUGIN_EMITFREQ_FRAME;
+	info->spawn_type = VBL_PARTICLEPLUGIN_EMITTYPE_POINT;
+	//info->density = 1;
+	//info->place = place_point;
+	
+	VParticlePlugin* plug = vbl_particleplugin_emitter_create(info);
+	setup(plug);
+	return plug;
+}
+
+VParticlePlugin* vbl_particleplugin_emitter_create_box(double x, double y, double z)
+{
+	//that should get  our attention later
+	return NULL;
 }

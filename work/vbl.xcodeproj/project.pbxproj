@@ -49,6 +49,8 @@
 		5722FD1E21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FD1C21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */; };
 		5727DDFE21571F8100ED2616 /* vbl_lissajous.h in Headers */ = {isa = PBXBuildFile; fileRef = 5727DDFC21571F8100ED2616 /* vbl_lissajous.h */; };
 		5727DDFF21571F8100ED2616 /* vbl_lissajous.c in Sources */ = {isa = PBXBuildFile; fileRef = 5727DDFD21571F8100ED2616 /* vbl_lissajous.c */; };
+		573B5C35221F0C5B0011A25C /* vbl_branch.h in Headers */ = {isa = PBXBuildFile; fileRef = 573B5C33221F0C5B0011A25C /* vbl_branch.h */; };
+		573B5C36221F0C5B0011A25C /* vbl_branch.c in Sources */ = {isa = PBXBuildFile; fileRef = 573B5C34221F0C5B0011A25C /* vbl_branch.c */; };
 		573E63BC21C34999004CAA9C /* v_vec.h in Headers */ = {isa = PBXBuildFile; fileRef = 573E63BA21C34999004CAA9C /* v_vec.h */; };
 		573E63BD21C34999004CAA9C /* v_vec.c in Sources */ = {isa = PBXBuildFile; fileRef = 573E63BB21C34999004CAA9C /* v_vec.c */; };
 		573F045B1F983A3A00B7128B /* v_lsystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 573F04591F983A3A00B7128B /* v_lsystem.h */; };
@@ -164,6 +166,8 @@
 		5722FD1C21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vbl_particlesystem_mgr_plugin_autokill.c; sourceTree = "<group>"; };
 		5727DDFC21571F8100ED2616 /* vbl_lissajous.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_lissajous.h; sourceTree = "<group>"; };
 		5727DDFD21571F8100ED2616 /* vbl_lissajous.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_lissajous.c; sourceTree = "<group>"; };
+		573B5C33221F0C5B0011A25C /* vbl_branch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_branch.h; sourceTree = "<group>"; };
+		573B5C34221F0C5B0011A25C /* vbl_branch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_branch.c; sourceTree = "<group>"; };
 		573E63BA21C34999004CAA9C /* v_vec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v_vec.h; sourceTree = "<group>"; };
 		573E63BB21C34999004CAA9C /* v_vec.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_vec.c; sourceTree = "<group>"; };
 		573F04591F983A3A00B7128B /* v_lsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_lsystem.h; sourceTree = "<group>"; };
@@ -330,14 +334,16 @@
 		577DD20F20D3540000623919 /* arcana */ = {
 			isa = PBXGroup;
 			children = (
+				57DF2DFE218904DA00EAAEDD /* vbl_arc.c */,
+				57DF2DFD218904DA00EAAEDD /* vbl_arc.h */,
+				573B5C34221F0C5B0011A25C /* vbl_branch.c */,
+				573B5C33221F0C5B0011A25C /* vbl_branch.h */,
 				574E6B2320EAB01900407D36 /* vbl_hand.c */,
 				574E6B2220EAB01900407D36 /* vbl_hand.h */,
-				57DF2DFD218904DA00EAAEDD /* vbl_arc.h */,
-				57DF2DFE218904DA00EAAEDD /* vbl_arc.c */,
 				5727DDFD21571F8100ED2616 /* vbl_lissajous.c */,
 				5727DDFC21571F8100ED2616 /* vbl_lissajous.h */,
-				570E8CAF21990DC50093792A /* vbl_tracers.h */,
 				570E8CB021990DC50093792A /* vbl_tracers.c */,
+				570E8CAF21990DC50093792A /* vbl_tracers.h */,
 				577DD21120D3541400623919 /* vbl_vec_acc.c */,
 				577DD21020D3541400623919 /* vbl_vec_acc.h */,
 			);
@@ -570,6 +576,7 @@
 				D13333411EA6A421008284B1 /* v_track.h in Headers */,
 				D133333F1EA6A421008284B1 /* v_seq.h in Headers */,
 				D12A13951EABE57900336896 /* v_serial.h in Headers */,
+				573B5C35221F0C5B0011A25C /* vbl_branch.h in Headers */,
 				57F457852158529A002E551B /* vbl_perturbator.h in Headers */,
 				D11798591F9161A900D9C4E9 /* v_extrude.h in Headers */,
 				574E6B2420EAB01900407D36 /* vbl_hand.h in Headers */,
@@ -700,6 +707,7 @@
 				5710BC972166E3EE00DDB80D /* vbl_pad.c in Sources */,
 				576D6E5B20F8454A00A87D72 /* v_trigger.c in Sources */,
 				5722FCF021AB8C31002865A8 /* vbl_particleplugin.c in Sources */,
+				573B5C36221F0C5B0011A25C /* vbl_branch.c in Sources */,
 				D149F9251F3106B300647B3A /* v_unit.c in Sources */,
 				D133333C1EA6A421008284B1 /* v_mark.c in Sources */,
 				5722FCEB21AB8C31002865A8 /* vbl_particlesystem.c in Sources */,

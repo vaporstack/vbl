@@ -25,6 +25,7 @@ typedef struct VParticleSystem
 	void**       plugins;
 	unsigned int num_plugins;
 	unsigned int pos;
+	VParticlePlugin * emitter;
 #ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 #ifdef DEBUG
 	vbl_particlesystem_draw_fun draw_debug;

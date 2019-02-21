@@ -12,7 +12,9 @@
 #include "vbl_particle.h"
 #include "vbl_particlesystem.h"
 #include <stdlib.h>
+#include "../core/vbl_log.h"
 
+#include "vbl_particleplugin_emitter.h"
 static void destroy(void* idk1, void* idk2)
 {
 }
@@ -21,8 +23,20 @@ static void bounds_adjust_kill(void* data, void* idk)
 {
 }
 
-static void bounds_adjust_reset(void* data, void* idk)
+static void bounds_adjust_reset(void* plugdata, void* sysdata, void* pdata)
 {
+	VParticleSystem* sys = sysdata;
+	VParticle* p = pdata;
+	
+	VParticlePlugin* emitter = sys->emitter;
+	if ( !emitter )
+	{
+		vbl_log("Nothing we can do here.");
+		return;
+	}
+
+	vbl_particleplugin_emitter_reset(emitter, sys, p);
+
 }
 
 static void bounds_adjust_bounce(void* data, void* idk)
@@ -36,6 +50,13 @@ static int bounds_constrain_floor(void* data, void* pdata)
 	return false;
 }
 
+
+VPPSBoundsInfo* vbl_particleplugin_boundsinfo_create(void)
+{
+	VPPSBoundsInfo* info = calloc(1, sizeof(VPPSBoundsInfo));
+	
+	return info;
+}
 
 static int bounds_constrain_box(void* data, void* pdata)
 {
@@ -114,6 +135,43 @@ static int bounds_constrain_box(void* data, void* pdata)
 
 static int bounds_constrain_sphere(void* data, void* pdata)
 {
+	VParticlePlugin* plug = data;
+	VPPSBoundsInfo*  info  = plug->data;
+	VParticle* p = pdata;
+	vec3_t a = vec3_create(NULL);
+	vec3_t b = vec3_create(NULL);
+	
+	a[0] = info->pos.x;
+	a[1] = info->pos.y;
+	a[2] = info->pos.z;
+	b[0] = p->x;
+	b[1] = p->y;
+	b[2] = p->z;
+	double d = vec3_dist(a, b);
+	
+	free(a);
+	free(b);
+	
+	
+	double r = info->radius;
+	switch (info->bounds_volume) {
+		case VBL_PARTICLE_VOLUMETYPE_NONE:
+			return false;
+			
+		case VBL_PARTICLE_VOLUMETYPE_WITHIN:
+			return ( d < r );
+		
+		case VBL_PARTICLE_VOLUMETYPE_SURFACE:
+			return ( d == r );
+		
+		case VBL_PARTICLE_VOLUMETYPE_OUTSIDE:
+			return ( d > r );
+			
+		default:
+			break;
+	}
+	
+	printf("Failed all boundary test cases!\n");
 	return false;
 }
 
@@ -157,8 +215,11 @@ static void update(void* plugd, void* sysd)
 		switch (info->bounds_behavior)
 		{
 		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_KILL:
-			//free(p);
-			//sys->data[i] = NULL;
+			free(p);
+			sys->data[i] = NULL;
+			break;
+		case VBL_PARTICLEPLUGIN_BOUNDSBEHAVIOR_RESET:
+				info->adjust_func(plug, sys, p);
 			break;
 
 		default:
@@ -187,6 +248,11 @@ VParticlePlugin* vbl_particleplugin_bounds_create(VPPSBoundsInfo* info)
 		break;
 	case VBL_PARTICLEPLUGIN_BOUNDSTYPE_SPHERE:
 		info->constrain_func = bounds_constrain_sphere;
+		if ( info->radius == 0)
+		{
+			vbl_log("alert, created a sphere bounds with size of zero! setting to default (1)");
+			info->radius = 1;
+		}
 		break;
 	default:
 		break;
