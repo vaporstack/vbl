@@ -15,7 +15,7 @@
 
 typedef struct VBranch
 {
-	RLine* line;
+	RLine3* line;
 	//vec3_t	orientation;
 
 } VBranch;

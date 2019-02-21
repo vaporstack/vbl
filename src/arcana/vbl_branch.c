@@ -23,6 +23,11 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	//if ( !branch->orientation )
 	//	branch->orientation = vec3_create(NULL);
 
+	if ( !branch->line)
+	{
+		branch->line = r_line3_create();
+	}
+	r_line3_add_point3f(branch->line, p->x, p->y, p->z);
 
 	RRandom* rng = vbl_rng_get();
 	double ex = -.5 + r_rand_double(rng);
