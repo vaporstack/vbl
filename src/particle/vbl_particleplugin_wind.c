@@ -13,6 +13,8 @@
 //	can eventually do them all in parallel?
 #include <vbl/src/core/vbl_rng.h>
 
+#include <stdlib.h>
+
 static void update_one(VParticlePlugin* plug, VParticle* p)
 {
 	VPPSWindInfo* info = plug->data;
