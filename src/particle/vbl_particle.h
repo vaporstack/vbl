@@ -25,6 +25,7 @@ typedef struct VParticle
 	double x, y, z;
 	double ax, ay, az;
 	double vx, vy, vz;
+	double px, py, pz;
 	double mass;
 	double birth;
 } VParticle;

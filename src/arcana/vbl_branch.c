@@ -10,18 +10,31 @@
 
 #include <vbl/src/core/vbl_rng.h>
 #include <r4/src/core/r_random.h>
+#include <r4/src/core/r_math.h>
 
 VBranch* vbl_branch_create(void)
 {
 	VBranch* b = calloc(1, sizeof(VBranch));
 	return b;
 }
-#define TMP_SMALL_CONST .000001
+#define TMP_SMALL_CONST .00001
 
 void vbl_branch_update(VBranch* branch, VParticle* p)
 {
 	//if ( !branch->orientation )
 	//	branch->orientation = vec3_create(NULL);
+//
+//	if ( branch->line)
+//	{
+//		double d = fabs(dist3d(p->px, p->py, p->pz, p->x, p->y, p->z ));
+//		if ( d > .05)
+//		{
+//			//hack to break these things based on travel distance, seems simpler than adding
+//			//	callback infrastructure to particles mehhhhh
+//			r_line3_destroy(branch->line);
+//			printf("snap!\n");
+//		}
+//	}
 
 	if ( !branch->line)
 	{
@@ -37,7 +50,7 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	ex *= sc;
 	ey *= sc;
 	ez *= sc;
-	
+	//ez = 0;
 	p->vx += ex * TMP_SMALL_CONST;
 	p->vy += ey * TMP_SMALL_CONST;
 	p->vz += ez * TMP_SMALL_CONST;
