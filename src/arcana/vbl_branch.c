@@ -35,15 +35,20 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 //			printf("snap!\n");
 //		}
 //	}
-
+	
 	if ( !branch->line)
 	{
 		////branch->line = r_line3_create();
 		branch->line = wsh_line_create();
 	}
+	double sum = wsh_line_sum(branch->line);
+	//printf("%.2f\n", sum);
+	if ( sum >= 1 )
+		return;
+	
 	//r_line3_add_point3f(branch->line, p->x, p->y, p->z);
 	wsh_line_add_point2f(branch->line, p->x, p->y);
-
+	
 	RRandom* rng = vbl_rng_get();
 	double ex = -.5 + r_rand_double(rng);
 	double ey = -.5 + r_rand_double(rng);
@@ -56,7 +61,13 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	p->vx += ex * TMP_SMALL_CONST;
 	p->vy += ey * TMP_SMALL_CONST;
 	p->vz += ez * TMP_SMALL_CONST;
+
 	
+	for ( unsigned i = 0 ;i < branch->line->num; i++ )
+	{
+		if ( r_rand_double(rng) < .333)
+			branch->line->data[i].pressure += .00001;
+	}
 
 //	branch->orientation[0] += ex;
 //	branch->orientation[1] += ey;
@@ -73,7 +84,7 @@ void vbl_branch_destroy(VBranch* branch)
 	//if ( branch->orientation)
 	//	free(branch->orientation);
 	if ( branch->line)
-		r_line3_destroy(branch->line);
+		wsh_line_destroy(branch->line);
 	free(branch);
 }
 
