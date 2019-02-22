@@ -55,6 +55,7 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	p->vy += ey * TMP_SMALL_CONST;
 	p->vz += ez * TMP_SMALL_CONST;
 	
+
 //	branch->orientation[0] += ex;
 //	branch->orientation[1] += ey;
 //	branch->orientation[2] += ez;
@@ -70,7 +71,7 @@ void vbl_branch_destroy(VBranch* branch)
 	//if ( branch->orientation)
 	//	free(branch->orientation);
 	if ( branch->line)
-		r_line_destroy(branch->line);
+		r_line3_destroy(branch->line);
 	free(branch);
 }
 
