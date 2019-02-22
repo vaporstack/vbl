@@ -32,6 +32,10 @@ static inline double clamp(double value, double min, double max)
 //#define TMP_MAX .0001
 void vbl_particle_update(VParticle* p)
 {
+	p->px = p->x;
+	p->py = p->y;
+	p->pz = p->z;
+	
 	//	add acceleration to velocity
 	p->vx += p->ax;
 	p->vy += p->ay;

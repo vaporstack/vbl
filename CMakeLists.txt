@@ -10,22 +10,29 @@ macro(use_c99)
 	endif ()
 endmacro(use_c99)
 
-project(vbl)
+
 set(project_name vbl)
 
-use_c99()
+project(${project_name})
 
-set (vbl_VERSION_MAJOR 0)
-set (vbl_VERSION_MINOR 0)
-set (vbl_VERSION_PATCH 1)
+set (${project_name}_VERSION_MAJOR 0)
+set (${project_name}_VERSION_MINOR 0)
+set (${project_name}_VERSION_PATCH 1)
 
-option(BuildLibrary "Build the vbl library for embedding or linking" ON)
-option(BuildTestVBL "BuildTest" ON)
-option(BuildDocumentation "BuildDocumentation" OFF)
+option(BuildVBLLibrary "Build ${project_name} static library" ON)
+option(BuildVBLDocumentation "BuildDocumentation" OFF)
+option(BuildVBLDemo "BuildDemo" ON)
+option(BuildVBLTest "BuildTest" ON)
 
-#if(${BuildTestVBL})
-#  add_subdirectory("test")
-#endif()
+
+if(${BuildVBLTest})
+  add_subdirectory("test")
+endif()
+
+
+if(${BuildVBLDemo})
+  add_subdirectory("demo")
+endif()
 
 file(GLOB_RECURSE sources vbl.c src/*.c)
 

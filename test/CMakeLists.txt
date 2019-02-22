@@ -7,8 +7,11 @@ set (test_vbl_VERSION_PATCH 1)
 file(GLOB sources *.c)
 message(${sources})
 
-link_directories(../../../build/libs/wsh
-	../../../build/libs/r4)
+link_directories(../../../build/libs/vbl
+	../../../build/libs/wsh
+	../../../build/libs/r4
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../../contrib/platform/darwin
+)
 
 add_executable(test_vbl ${sources})
 target_include_directories (test_vbl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs)
