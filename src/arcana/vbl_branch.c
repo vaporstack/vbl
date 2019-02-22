@@ -17,7 +17,7 @@ VBranch* vbl_branch_create(void)
 	VBranch* b = calloc(1, sizeof(VBranch));
 	return b;
 }
-#define TMP_SMALL_CONST .00001
+#define TMP_SMALL_CONST .0001
 
 void vbl_branch_update(VBranch* branch, VParticle* p)
 {
@@ -38,9 +38,11 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 
 	if ( !branch->line)
 	{
-		branch->line = r_line3_create();
+		////branch->line = r_line3_create();
+		branch->line = wsh_line_create();
 	}
-	r_line3_add_point3f(branch->line, p->x, p->y, p->z);
+	//r_line3_add_point3f(branch->line, p->x, p->y, p->z);
+	wsh_line_add_point2f(branch->line, p->x, p->y);
 
 	RRandom* rng = vbl_rng_get();
 	double ex = -.5 + r_rand_double(rng);
@@ -50,7 +52,7 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	ex *= sc;
 	ey *= sc;
 	ez *= sc;
-	//ez = 0;
+	ez = 0;
 	p->vx += ex * TMP_SMALL_CONST;
 	p->vy += ey * TMP_SMALL_CONST;
 	p->vz += ez * TMP_SMALL_CONST;

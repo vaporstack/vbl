@@ -12,10 +12,12 @@
 #include "../particle/vbl_particlesystem.h"
 #include <r4/src/geo/r_line.h>
 #include <coer/coer.h>
+#include <wsh/src/geo/wsh_line.h>
 
 typedef struct VBranch
 {
-	RLine3* line;
+	WLine* line;
+	//RLine3* line;
 	//vec3_t	orientation;
 
 } VBranch;
