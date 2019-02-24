@@ -15,6 +15,7 @@
 
 #include <r4/r4.h>
 #include "../geo/v_primitives.h"
+#include "../core/vbl_rng.h"
 
 static void set_velocity(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p)
 {
@@ -133,7 +134,6 @@ static bool check_time(struct VPPSEmitInfo* info)
 	return false;
 }
 
-#include "../core/vbl_rng.h"
 
 
 void		vbl_particleplugin_emitter_reset(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p)
