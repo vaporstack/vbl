@@ -67,6 +67,8 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	{
 		if ( r_rand_double(rng) < .333)
 			branch->line->data[i].pressure += .00001;
+		if ( r_rand_double(rng) < .333)
+			branch->line->data[i].pressure += (-.5 + r_rand_double(rng)) * .001;
 	}
 
 //	branch->orientation[0] += ex;
