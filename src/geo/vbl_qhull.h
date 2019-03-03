@@ -27,6 +27,7 @@ typedef struct RQHull
 
 void vbl_qhull_test(int num);
 
+void vbl_qhull_draw_2d_noninvasive(RQHull* data);
 void vbl_qhull_draw(RQHull* data );
 void vbl_qhull_draw_fill(RQHull* data);
 void vbl_qhull_draw_edges(RQHull* data);
