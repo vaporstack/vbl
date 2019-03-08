@@ -15,7 +15,7 @@
 #include "v_mark.h"
 #include "v_track.h"
 
-#include <r4/src/core/r_time.h>
+#include "../core/vbl_time.h"
 #include <assert.h>
 
 
@@ -70,7 +70,7 @@ void v_seq_start(VSeq* seq)
 {
 
 	seq->pos	= 0.0;
-	seq->time_start = r_time();
+	seq->time_start = vbl_time();
 }
 
 void v_seq_stop(VSeq* seq)
@@ -116,7 +116,7 @@ static void check_tracks_for_unposted_markers(VSeq* seq)
 
 void v_seq_update(VSeq* seq)
 {
-	double time   = r_time();
+	double time   = vbl_time();
 	double ntime  = time / seq->time_duration;
 	seq->pos      = ntime;
 	seq->time_cur = time;
@@ -242,7 +242,7 @@ void v_seq_time_set_end(VSeq* seq)
 
 void v_seq_playback_start(VSeq* seq)
 {
-	// seq->time_start = r_time();
+	// seq->time_start = vbl_time();
 	printf("Started sequence play at %f\n", seq->time_start);
 }
 

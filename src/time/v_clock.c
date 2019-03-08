@@ -7,7 +7,11 @@
 
 #include "v_clock.h"
 
-#include <r4/r4.h>
+#include "../core/vbl_time.h"
+
+#include <stdlib.h>
+
+//#include <r4/r4.h>
 
 VClock* v_clock_create(void)
 {
@@ -33,12 +37,12 @@ void v_clock_destroy(VClock* clock)
 
 void v_clock_tap(VClock* clock)
 {
-	clock->last_sample = r_time();
+	clock->last_sample = vbl_time();
 }
 
 void v_clock_update(VClock* clock)
 {
-	double now = r_time();
+	double now = vbl_time();
 	// aprintf("now: %f\n", now);
 	double elapsed  = now - clock->last;
 	clock->position = elapsed / clock->loop;

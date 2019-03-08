@@ -8,6 +8,7 @@
 
 #include "vbl_cascade.h"
 
+#include "../core/vbl_time.h"
 #include <r4/src/core/r_random.h>
 #include <vbl/vbl.h>
 
@@ -59,7 +60,7 @@ static void update_frame(VCascade* casc)
 
 static void update_freq(VCascade* casc)
 {
-	double now = r_time();
+	double now = vbl_time();
 	double elapsed = now - casc->attrs.last;
 	if ( elapsed > casc->attrs.frequency )
 	{

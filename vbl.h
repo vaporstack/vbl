@@ -46,6 +46,7 @@ static inline char* vbl_get_version_string_header(void)
 #include "src/anim/v_tracer.h"
 #include "src/anim/vbl_scene.h"
 #include "src/arcana/vbl_hand.h"
+#include "src/core/vbl_time.h"
 #include "src/core/vbl_hub.h"
 #include "src/comms/v_channel.h"
 #include "src/control/vbl_cascade.h"
@@ -71,6 +72,7 @@ static inline char* vbl_get_version_string_header(void)
 
 void vbl_init(void);
 void vbl_deinit(void);
+
 
 /*
 

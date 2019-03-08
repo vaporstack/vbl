@@ -61,6 +61,8 @@
 		574E6B2520EAB01900407D36 /* vbl_hand.c in Sources */ = {isa = PBXBuildFile; fileRef = 574E6B2320EAB01900407D36 /* vbl_hand.c */; };
 		57526C49217AB744004D5318 /* vbl_input_logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 57526C47217AB744004D5318 /* vbl_input_logger.h */; };
 		57526C4A217AB744004D5318 /* vbl_input_logger.c in Sources */ = {isa = PBXBuildFile; fileRef = 57526C48217AB744004D5318 /* vbl_input_logger.c */; };
+		575B87DA223320F600868F87 /* vbl_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 575B87D8223320F600868F87 /* vbl_time.h */; };
+		575B87DB223320F600868F87 /* vbl_time.c in Sources */ = {isa = PBXBuildFile; fileRef = 575B87D9223320F600868F87 /* vbl_time.c */; };
 		576D6E5A20F8454A00A87D72 /* v_trigger.h in Headers */ = {isa = PBXBuildFile; fileRef = 576D6E5820F8454A00A87D72 /* v_trigger.h */; };
 		576D6E5B20F8454A00A87D72 /* v_trigger.c in Sources */ = {isa = PBXBuildFile; fileRef = 576D6E5920F8454A00A87D72 /* v_trigger.c */; };
 		5773B7C520E818EA0073669B /* v_primitives.h in Headers */ = {isa = PBXBuildFile; fileRef = 5773B7C320E818E90073669B /* v_primitives.h */; };
@@ -178,6 +180,8 @@
 		574E6B2320EAB01900407D36 /* vbl_hand.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_hand.c; sourceTree = "<group>"; };
 		57526C47217AB744004D5318 /* vbl_input_logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_input_logger.h; sourceTree = "<group>"; };
 		57526C48217AB744004D5318 /* vbl_input_logger.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_input_logger.c; sourceTree = "<group>"; };
+		575B87D8223320F600868F87 /* vbl_time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_time.h; sourceTree = "<group>"; };
+		575B87D9223320F600868F87 /* vbl_time.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_time.c; sourceTree = "<group>"; };
 		5764CE651F39590700A7D45D /* v_clock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_clock.c; sourceTree = "<group>"; };
 		5764CE661F39590700A7D45D /* v_clock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v_clock.h; sourceTree = "<group>"; };
 		5764CE671F39590700A7D45D /* v_stepseq.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = v_stepseq.c; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 				571E8619220E05C40017F07C /* vbl_log.h */,
 				571E8616220E057D0017F07C /* vbl_rng.c */,
 				571E8615220E057D0017F07C /* vbl_rng.h */,
+				575B87D9223320F600868F87 /* vbl_time.c */,
+				575B87D8223320F600868F87 /* vbl_time.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -577,6 +583,7 @@
 				D133333F1EA6A421008284B1 /* v_seq.h in Headers */,
 				D12A13951EABE57900336896 /* v_serial.h in Headers */,
 				573B5C35221F0C5B0011A25C /* vbl_branch.h in Headers */,
+				575B87DA223320F600868F87 /* vbl_time.h in Headers */,
 				57F457852158529A002E551B /* vbl_perturbator.h in Headers */,
 				D11798591F9161A900D9C4E9 /* v_extrude.h in Headers */,
 				574E6B2420EAB01900407D36 /* vbl_hand.h in Headers */,
@@ -714,6 +721,7 @@
 				57A5FA7E220F961D0082FD8D /* vbl_particle_presets.c in Sources */,
 				5722FCF421AB8C31002865A8 /* vbl_particleplugin_bounds.c in Sources */,
 				57134D9520FFDFEF0005CCD3 /* vbl_hull.c in Sources */,
+				575B87DB223320F600868F87 /* vbl_time.c in Sources */,
 				5722FD0521ABA033002865A8 /* vbl_particleplugin_template.c in Sources */,
 				57F4834721E1B077003C68AD /* vbl_cascade.c in Sources */,
 			);

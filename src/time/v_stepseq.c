@@ -10,7 +10,7 @@
 
 #include <stdlib.h>
 
-#include <r4/r4.h>
+#include "../core/vbl_time.h"
 
 StepSeq* v_stepseq_create(void)
 {
@@ -88,7 +88,7 @@ void v_stepseq_update(StepSeq* seq)
 		return;
 	}
 
-	seq->time = r_time();
+	seq->time = vbl_time();
 
 	double now_in_seconds = fmod(seq->time, 60);
 	double now_in_minutes = now_in_seconds / 60;

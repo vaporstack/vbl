@@ -22,7 +22,7 @@ set (${project_name}_VERSION_PATCH 1)
 option(BuildVBLLibrary "Build ${project_name} static library" ON)
 option(BuildVBLDocumentation "BuildDocumentation" OFF)
 option(BuildVBLDemo "BuildDemo" ON)
-option(BuildVBLTest "BuildTest" ON)
+option(BuildVBLTest "BuildTest" OFF)
 
 
 if(${BuildVBLTest})
