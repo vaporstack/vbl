@@ -11,6 +11,8 @@
 #include <stdlib.h>
 
 #include "../core/vbl_time.h"
+#include "../core/vbl_log.h"
+#include <math.h>
 
 StepSeq* v_stepseq_create(void)
 {
@@ -33,7 +35,7 @@ StepSeq* v_stepseq_create(void)
 	seq->toggles      = calloc(seq->length, sizeof(int));
 	seq->fired	= calloc(seq->length, sizeof(int));
 
-	printf("Created step sequencer with %d: %d/%d\n", num, seq->bars, seq->beats);
+	vbl_log("Created step sequencer with %d: %d/%d\n", num, seq->bars, seq->beats);
 
 	return seq;
 }
