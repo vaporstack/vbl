@@ -18,7 +18,7 @@ VblArc* vbl_arc_create(double width, double height, int deg, double rad, bool cl
 	arc->height  = height;
 	arc->degrees = deg;
 	arc->closed  = closed;
-	RLine* l     = v_primitives_generate_arc(width, 32, rad, 0);
+	RLine* l     = v_primitives_calculate_arc(width, 32, rad, 0);
 	l->closed    = false;
 	arc->data    = l;
 	arc->r       = 0;

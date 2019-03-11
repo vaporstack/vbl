@@ -16,9 +16,9 @@
 
 #pragma mark generators
 
-RLine* v_primitives_generate_rect(double width, double height)
+RLine* v_primitives_calculate_rect(double width, double height)
 {
-	
+
 	RLine* rect = r_line_create();
 	r_line_add_point2f(rect, -width, -height);
 	r_line_add_point2f(rect, width, -height);
@@ -27,23 +27,23 @@ RLine* v_primitives_generate_rect(double width, double height)
 	return rect;
 }
 
-RLine* v_primitives_generate_square(double r)
+RLine* v_primitives_calculate_square(double r)
 {
-	return v_primitives_generate_rect(r,r);
+	return v_primitives_calculate_rect(r,r);
 }
 
 //offset is in radians I think here?
-RLine* v_primitives_generate_arc(double size, int sides, double frac, double offset)
+RLine* v_primitives_calculate_arc(double size, int sides, double frac, double offset)
 {
 
 	float deg2rad = (M_PI / sides);
-	
+
 	const int renderLineSize = (sides * 2);
 	RLine*     line = r_line_create();
 	line->data     = 0;
 	line->num      = 0;
 	line->reserved = 0;
-	
+
 	double limit = M_PI * 2 * frac;
 	int i;
 	for (i = 0; i < renderLineSize; i += 2)
@@ -53,7 +53,7 @@ RLine* v_primitives_generate_arc(double size, int sides, double frac, double off
 		float y	= sin(degInRad + (M_PI * .5) + offset) * size;
 		if ( degInRad <= limit)
 			r_line_add_point2f(line, x, y);
-		
+
 	}
 	line->closed = true;
 	return line;
@@ -61,7 +61,7 @@ RLine* v_primitives_generate_arc(double size, int sides, double frac, double off
 
 }
 
-RLine* v_primitives_generate_circle(double size, int sides, double offset)
+RLine* v_primitives_calculate_circle(double size, int sides, double offset)
 {
 
 	float deg2rad = (M_PI / sides);
@@ -85,20 +85,20 @@ RLine* v_primitives_generate_circle(double size, int sides, double offset)
 	return line;
 }
 
-RLine* v_primitives_generate_hex(double size, double offset)
+RLine* v_primitives_calculate_hex(double size, double offset)
 {
-	return v_primitives_generate_circle(size, 6, offset);
+	return v_primitives_calculate_circle(size, 6, offset);
 }
 
-RLine* v_primitives_generate_triangle(double size, double offset)
+RLine* v_primitives_calculate_triangle(double size, double offset)
 {
-	RLine* tri = v_primitives_generate_circle(size, 3, offset);
+	RLine* tri = v_primitives_calculate_circle(size, 3, offset);
 	return tri;
 }
 
-RLine* v_primitives_generate_hex_facet(double size, double offset)
+RLine* v_primitives_calculate_hex_facet(double size, double offset)
 {
-	RLine* hex = v_primitives_generate_hex(size, offset);
+	RLine* hex = v_primitives_calculate_hex(size, offset);
 
 	RLine* facet = r_line_create();
 	facet->num      = 0;
@@ -120,7 +120,7 @@ RLine* v_primitives_generate_hex_facet(double size, double offset)
 
 RPoint3 v_primitives_random_point_on_sphere(double r)
 {
-	
+
 	//	from:
 	//	https://stackoverflow.com/questions/5531827/random-point-on-a-given-sphere/15048260#15048260
 	bool   proceed = false;
@@ -134,13 +134,13 @@ RPoint3 v_primitives_random_point_on_sphere(double r)
 		if (x * x + y * y + z * z <= 1)
 			proceed = true;
 	}
-	
+
 	double d = sqrt(x * x + y * y + z * z);
-	
+
 	x /= d;
 	y /= d;
 	z /= d;
-	
+
 	RPoint3 p;
 	p.x = x;
 	p.y = y;
@@ -151,10 +151,10 @@ RPoint3 v_primitives_random_point_on_sphere(double r)
 
 RPoint3 v_primitives_random_point_in_sphere(double r)
 {
-	
+
 	//	todo: sort this out, hacky lol
 	RPoint3 p = v_primitives_random_point_on_sphere(r);
-	
+
 	double sc = r_rand_double(vbl_rng_get());
 	p.x *= sc;
 	p.y *= sc;
@@ -202,7 +202,7 @@ void v_primitives_random_point_on_box_oldschool(double x, double y, double z, do
 	*rx -= .5 * x;
 	*ry -= .5 * y;
 	*rz -= .5 * z;
-	
+
 	//return p;
 	/*
 	 RPoint3 p;
@@ -216,5 +216,5 @@ void v_primitives_random_point_on_box_oldschool(double x, double y, double z, do
 	 p.z -= .5 * z;
 	 return p;
 	 */
-	
+
 }
