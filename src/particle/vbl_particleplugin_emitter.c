@@ -189,7 +189,7 @@ static void update(void* dplug, void* dsys)
 
 		sys->data[id] = p;
 
-		printf("Placed new particle at %.1f %.1f %.1f\n", p->x, p->y, p->z);
+		//printf("Placed new particle at %.1f %.1f %.1f\n", p->x, p->y, p->z);
 	}
 }
 

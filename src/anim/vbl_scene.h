@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
+#include <coer/coer.h>
+
 //extern int    camera_shake_hit;
 //extern double camera_shake_amount;
 typedef void (*funcptr_v_d)(double d);
@@ -22,9 +24,20 @@ void vbl_scene_update(void);
 void vbl_scene_init(void);
 void vbl_scene_deinit(void);
 
-void vbl_scene_adjust_screenrotate_x(double v);
-void vbl_scene_adjust_screenrotate_y(double v);
-void vbl_scene_adjust_screenrotate_z(double v);
+void vbl_scene_rotate_adjust_x(double v);
+void vbl_scene_rotate_adjust_y(double v);
+void vbl_scene_rotate_adjust_z(double v);
+
+void vbl_scene_rotate_reset_x(void);
+void vbl_scene_rotate_reset_y(void);
+void vbl_scene_rotate_reset_z(void);
+void vbl_scene_gravity_adjust_x(double v);
+void vbl_scene_gravity_adjust_y(double v);
+void vbl_scene_gravity_adjust_z(double v);
+void vbl_scene_gravity_reset_x(void);
+void vbl_scene_gravity_reset_y(void);
+void vbl_scene_gravity_reset_z(void);
+CPoint3 vbl_scene_gravity_get(void);
 
 void vbl_scene_velocity_set(double v);
 double vbl_scene_velocity_get(void);

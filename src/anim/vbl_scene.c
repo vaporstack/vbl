@@ -27,7 +27,7 @@ static bool   debug_scene      = false;
 static vec3_t scene_dest       = NULL;
 static vec3_t scene_rotate     = NULL;
 static vec3_t scene_rotate_vel = NULL;
-
+static vec3_t scene_gravity = NULL;
 static float vel = 0;
 
 void vbl_scene_velocity_set(double v)
@@ -192,6 +192,7 @@ void vbl_scene_init(void)
 	scene_rotate     = vec3_create(NULL);
 	scene_rotate_vel = vec3_create(NULL);
 	scene_dest       = vec3_create(NULL);
+	scene_gravity = vec3_create(NULL);
 	camera		 = g_camera_create();
 }
 
@@ -199,22 +200,76 @@ void vbl_scene_deinit(void)
 {
 	free(scene_rotate);
 	free(scene_dest);
-
+	free(scene_gravity);
 	g_camera_destroy(camera);
 }
 
-void vbl_scene_adjust_screenrotate_x(double v)
+void vbl_scene_rotate_adjust_x(double v)
 {
 	scene_rotate_vel[0] = v;
 }
-void vbl_scene_adjust_screenrotate_y(double v)
+
+void vbl_scene_rotate_adjust_y(double v)
 {
 	scene_rotate_vel[1] = v;
 }
-void vbl_scene_adjust_screenrotate_z(double v)
+
+void vbl_scene_rotate_adjust_z(double v)
 {
 	scene_rotate_vel[2] = v;
 }
+
+void vbl_scene_rotate_reset_x(void)
+{
+	scene_rotate_vel[0] = 0;
+}
+
+void vbl_scene_rotate_reset_y(void)
+{
+	scene_rotate_vel[1] = 0;
+}
+
+void vbl_scene_rotate_reset_z(void)
+{
+	scene_rotate_vel[2] = 0;
+}
+
+#define GRAV_MULT .00001
+void vbl_scene_gravity_reset_x(void)
+{
+	scene_gravity[0] = 0;
+}
+void vbl_scene_gravity_reset_y(void)
+{
+	scene_gravity[1] = 0;
+}
+void vbl_scene_gravity_reset_z(void)
+{
+	scene_gravity[2] = 0;
+}
+
+
+void vbl_scene_gravity_adjust_x(double v)
+{
+	scene_gravity[0] = v * GRAV_MULT;
+}
+void vbl_scene_gravity_adjust_y(double v)
+{
+	scene_gravity[1] = v * GRAV_MULT;
+}
+void vbl_scene_gravity_adjust_z(double v)
+{
+	scene_gravity[2] = v * GRAV_MULT;
+}
+CPoint3 vbl_scene_gravity_get(void)
+{
+	CPoint3 p;
+	p.x = scene_gravity[0];
+	p.y = scene_gravity[1];
+	p.z = scene_gravity[2];
+	return  p;
+}
+
 void vbl_scene_camera_shake_hit(void)
 {
 	/*
