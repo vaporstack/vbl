@@ -30,6 +30,11 @@ static vec3_t scene_rotate_vel = NULL;
 static vec3_t scene_gravity = NULL;
 static float vel = 0;
 
+vec3_t vbl_scene_rotate_get(void)
+{
+	return scene_rotate;
+}
+
 void vbl_scene_velocity_set(double v)
 {
 	vel = v;

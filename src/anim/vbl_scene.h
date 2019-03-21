@@ -56,6 +56,7 @@ void vbl_scene_rotate_bottom(void);
 void vbl_scene_rotate_left(void);
 void vbl_scene_rotate_right(void);
 
+vec3_t vbl_scene_rotate_get(void);
 
 void vbl_scene_rotate_tl(void);
 void vbl_scene_rotate_t(void);

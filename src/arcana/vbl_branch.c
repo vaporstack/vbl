@@ -44,8 +44,13 @@ void vbl_branch_update(VBranch* branch, VParticle* p)
 	double sum = wsh_line_sum(branch->line);
 	//printf("%.2f\n", sum);
 	if ( sum >= 1 )
-		return;
-	
+	{
+		wsh_line_destroy(branch->line);
+		p->x  = p->y = p->z = 0;
+		p->vx = p->vy = p->vz = 0;
+		branch->line = wsh_line_create();
+		//return;
+	}
 	//r_line3_add_point3f(branch->line, p->x, p->y, p->z);
 	wsh_line_add_point2f(branch->line, p->x, p->y);
 	
@@ -115,6 +120,7 @@ void vbl_branch_sys_update(VBranchSys* bsys)
 		VParticle* p = bsys->sys->data[i];
 		if ( !p )
 			continue;
+		
 		
 		vbl_branch_update(b, p);
 		//p->ax += TMP_SMALL_CONST * b->orientation[0];

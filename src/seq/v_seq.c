@@ -27,7 +27,7 @@ VSeq* v_seq_create(void)
 	seq->track_cur = 0;
 	seq->track_max = VBL_SEQ_MAX_TRACKS;
 	seq->pos       = 0.0;
-	seq->tracks    = calloc(VBL_SEQ_MAX_TRACKS, sizeof(VSeqTrack));
+	seq->tracks    = calloc(VBL_SEQ_MAX_TRACKS, sizeof(VSeqTrack*));
 	for (int i = 0; i < seq->track_num; ++i)
 	{
 		seq->tracks[i] = NULL;

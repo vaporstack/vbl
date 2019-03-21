@@ -756,6 +756,9 @@ void vbl_qhull_test(int num_points)
 				//	vertexT* b = (vertexT*)facet->vertices->e[i].p;
 			}
 		}
+		
+		
+		drw_fill_pop();
 	}
 
 	//facetT* facet;
@@ -1072,6 +1075,7 @@ void vbl_qhull_draw(RQHull* data)
 				//double* pb = b->point;
 			}
 		}
+		drw_fill_pop();
 	}
 
 	//facetT* facet;
