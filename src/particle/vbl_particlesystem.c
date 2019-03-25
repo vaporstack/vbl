@@ -16,6 +16,7 @@
 
 VParticleSystem* vbl_particlesystem_create(unsigned max)
 {
+	
 	VParticleSystem* sys = calloc(1, sizeof(VParticleSystem));
 	sys->data	    = calloc(max, sizeof(VParticle*));
 	sys->max	     = max;
@@ -89,13 +90,13 @@ void vbl_particlesystem_update(VParticleSystem* sys)
 		if (!plug->update)
 		{
 			//toDO fix this:
-			//printf("Can't update plugin!\n");
+			printf("Can't update plugin!\n");
 			continue;
 		}
 
 		plug->update(plug, sys);
 	}
-	for (int i = 0; i < sys->max; i++)
+	for (unsigned i = 0; i < sys->max; i++)
 	{
 		VParticle* p = sys->data[i];
 		if (!p)
@@ -147,10 +148,19 @@ signed vbl_particlesystem_next_available(VParticleSystem* sys)
 signed vbl_particlesystem_next(VParticleSystem* sys)
 {
 	sys->pos++;
+	if ( sys->pos > sys->max)
+	{
+		printf("I never expected to be here.\n");
+		
+	}
 	if (sys->pos == sys->max)
 		sys->pos = 0;
 	
-	free(sys->data[sys->pos]);
-	sys->data[sys->pos] = NULL;
+	//VParticle* p = sys->data[sys->pos];
+	if ( sys->data[sys->pos] )
+	{
+		free(sys->data[sys->pos]);
+		sys->data[sys->pos] = NULL;
+	}
 	return sys->pos;
 }

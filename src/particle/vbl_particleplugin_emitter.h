@@ -14,8 +14,6 @@
 
 typedef void (*generic_void_pointer)(void);
 
-
-
 enum VBLParticlePluginEmitterType
 {
 	VBL_PARTICLEPLUGIN_EMITTYPE_POINT,
@@ -46,7 +44,9 @@ enum VBLParticlePluginEmitterDirection
 	VBL_PARTICLEPLUGIN_EMITDIR_NONE,
 	VBL_PARTICLEPLUGIN_EMITDIR_DIRECTIONAL,
 	VBL_PARTICLEPLUGIN_EMITDIR_CONE,
-	VBL_PARTICLEPLUGIN_EMITDIR_OUTWARDS
+	VBL_PARTICLEPLUGIN_EMITDIR_OUTWARDS,
+	VBL_PARTICLEPLUGIN_EMITDIR_RANDOM,
+	VBL_PARTICLEPLUGIN_EMITDIR_IDK
 };
 
 #include <stdbool.h>
@@ -59,11 +59,12 @@ typedef struct VPPSEmitInfo
 	//void (*setvel)(VParticlePlugin* plug, VParticle* p);
 
 	unsigned (*density)(struct VPPSEmitInfo* info);
+	bool		      emitting;
 	unsigned int	  spawn_type;
 	unsigned int	  spawn_freq;
 	unsigned int	  spawn_density;
 	unsigned int	  emit_dir;
-	unsigned int spawn_volume;
+	unsigned int	  spawn_volume;
 	unsigned	      density_n;
 	double		      last;
 	double		      frequency;
@@ -78,6 +79,7 @@ typedef struct VPPSEmitInfo
 	generic_void_pointer* triggers;
 	unsigned	      trigger_num;
 	//unsigned int bounds_behavior;
+	VParticle* emit_base;
 } VPPSEmitInfo;
 
 VPPSEmitInfo*    vbl_particleplugin_emitterinfo_create(void);
@@ -86,5 +88,5 @@ void		 vbl_particleplugin_emitter_add_trigger(VParticlePlugin* plug, generic_voi
 void		 vbl_particleplugin_emitter_emit(VParticlePlugin* plug, void* sys);
 VParticlePlugin* vbl_particleplugin_emitter_create_point(void);
 VParticlePlugin* vbl_particleplugin_emitter_create_box(double x, double y, double z);
-void		vbl_particleplugin_emitter_reset(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p);
+void		 vbl_particleplugin_emitter_reset(VParticlePlugin* plug, VParticleSystem* sys, VParticle* p);
 #endif /* vbl_particleplugin_emitter_h */
