@@ -32,7 +32,8 @@ static void update(void* plugdata, void*sysdata)
 			continue;
 		
 		double d = now - p->birth;
-		if ( d > info->lifespan )
+		//printf("%.2f\n", d);
+		if ( d >= info->lifespan )
 		{
 			//printf("chop!\n");
 			free(p);

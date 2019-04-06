@@ -12,6 +12,7 @@
 #include "vbl_particle.h"
 #include "vbl_particleplugin.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 #ifdef ALLOW_UNTIL_DRAW_DECOUPLING_COMPLETE
 typedef void (*vbl_particlesystem_draw_fun)(void*);
@@ -45,6 +46,7 @@ typedef struct VParticleSystemHnd
 void vbl_particlesystem_draw(VParticleSystem* sys);
 #endif
 
+bool vbl_particlesystem_any_alive(VParticleSystem* sys);
 VParticleSystem* vbl_particlesystem_create(unsigned);
 VParticleSystem* vbl_particlesystem_create_with_defaults(unsigned);
 void		 vbl_particlesystem_destroy(VParticleSystem* sys);

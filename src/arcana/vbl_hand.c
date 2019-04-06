@@ -162,15 +162,14 @@ int vbl_hand_init(const char* path)
 	}
 
 	WDocument* doc = wsh_serial_document_unserialize(path);
-	if (!doc )
+	if (!doc)
 	{
 		printf("Error unserializing!\n");
 		return 8;
-		
 	}
 	WSequence* seq = doc->sequence.src;
 
-	WObject* obj = wsh_object_create(NULL);
+	WObject* obj = wsh_object_create();
 
 	for (int i = 0; i < seq->num_frames - 1; i++)
 	{

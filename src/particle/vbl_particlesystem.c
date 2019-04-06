@@ -131,6 +131,17 @@ void vbl_particlesystem_plugin_add(VParticleSystem* sys, VParticlePlugin* plug)
 
 }
 
+bool vbl_particlesystem_any_alive(VParticleSystem* sys)
+{
+	for (unsigned i = 0; i < sys->max; i++)
+	{
+		VParticle* p = sys->data[i];
+		if (p)
+			return true;
+	}
+	return false;
+}
+
 signed vbl_particlesystem_next_available(VParticleSystem* sys)
 {
 	for (unsigned i = 0; i < sys->max; i++)

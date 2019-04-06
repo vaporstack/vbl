@@ -353,6 +353,19 @@ void vbl_scene_draw_debug(void)
 	drw_alpha(.5);
 	//double h = app_settings.framebuffer_height;
 	drw_cube(.5);
+	
+	drw_color(1, 0, 0, .5);
+	drw_line(0,0,.5,0);
+	drw_color_pop();
+	
+	drw_color(0, 1, 0, .5);
+	drw_line(0,0,0,.5);
+	drw_color_pop();
+	
+	drw_color(0, 0, 1, .5);
+	drw_line_3f(0,0,0,0,0,.5);
+	drw_color_pop();
+	
 	drw_alpha_pop();
 	drw_color_pop();
 }
