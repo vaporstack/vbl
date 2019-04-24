@@ -65,6 +65,9 @@ typedef struct VblData
 	double  t;
 	double  t2;
 	double  t4;
+	double  r1;
+	double  r2;
+	double  r3;
 	double  wsqr;
 	double  wsaw;
 	double  wtri;
@@ -91,7 +94,7 @@ typedef struct VblHub
 	double audio1;
 	double audio2;
 	double audio3;
-
+	
 	int wave1;
 	int wave2;
 	int wave3;
@@ -106,7 +109,7 @@ typedef struct VblHub
 	int mut2;
 	int mut3;
 	int mut4;
-
+	
 	int    artist;
 	int    overdrive;
 	double playback_speed;

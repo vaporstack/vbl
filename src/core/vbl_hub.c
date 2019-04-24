@@ -288,10 +288,10 @@ I}
 void vbl_hub_toggle_mode3d(VblHub* hub)
 {
 	printf("MODE3d\n");
-	//hub->mode3d = !hub->mode3d;
+	hub->mode3d = !hub->mode3d;
 	//_update_display_mode3d((MonomeRec*)mdata);
 
-	//r_app_set_ortho(hub->mode3d);
+	r_app_set_ortho(hub->mode3d);
 }
 
 void vbl_hub_fire_hit(VblHub* hub, int which, int val)

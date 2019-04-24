@@ -120,7 +120,9 @@ void v_WTracerLinear_update(WTracerLinear* tracer)
 	tracer->cursor = b;
 	//b.x += cos
 }
+
 #define TMP_P 32
+
 void v_WTracerLinear_draw(WTracerLinear* tracer)
 {
 

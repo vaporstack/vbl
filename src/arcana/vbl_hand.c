@@ -10,6 +10,8 @@
 
 #include <wsh/wsh.h>
 
+#include <r4/src/ext/r_geo_interop.h>
+
 //static bool	 init = false;
 //static WDocumentHnd document;
 //RLine** data = NULL;
@@ -20,6 +22,7 @@ static WObjectHnd shading;
 
 //	todo remove this once debugging is done
 //#include <drw/drw.h>
+#include <r4/src/ext/r_geo_interop.h>
 
 static void center_and_straighten(WLine* line)
 {
@@ -121,7 +124,7 @@ static RLine* line_for_segment(RPoint* a, RPoint* b)
 	wsh_line_move(norm, a->x, a->y);
 
 	wsh_line_destroy(cp);
-	res = r_line_from_wline(norm);
+	res = r_geo_interop_rline_from_wline(norm);
 	wsh_line_destroy(norm);
 	return res;
 }
@@ -161,7 +164,7 @@ int vbl_hand_init(const char* path)
 		return false;
 	}
 
-	WDocument* doc = wsh_serial_document_unserialize(path);
+	WDocument* doc = wsh_serial_document_unserialize_file(path);
 	if (!doc)
 	{
 		printf("Error unserializing!\n");
