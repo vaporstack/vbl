@@ -30,6 +30,7 @@ void vbl_cascade_destroy(VCascade* casc)
 {
 	free(casc);
 }
+#include <vbl/src/core/vbl_log.h>
 
 static void fire_safely(VCascade* casc)
 {
@@ -68,6 +69,7 @@ static void update_freq(VCascade* casc)
 		casc->attrs.last = now;
 	}
 }
+#include <vbl/src/core/vbl_rng.h>
 
 static void update_random(VCascade* casc)
 {

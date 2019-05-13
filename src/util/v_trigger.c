@@ -13,7 +13,7 @@ VTriggerList* v_trigger_list_create(long num)
 {
 	VTriggerList* list = calloc(1, sizeof(VTriggerList));
 	list->num = num;
-	list->triggers = (VTrigger*)calloc(num, sizeof(VTrigger*));
+	list->triggers = (VTrigger**)calloc(num, sizeof(VTrigger**));
 	return list;
 }
 

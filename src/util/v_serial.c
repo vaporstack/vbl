@@ -392,6 +392,7 @@ void* v_unserialize_sequence_json(const char* path)
 }
 
 //	TODO unify the various stupid file reading functions
+#endif
 
 void* vbl_read_file_as_bin(const char* path, long* len)
 {
@@ -493,4 +494,3 @@ int vbl_write_text_to_file(const char* path, const char* data)
 	return 0;
 }
 
-#endif
