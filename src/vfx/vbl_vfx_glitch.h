@@ -16,5 +16,4 @@ typedef struct
 
 void foo(void);
 
-
 #endif /* vbl_vfx_glitch_h */
