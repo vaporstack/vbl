@@ -69,6 +69,10 @@
 		5773B7C620E818EA0073669B /* v_primitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 5773B7C420E818E90073669B /* v_primitives.c */; };
 		5773EB232212699400FDDB5D /* vbl_particleplugin_windresistance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5773EB212212699400FDDB5D /* vbl_particleplugin_windresistance.h */; };
 		5773EB242212699400FDDB5D /* vbl_particleplugin_windresistance.c in Sources */ = {isa = PBXBuildFile; fileRef = 5773EB222212699400FDDB5D /* vbl_particleplugin_windresistance.c */; };
+		577B2D3222A0698E00C4D893 /* vbl_etherdream.h in Headers */ = {isa = PBXBuildFile; fileRef = 577B2D3022A0698E00C4D893 /* vbl_etherdream.h */; };
+		577B2D3322A0698E00C4D893 /* vbl_etherdream.c in Sources */ = {isa = PBXBuildFile; fileRef = 577B2D3122A0698E00C4D893 /* vbl_etherdream.c */; };
+		577B2D3922A069C100C4D893 /* etherdream.h in Headers */ = {isa = PBXBuildFile; fileRef = 577B2D3522A069C000C4D893 /* etherdream.h */; };
+		577B2D3B22A069C100C4D893 /* etherdream.c in Sources */ = {isa = PBXBuildFile; fileRef = 577B2D3822A069C000C4D893 /* etherdream.c */; };
 		577DD21220D3541400623919 /* vbl_vec_acc.h in Headers */ = {isa = PBXBuildFile; fileRef = 577DD21020D3541400623919 /* vbl_vec_acc.h */; };
 		577DD21320D3541400623919 /* vbl_vec_acc.c in Sources */ = {isa = PBXBuildFile; fileRef = 577DD21120D3541400623919 /* vbl_vec_acc.c */; };
 		577F56C421533C4C00C21917 /* vbl_hub.h in Headers */ = {isa = PBXBuildFile; fileRef = 577F56C221533C4C00C21917 /* vbl_hub.h */; };
@@ -192,6 +196,10 @@
 		5773B7C420E818E90073669B /* v_primitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = v_primitives.c; sourceTree = "<group>"; };
 		5773EB212212699400FDDB5D /* vbl_particleplugin_windresistance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_particleplugin_windresistance.h; sourceTree = "<group>"; };
 		5773EB222212699400FDDB5D /* vbl_particleplugin_windresistance.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_particleplugin_windresistance.c; sourceTree = "<group>"; };
+		577B2D3022A0698E00C4D893 /* vbl_etherdream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_etherdream.h; sourceTree = "<group>"; };
+		577B2D3122A0698E00C4D893 /* vbl_etherdream.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_etherdream.c; sourceTree = "<group>"; };
+		577B2D3522A069C000C4D893 /* etherdream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = etherdream.h; sourceTree = "<group>"; };
+		577B2D3822A069C000C4D893 /* etherdream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = etherdream.c; sourceTree = "<group>"; };
 		577DD21020D3541400623919 /* vbl_vec_acc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vbl_vec_acc.h; sourceTree = "<group>"; };
 		577DD21120D3541400623919 /* vbl_vec_acc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vbl_vec_acc.c; sourceTree = "<group>"; };
 		577F56C221533C4C00C21917 /* vbl_hub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbl_hub.h; sourceTree = "<group>"; };
@@ -326,6 +334,25 @@
 			path = time;
 			sourceTree = "<group>";
 		};
+		577B2D2F22A0697F00C4D893 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				577B2D3022A0698E00C4D893 /* vbl_etherdream.h */,
+				577B2D3122A0698E00C4D893 /* vbl_etherdream.c */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		577B2D3422A069C000C4D893 /* libetherdream */ = {
+			isa = PBXGroup;
+			children = (
+				577B2D3522A069C000C4D893 /* etherdream.h */,
+				577B2D3822A069C000C4D893 /* etherdream.c */,
+			);
+			name = libetherdream;
+			path = ../../../contrib/deps/libetherdream;
+			sourceTree = "<group>";
+		};
 		577DD20F20D3540000623919 /* arcana */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +419,7 @@
 				D1A9F11F1FD0CFDD00D9C0A3 /* comms */,
 				5710BC8D2166E3B600DDB80D /* control */,
 				577F56C121533C4C00C21917 /* core */,
+				577B2D2F22A0697F00C4D893 /* ext */,
 				D1FCA3881F02E40700D11520 /* geo */,
 				5722FCC521AB8317002865A8 /* particle */,
 				D14FDC5F1FB668ED00714C4E /* plugin */,
@@ -441,6 +469,7 @@
 		D139AEB61E902E49006E81F4 = {
 			isa = PBXGroup;
 			children = (
+				577B2D3422A069C000C4D893 /* libetherdream */,
 				D13333301EA6A421008284B1 /* src */,
 				57BC722D20802E0E0085C08D /* vbl.c */,
 				D1FCA38D1F02E41400D11520 /* vbl.h */,
@@ -538,6 +567,7 @@
 				5727DDFE21571F8100ED2616 /* vbl_lissajous.h in Headers */,
 				57465B7020FC06250005A319 /* vbl_scene.h in Headers */,
 				D154FF3B1FC3AB5B00AE014F /* v_swarm.h in Headers */,
+				577B2D3222A0698E00C4D893 /* vbl_etherdream.h in Headers */,
 				57F51A83220E4D2700CC0526 /* vbl_particleplugin_emitter.h in Headers */,
 				57BC722320802B0C0085C08D /* v_assimp.h in Headers */,
 				57A1A20E228A370700D37979 /* vbl_vfx_glitch.h in Headers */,
@@ -569,6 +599,7 @@
 				575B87DA223320F600868F87 /* vbl_time.h in Headers */,
 				57F457852158529A002E551B /* vbl_perturbator.h in Headers */,
 				D11798591F9161A900D9C4E9 /* v_extrude.h in Headers */,
+				577B2D3922A069C100C4D893 /* etherdream.h in Headers */,
 				574E6B2420EAB01900407D36 /* vbl_hand.h in Headers */,
 				576D6E5A20F8454A00A87D72 /* v_trigger.h in Headers */,
 				57134D9720FFDFEF0005CCD3 /* vbl_cork.h in Headers */,
@@ -629,6 +660,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D139AEB61E902E49006E81F4;
@@ -676,6 +708,7 @@
 				577DD21320D3541400623919 /* vbl_vec_acc.c in Sources */,
 				D154FF3D1FC3AB5B00AE014F /* v_behave.c in Sources */,
 				57134D9920FFDFEF0005CCD3 /* vbl_qhull.c in Sources */,
+				577B2D3B22A069C100C4D893 /* etherdream.c in Sources */,
 				5773B7C620E818EA0073669B /* v_primitives.c in Sources */,
 				574E6B2520EAB01900407D36 /* vbl_hand.c in Sources */,
 				5798A61C202AA3180009BFCA /* v_tracer.c in Sources */,
@@ -692,6 +725,7 @@
 				5722FD1E21AF9CC3002865A8 /* vbl_particlesystem_mgr_plugin_autokill.c in Sources */,
 				57526C4A217AB744004D5318 /* vbl_input_logger.c in Sources */,
 				499891911F3A3170006FFCA6 /* v_stepseq.c in Sources */,
+				577B2D3322A0698E00C4D893 /* vbl_etherdream.c in Sources */,
 				5722FCFD21ABA00C002865A8 /* vbl_particleplugin_wind.c in Sources */,
 				57F51A82220E4D2700CC0526 /* vbl_particleplugin_emitter.c in Sources */,
 				5710BC972166E3EE00DDB80D /* vbl_pad.c in Sources */,

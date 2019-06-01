@@ -10,7 +10,7 @@
 
 //#define qh_QHimport
 //#include "libqhull/qhull_a.h"
-//#include <deps/qhull/libqhull.h>
+//#include <qhull/libqhull.h>
 
 #include <drw/drw.h>
 #include <r4/src/core/r_random.h>
@@ -64,7 +64,7 @@
  information it supplies.
  */
 
-#include <deps/libqhull_r/qhull_ra.h>
+#include <libqhull_r/qhull_ra.h>
 
 #include <stdarg.h>
 
@@ -756,8 +756,7 @@ void vbl_qhull_test(int num_points)
 				//	vertexT* b = (vertexT*)facet->vertices->e[i].p;
 			}
 		}
-		
-		
+
 		drw_fill_pop();
 	}
 
@@ -939,14 +938,14 @@ void vbl_qhull_test(int num_points)
 
 void vbl_qhull_draw_2d_noninvasive(RQHull* data)
 {
-	
+
 	qhT* qh = data->src;
-	
+
 	//ALSO NOPE
 	facetT *facet, *neighbor;
 	ridgeT *ridge, **ridgep;
 	facetT* visible = NULL;
-	
+
 	qh->visit_id = 0;
 	//qh visit_id++;
 	FORALLfacets
@@ -954,10 +953,10 @@ void vbl_qhull_draw_2d_noninvasive(RQHull* data)
 		//printf("facet f%d\n", facet->id);
 		qh_makeridges(qh, facet);
 		facet->visitid = qh->visit_id;
-		
+
 		int     nv   = facet->vertices->maxsize;
 		double* dval = calloc(2 * nv, sizeof(double));
-		
+
 		RLine* line = r_line_create();
 		for (int i = 0, j = 0; i < nv; i++, j += 2)
 		{
@@ -968,36 +967,36 @@ void vbl_qhull_draw_2d_noninvasive(RQHull* data)
 			//dval[j + 2] = p[2];
 			r_line_add_point2f(line, p[0], p[1]);
 		}
-//		drw_blend_set(DRW_BLEND_MODE_NORMAL);
-//		glEnable(GL_DEPTH_TEST);
-//		//glLineWidth(4);
-//		drw_fill_set(true);
-//		drw_alpha(.9);
-//		drw_color_c16(r_app_color_get_bg());
-//		//drw_color(0.0, 0.4, 0.5, 1.0);
+		//		drw_blend_set(DRW_BLEND_MODE_NORMAL);
+		//		glEnable(GL_DEPTH_TEST);
+		//		//glLineWidth(4);
+		//		drw_fill_set(true);
+		//		drw_alpha(.9);
+		//		drw_color_c16(r_app_color_get_bg());
+		//		//drw_color(0.0, 0.4, 0.5, 1.0);
 		drw_rline(line);
 		r_line_destroy(line);
-//		drw_color_c16(r_app_color_get_fh());
-		
-//		drw_alpha(1);
+		//		drw_color_c16(r_app_color_get_fh());
+
+		//		drw_alpha(1);
 		//facet->visitId= qh->visit_id;
-//		FOREACHridge_(facet->ridges)
-//		{
-//			neighbor = otherfacet_(ridge, visible);
-//			if (neighbor->visitid != qh->visit_id)
-//			{
-//
-//				vertexT* a = (vertexT*)ridge->vertices->e[0].p;
-//				vertexT* b = (vertexT*)ridge->vertices->e[1].p;
-//
-//				//double* pa = a->point;
-//				//double* pb = b->point;
-//			}
-//		}
+		//		FOREACHridge_(facet->ridges)
+		//		{
+		//			neighbor = otherfacet_(ridge, visible);
+		//			if (neighbor->visitid != qh->visit_id)
+		//			{
+		//
+		//				vertexT* a = (vertexT*)ridge->vertices->e[0].p;
+		//				vertexT* b = (vertexT*)ridge->vertices->e[1].p;
+		//
+		//				//double* pa = a->point;
+		//				//double* pb = b->point;
+		//			}
+		//		}
 	}
-	
+
 	//facetT* facet;
-	
+
 	FORALLfacets
 	{
 		for (int i = 0; i < facet->vertices->maxsize - 1; i++)
@@ -1008,15 +1007,14 @@ void vbl_qhull_draw_2d_noninvasive(RQHull* data)
 				continue;
 			if (!b->point)
 				continue;
-			
+
 			double* pa = a->point;
 			double* pb = b->point;
-//			drw_line_3f(pa[0], pa[1], pa[2], pb[0], pb[1], pb[2]);
+			//			drw_line_3f(pa[0], pa[1], pa[2], pb[0], pb[1], pb[2]);
 			drw_line(pa[0], pa[1], pb[0], pb[1]);
 		}
 	}
 }
-
 
 void vbl_qhull_draw(RQHull* data)
 {
@@ -1121,10 +1119,10 @@ void vbl_qhull_draw_fill(RQHull* data)
 		RLine3* line = r_line3_create();
 		for (int i = 0, j = 0; i < nv; i++, j += 2)
 		{
-			vertexT* v  = (vertexT*)facet->vertices->e[i].p;
-			if ( !v )
+			vertexT* v = (vertexT*)facet->vertices->e[i].p;
+			if (!v)
 				continue;
-			double*  p  = v->point;
+			double* p   = v->point;
 			dval[j]     = p[0];
 			dval[j + 1] = p[1];
 			dval[j + 2] = p[2];
@@ -1192,7 +1190,7 @@ void vbl_qhull_draw_edges(RQHull* data)
 				continue;
 			if (!b)
 				continue;
-			
+
 			if (!a->point)
 				continue;
 			if (!b->point)
@@ -1217,7 +1215,7 @@ RQHull* vbl_qhull_create_randsphere(int num_points)
 	for (int i = 0; i < tn; i += 3)
 	{
 		RPoint3 p;
-		v_primitives_random_point_on_box_oldschool(1,1,1, &p.x, &p.y, &p.z);
+		v_primitives_random_point_on_box_oldschool(1, 1, 1, &p.x, &p.y, &p.z);
 		points[i + 0] = p.x;
 		points[i + 1] = (p.y);
 		points[i + 2] = p.z;
@@ -1233,7 +1231,6 @@ RQHull* vbl_qhull_create_randsphere(int num_points)
 	return rec;
 }
 
-
 void vbl_qhull_destroy(RQHull* data)
 {
 	qh_freeqhull(data->src, true);
@@ -1247,7 +1244,7 @@ RQHull* vbl_qhull_create2d(RLine* line)
 	double* points = calloc(line->num * 2, sizeof(double));
 
 	unsigned long tn = (line->num) * 1;
-	for (unsigned long i = 0, j=0; i < tn; i++, j += 2)
+	for (unsigned long i = 0, j = 0; i < tn; i++, j += 2)
 	{
 		RPoint p      = line->data[i]; //v_primitives_random_point_in_sphere(.5);
 		points[j + 0] = p.x;
@@ -1268,6 +1265,4 @@ void vbl_qhull_destroy2d(RQHull* hull)
 {
 }
 
-
 #endif
-

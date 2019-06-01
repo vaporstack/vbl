@@ -16,14 +16,13 @@
 
 #define VBL_VERSION_CHECK(maj, min) ((maj == VBL_VERSION_MAJOR) && (min <= VBL_VERSION_MINOR))
 
-
 int   vbl_check_version_match(const char* str);
 int   vbl_check_compat_match(const char* str);
 char* vbl_get_version_string(void);
 char* vbl_get_compat_string(void);
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static inline char* vbl_get_compat_string_header(void)
 {
@@ -40,25 +39,26 @@ static inline char* vbl_get_version_string_header(void)
 	return buf;
 }
 
+#define VBL_ENABLE_ETHERDREAM
+
 //#include "src/geo/v_assimp.h"
 #include "src/anim/v_behave.h"
 #include "src/anim/v_swarm.h"
 #include "src/anim/v_tracer.h"
 #include "src/anim/vbl_scene.h"
-#include "src/arcana/vbl_hand.h"
 #include "src/arcana/vbl_cascade.h"
-
-#include "src/core/vbl_time.h"
-#include "src/core/vbl_hub.h"
+#include "src/arcana/vbl_hand.h"
 #include "src/comms/v_channel.h"
 #include "src/control/vbl_pad.h"
+#include "src/core/vbl_hub.h"
+#include "src/core/vbl_time.h"
 #include "src/geo/v_block.h"
 #include "src/geo/v_primitives.h"
 #include "src/geo/v_tesselate.h"
 #include "src/geo/v_vec.h"
 #include "src/geo/vbl_qhull.h"
-#include "src/plugin/v_plugins.h"
 #include "src/particle/vbl_particlesystem_mgr.h"
+#include "src/plugin/v_plugins.h"
 #include "src/seq/v_mark.h"
 #include "src/seq/v_seq.h"
 #include "src/seq/v_track.h"
@@ -70,10 +70,8 @@ static inline char* vbl_get_version_string_header(void)
 #include "src/util/v_unit.h"
 #include "src/vbl_types.h"
 
-
 void vbl_init(void);
 void vbl_deinit(void);
-
 
 /*
 

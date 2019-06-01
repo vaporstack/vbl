@@ -11,7 +11,7 @@
 
 //#include "r_vec.h"
 
-#include <deps/gl-matrix/gl-matrix.h>
+#include <gl-matrix/gl-matrix.h>
 
 //	TODO? this is used by grdn, now, so
 //	maybe it should be moved back into r core?
@@ -24,7 +24,7 @@ typedef struct VBlock
 {
 	// int dims;
 	int		   width;
-	int pos;
+	int		   pos;
 	VVec**		   data;
 	VVec**		   data2;
 	VVec**		   extra;

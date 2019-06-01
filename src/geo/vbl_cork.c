@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <deps/cork/cork.h>
+#include <cork/cork.h>
 
 #define NTRIS 12
 #define NVERTS 8
