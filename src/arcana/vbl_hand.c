@@ -32,10 +32,10 @@ static void center_and_straighten(WLine* line)
 	//double x, y;
 	//x = r->pos.x;
 	//y = r->pos.y;
-	wsh_line_move(line, -line->bounds.pos.x, -line->bounds.pos.y);
+	wsh_line_translate(line, -line->bounds.pos.x, -line->bounds.pos.y);
 	wsh_line_calc_bounds(line);
 
-	wsh_line_move(line, line->bounds.size.x * -.5, line->bounds.size.y * -.5);
+	wsh_line_translate(line, line->bounds.size.x * -.5, line->bounds.size.y * -.5);
 	//drw_fill_set(false);
 	//drw_line(0,0, line->bounds.pos.x,line->bounds.pos.y);
 
@@ -106,7 +106,7 @@ static RLine* line_for_segment(RPoint* a, RPoint* b)
 
 	WLine* norm = wsh_line_normalize(cp, 0, 0);
 	wsh_line_calc_bounds(norm);
-	wsh_line_move(norm, -norm->data[0].x, -norm->data[0].y);
+	wsh_line_translate(norm, -norm->data[0].x, -norm->data[0].y);
 	double pdx = b->x - a->x;
 	double pdy = b->y - a->y;
 	double ang = angle_from_points_rp(*a, *b);
@@ -121,7 +121,7 @@ static RLine* line_for_segment(RPoint* a, RPoint* b)
 	//	wsh_line_scale(norm, dx, dy);
 	wsh_line_rotate(norm, 0, 0, ang);
 	wsh_line_scale(norm, dist, dist);
-	wsh_line_move(norm, a->x, a->y);
+	wsh_line_translate(norm, a->x, a->y);
 
 	wsh_line_destroy(cp);
 	res = r_geo_interop_rline_from_wline(norm);

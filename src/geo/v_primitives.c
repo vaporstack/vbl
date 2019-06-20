@@ -29,7 +29,7 @@ RLine* v_primitives_calculate_rect(double width, double height)
 
 RLine* v_primitives_calculate_square(double r)
 {
-	return v_primitives_calculate_rect(r,r);
+	return v_primitives_calculate_rect(r, r);
 }
 
 //offset is in radians I think here?
@@ -39,26 +39,23 @@ RLine* v_primitives_calculate_arc(double size, int sides, double frac, double of
 	float deg2rad = (M_PI / sides);
 
 	const int renderLineSize = (sides * 2);
-	RLine*     line = r_line_create();
-	line->data     = 0;
-	line->num      = 0;
-	line->reserved = 0;
+	RLine*    line		 = r_line_create();
+	line->data		 = 0;
+	line->num		 = 0;
+	line->reserved		 = 0;
 
 	double limit = M_PI * 2 * frac;
-	int i;
+	int    i;
 	for (i = 0; i < renderLineSize; i += 2)
 	{
 		float degInRad = deg2rad * (float)i;
 		float x	= cos(degInRad + (M_PI * .5) + offset) * size;
 		float y	= sin(degInRad + (M_PI * .5) + offset) * size;
-		if ( degInRad <= limit)
+		if (degInRad <= limit)
 			r_line_add_point2f(line, x, y);
-
 	}
 	line->closed = true;
 	return line;
-
-
 }
 
 RLine* v_primitives_calculate_circle(double size, int sides, double offset)
@@ -67,10 +64,10 @@ RLine* v_primitives_calculate_circle(double size, int sides, double offset)
 	float deg2rad = (M_PI / sides);
 
 	const int renderLineSize = (sides * 2);
-	RLine*     line = r_line_create();
-	line->data     = 0;
-	line->num      = 0;
-	line->reserved = 0;
+	RLine*    line		 = r_line_create();
+	line->data		 = 0;
+	line->num		 = 0;
+	line->reserved		 = 0;
 
 	int i;
 	for (i = 0; i < renderLineSize; i += 2)
@@ -79,13 +76,12 @@ RLine* v_primitives_calculate_circle(double size, int sides, double offset)
 		float x	= cos(degInRad + (M_PI * .5) + offset) * size;
 		float y	= sin(degInRad + (M_PI * .5) + offset) * size;
 		r_line_add_point2f(line, x, y);
-
 	}
 	line->closed = true;
 	return line;
 }
 
-RLine* v_primitives_calculate_hex(double size, double offset)
+RLine* v_primitives_calculate_hexagon(double size, double offset)
 {
 	return v_primitives_calculate_circle(size, 6, offset);
 }
@@ -96,11 +92,11 @@ RLine* v_primitives_calculate_triangle(double size, double offset)
 	return tri;
 }
 
-RLine* v_primitives_calculate_hex_facet(double size, double offset)
+RLine* v_primitives_calculate_hexagon_facet(double size, double offset)
 {
-	RLine* hex = v_primitives_calculate_hex(size, offset);
+	RLine* hex = v_primitives_calculate_hexagon(size, offset);
 
-	RLine* facet = r_line_create();
+	RLine* facet    = r_line_create();
 	facet->num      = 0;
 	facet->data     = NULL;
 	facet->reserved = 0;
@@ -146,7 +142,6 @@ RPoint3 v_primitives_random_point_on_sphere(double r)
 	p.y = y;
 	p.z = z;
 	return p;
-
 }
 
 RPoint3 v_primitives_random_point_in_sphere(double r)
@@ -162,43 +157,41 @@ RPoint3 v_primitives_random_point_in_sphere(double r)
 	return p;
 }
 
-
 RPoint3 v_primitives_random_point_in_box(double x, double y, double z)
 {
-	RPoint3 p;
+	RPoint3  p;
 	RRandom* rng = vbl_rng_get();
-	p.x = r_rand_double(rng) * x;
-	p.y = r_rand_double(rng) * y;
-	p.z = r_rand_double(rng) * z;
+	p.x	  = r_rand_double(rng) * x;
+	p.y	  = r_rand_double(rng) * y;
+	p.z	  = r_rand_double(rng) * z;
 	p.x -= .5 * x;
 	p.y -= .5 * y;
 	p.z -= .5 * z;
 	return p;
 }
-
 
 RPoint3 v_primitives_random_point_on_box(double x, double y, double z)
 {
-	RPoint3 p;
-	RRandom* rng = vbl_rng_get();
-	int which = r_rand_double(rng) * 3;
-	p.x = ( which == 0 ) ? x : r_rand_double(rng) * x;
-	p.y = ( which == 1 ) ? y : r_rand_double(rng) * y;
-	p.z = ( which == 2 ) ? z : r_rand_double(rng) * z;
+	RPoint3  p;
+	RRandom* rng   = vbl_rng_get();
+	int      which = r_rand_double(rng) * 3;
+	p.x	    = (which == 0) ? x : r_rand_double(rng) * x;
+	p.y	    = (which == 1) ? y : r_rand_double(rng) * y;
+	p.z	    = (which == 2) ? z : r_rand_double(rng) * z;
 	p.x -= .5 * x;
 	p.y -= .5 * y;
 	p.z -= .5 * z;
 	return p;
 }
 
-void v_primitives_random_point_on_box_oldschool(double x, double y, double z, double* rx, double *ry, double* rz)
+void v_primitives_random_point_on_box_oldschool(double x, double y, double z, double* rx, double* ry, double* rz)
 {
 	//RPoint3 p;
-	RRandom* rng = vbl_rng_get();
-	int which = r_rand_double(rng) * 3;
-	*rx = ( which == 0 ) ? x : r_rand_double(rng) * x;
-	*ry = ( which == 1 ) ? y : r_rand_double(rng) * y;
-	*rz = ( which == 2 ) ? z : r_rand_double(rng) * z;
+	RRandom* rng   = vbl_rng_get();
+	int      which = r_rand_double(rng) * 3;
+	*rx	    = (which == 0) ? x : r_rand_double(rng) * x;
+	*ry	    = (which == 1) ? y : r_rand_double(rng) * y;
+	*rz	    = (which == 2) ? z : r_rand_double(rng) * z;
 	*rx -= .5 * x;
 	*ry -= .5 * y;
 	*rz -= .5 * z;
@@ -216,5 +209,4 @@ void v_primitives_random_point_on_box_oldschool(double x, double y, double z, do
 	 p.z -= .5 * z;
 	 return p;
 	 */
-
 }
